@@ -19,21 +19,21 @@ The TSL team is two strong, and will stay as a very small buisness as it is more
 
 ## Languages Through the Years
 ### A ~~Table~~ List
-* 2016 
+* **2016**
   * Scratch
-* 2017
+* **2017**
   * Scratch
   * HTML
   * CSS
-* 2018
+* **2018**
   * HTML
   * CSS
-* 2019
+* **2019**
   * HTML
   * CSS
   * JavaScript
   * VBScript
-* 2020
+* **2020**
   * Java
   * HTML
   * VBScript
