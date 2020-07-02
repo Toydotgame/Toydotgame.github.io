@@ -36,7 +36,7 @@ In _2019_, I learnt to make little `alert()` popups with JavaScript to put in my
 I never made anything big with Python, nor learned much with it, but I still know the _very_ basics and quite rearely play around with it.
 
 #### Java
-I decided to learn Java last month (June 2020) because I was feeling bored, I downloaded an IDE (I chose Eclipse), and followed an online tutorial on how to do it, it went well, and after a while I ventured further. I'm now learning on how to make GUIs and such with a simple button-based idle game I'm making for fun. ~~And also to spite my friend who did the same thing earlier in Scratch; and well, Scratch is, well, _Scratch_; so I decided to make the same thing as a standalone Java spplication~~
+I decided to learn Java last month (June 2020) because I was feeling bored, I downloaded an IDE (I chose Eclipse), and followed an online tutorial on how to do it, it went well, and after a while I ventured further. I'm now learning on how to make GUIs and such with a simple button-based idle game I'm making for fun. ~~And also to spite my friend who did the same thing earlier in Scratch; and well, Scratch is, well, _Scratch_; so I decided to make the same thing as a standalone Java spplication.~~
 
 
 
