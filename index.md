@@ -49,7 +49,7 @@ In 2016 I discovered the wonderful world of coding, due to stumbling across a we
 #### HTML (And CSS)
 My first website was made in HTML alongside a CSS stylesheet with the world prize for sloppiest code organisation. It was done with the help of a book which had a little _too much_ want for style, and thus made me make [the most eye-destroying abomination to ever roam the earth](https://thescratchersltd.github.io/home.html). I - suprisingly - used this website layout until _2019_. On December 31<sup>st</sup>, 2019; I would re-make the TSL website to the design it uses today, with a nice navigation bar from _W3 Schools_, tweaked to the width I wanted; a tutorial on the internet for CSS helped me make the style for the main content section and the footer; the rest (background, image positioning) was fiddled with my me. I find the website's design is dated, but in the good way which just _works_ and still holds up to this day, very well. (It definitely does better than someone's crappy 1997 GeoCities job!)
 
-#### Scripts (Of the Java _and_ Visual Basic kind)
+#### Scripts (Of the Java and Visual Basic kind)
 In 2018 I learned how to make a `MsgBox` command in Notepad, and enjoyed creating little storylines with choices and such, I would develop more skill with VBScript by searching up how to do _this_ or _that_ with VBS and make my stories more intricate, I never - and still to this day - made (or will be making) any proper useful or powerfull applications with it.
 In _2019_, I learnt to make little `alert()` popups with JavaScript to put in my websites, and I use JavaScript to make such popups on my websites, such as the TSL staff logon, it's made using JavaScript.
 
@@ -69,7 +69,7 @@ I have [Reddit](https://reddit.com/user/Toydotgam/) and [YouTube](https://www.yo
 * [GitHub](https://github.com/Toydotgame)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
 * [Reddit](https://reddit.com/user/Toydotgam)
-* **Discord:** \@Toydotgam\#2540
+* **Discord:** @Toydotgam\#2540
 * [SevenForums](https://www.sevenforums.com/members/toydotgam.html)
 * [TenForums](https://www.tenforums.com/members/toydotgam.html) (Inactive account)
 * [StackOverflow](https://stackoverflow.com/users/13470945/toydotgam)
