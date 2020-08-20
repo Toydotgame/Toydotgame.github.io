@@ -6,7 +6,7 @@ I am a software developer on the Gold Coast, in Australia. I am also the co-foun
 
 I made this little site to showcase applications and projects I'm currently making or have completed, along with updates on these too.
 
-
+### [Code Projects](projects.md)
 
 ## TSL
 I founded TSL under the name `The Scratchers Ltd.` in March of 2017 by myself as I had gained an interest in computers and coding the previous year and set off on _Scratch_ (yes, I know), to follow my dream of making cool new applications. Inevitably, in mid-2017, I moved on from Scratch, realising it wan't the best path to follow; I found it less and less _code_ like every as every minute of the day passed, so I left the site. (You can still find [my profile](https://scratch.mit.edu/users/Toydotgam/) there to this day anyhow)
