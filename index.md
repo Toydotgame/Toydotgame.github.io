@@ -63,7 +63,7 @@ I decided to learn Java last month (June 2020) because I was feeling bored, I do
 
 ## The Internet
 ### Where I'm most active:
-I have [Reddit](https://reddit.com/user/Toydotgam/) and [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw) accounts, where I'm usually commenting, and - quite rarely - posting.
+I have a [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw) account, where I'm usually commenting, and - quite rarely - posting. The next-most-active account I have is [this one here on GitHub](https://github.com/Toydotgame/).
 
 ### A List of my Online Accounts:
 * [GitHub](https://github.com/Toydotgame)
