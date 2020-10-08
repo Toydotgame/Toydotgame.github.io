@@ -68,7 +68,7 @@ I have [Reddit](https://reddit.com/user/Toydotgam/) and [YouTube](https://www.yo
 ### A List of my Online Accounts:
 * [GitHub](https://github.com/Toydotgame)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
-* [Reddit](https://reddit.com/user/Toydotgam)
+* [Reddit](https://reddit.com/user/Toydotgam) (Inactive account)
 * **Discord:** @Toydotgam\#2540
 * [SevenForums](https://www.sevenforums.com/members/toydotgam.html)
 * [TenForums](https://www.tenforums.com/members/toydotgam.html) (Inactive account)
