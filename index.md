@@ -18,7 +18,6 @@ The TSL team is two strong, and will stay as a very small buisness as it is more
 
 
 ## Languages Through the Years
-### A ~~Table~~ List
 * **2016**
   * Scratch
 * **2017**
