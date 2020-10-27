@@ -1,19 +1,17 @@
 # Projects
-These are just mainly Java Applications
+These are just mainly Java Applications I make for various purposes...
 
-### tooExpensiveRemover
-#### [GitHub Repository](https://github.com/Toydotgame/tooExpensiveRemover)
-This is a Spigot plugin for Minecraft 1.6.4 which aims to remove the _Too Expensive!_ XP enchant level hardcap in-game. Currently all it does is uses a command (`/resetcost`) which will reset the XP levels needed to enchant an item to 1, thus it's not too expensive. Soon I'll add a thing where it just automatically allows players to enchant items when the cost is too high though....
-
-### HTML E-Mail Creator
-#### [GitHub Repository](https://github.com/Toydotgame/emailHTMLGenerator)
-This program makes a HTML birthday card with the information you provide in the GUI. It was made for a school project I am over-doing.
-Expect to see updates as I tweak the HTML output to better match the assessment criterion.
+### Elevator
+#### [GitHub Repository](https://github.com/Toydotgame/elevator)
+This plugin is a simple elevator for Spigot 1.6.4, as no other plugin for 1.6.4 exists with this funtionality. Still in development.
+Works with the command `/up <height>`, and teleports you up that many blocks on top of a glass block.
 
 ### Clicker Clicker
-#### (Discontinued)
+#### (Being remade)
 #### [GitHub Repository](https://github.com/Toydotgame/ClickerClicker)
-This is a \[discontinued\] project by me as a Java recreation of a similar Scratch game made by a friend. I stopped development as the application was created badly and what I wanted to do was made impossible. Also, [StackOverflow](https://stackoverflow.com/questions/62480554/whats-a-simple-way-to-slow-down-a-loop) is [_crappy_ to me](https://stackoverflow.com/questions/62727185/how-can-i-make-a-slow-loop).
+This is a project by me as a Java recreation of a similar Scratch game made by a friend. I don't know if the final game will have the same point as the original.
+I've got a school project which requires a game and there is **_no way in hell_** that I'm doing in _Code.org_.
+##### Java works far better with me than half-broken JavaScript.
 
 ### Batch File Generator
 #### [GitHub Repository](https://github.com/Toydotgame/batFileGenerator)
