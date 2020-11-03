@@ -22,3 +22,6 @@ This is a simple one-line `.bat` file creator (which also adds a `pause` stateme
 ## Tutorials
 * [How to Make an Instant-launching Shortcut to Minecraft](howToMakeInstantMinecraft.md)
 #### That's it, I don't usually make tutorials...
+
+## \[Secret\] Things making fun of CyberHound:
+#### * [Access Denied](CyberHoundFakes/AccessDenied.html) Page
