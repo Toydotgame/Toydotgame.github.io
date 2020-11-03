@@ -17,8 +17,9 @@ I made this little site to showcase applications and projects I'm currently maki
 * [SevenForums](https://www.sevenforums.com/members/toydotgam.html)
 * [TenForums](https://www.tenforums.com/members/toydotgam.html) (Inactive account)
 * [StackOverflow](https://stackoverflow.com/users/13470945/toydotgam)
-* [Twitch](https://www.twitch.tv/toydotgam)
-* [Tumblr](https://toydotgame.tumblr.com/)
-* [LinkedIn](https://www.linkedin.com/in/matthew-jeffrey-66a9a9188/)
+* [Twitch](https://www.twitch.tv/toydotgam) (Inactive)
+* [Tumblr](https://toydotgame.tumblr.com/) (Semi-inactive)
+* [LinkedIn](https://www.linkedin.com/in/matthew-jeffrey-66a9a9188/) (Inactive)
+* [SpigotMC \[Forums\]]() (Link soon)
 
 #### Thanks for stopping by!
