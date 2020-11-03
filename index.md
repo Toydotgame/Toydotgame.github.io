@@ -21,4 +21,4 @@ I made this little site to showcase applications and projects I'm currently maki
 * [Tumblr](https://toydotgame.tumblr.com/)
 * [LinkedIn](https://www.linkedin.com/in/matthew-jeffrey-66a9a9188/)
 
-# Thanks for stopping by!
+#### Thanks for stopping by!
