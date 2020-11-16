@@ -25,7 +25,7 @@ Launch your selected Minecraft client from the launcher. Do not close it until y
   * Select _Properties_.
 * Highlight the contents of the _Command line_ box in the newly opened window: (In your case there will be text there, this example image does not have it)<br>
 ![](https://www.filecroco.com/wp-content/uploads/2016/11/process-explorer-6.jpg)
-* Copy the contents of the _Command line_ box. (`Ctrl`+`C`)
+* Copy the contents of the _Command line_ box. (<kbd>Ctrl</kbd>+`C`)
 
 #### If ProcessExplorer Doesn't Run:
 * Open either Command Prompt or PowerShell. (`Win`+`R`; then type either `cmd` or `powershell`, press _OK_)
@@ -38,7 +38,7 @@ Launch your selected Minecraft client from the launcher. Do not close it until y
 ### 2C: Creating the Batch File
 * Open _Notepad_. (`Win`+`R`, type in `notepad`, press _OK_)
 * Paste the text. (`Ctrl`+`V`)
-* Save the file _as_. `Ctrl`+`S`
+* Save the file _as_. (`Ctrl`+`S`)
   * Click the address bar at the top of the window.
   * Type in the following: `%AppData%\.minecraft\`
   * Go to the _Name:_ box. Type in `runmc.bat`.
