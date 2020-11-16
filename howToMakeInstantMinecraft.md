@@ -25,18 +25,18 @@ Launch your selected Minecraft client from the launcher. Do not close it until y
   * Select _Properties_.
 * Highlight the contents of the _Command line_ box in the newly opened window: (In your case there will be text there, this example image does not have it)<br>
 ![](https://www.filecroco.com/wp-content/uploads/2016/11/process-explorer-6.jpg)
-* Copy the contents of the _Command line_ box. (<kbd>Ctrl</kbd>+`C`)
+* Copy the contents of the _Command line_ box. (`Ctrl`+`C`)
 
 #### If ProcessExplorer Doesn't Run:
 * Open either Command Prompt or PowerShell. (`Win`+`R`; then type either `cmd` or `powershell`, press _OK_)
 * Type `tasklist`.
  * Find `javaw.exe` on the left of the list.
  * Look at the number to the immediate right of `javaw.exe` (This is the _PID_)
-* Type the following command: `wmic.exe path Win32_Process where handle='xxxx' get Commandline /format:list`. Replace `xxxx` with the PID you just got.
+* Type the following command: `wmic.exe path Win32_Process where handle='x' get Commandline /format:list`. Replace `x` with the PID you just got.
 * Copy the output of that command.
 
 ### 2C: Creating the Batch File
-* Open _Notepad_. (`Win`+`R`, type in `notepad`, press _OK_)
+* Open _Notepad_. (`Win`+`R`, type in `notepad`, press _OK_; or search for "`Notepad`" in the Start menu)
 * Paste the text. (`Ctrl`+`V`)
 * Save the file _as_. (`Ctrl`+`S`)
   * Click the address bar at the top of the window.
@@ -51,7 +51,7 @@ Launch your selected Minecraft client from the launcher. Do not close it until y
 
 ## Step 3: File Management
 ### 3A: The _natives_ files.
-#### For older versions:
+#### For older launchers:
 Whilst your Minecraft client is open, open File Explorer, go to the address bar, and type `%AppData%\.minecraft\`.
 * Double-click the `versions` folder.
 * Double-click the folder in `versions` which your client is using; it's usually `1.x.x` (OptiFine installations are usually `1.x.x_OptiFine_HD_xx`)
@@ -74,10 +74,10 @@ Whilst your Minecraft client is open, open File Explorer, go to the address bar,
 * Click the address bar, copy the text inside it. (`Ctrl`+`C`)
 
 * Go back to Notepad.
-* After `-Djava.library.path=`, delete the text. Stop deleting once you reach a space (` `) [or a quotation mark (`"`) (Only if right after `-Djava.library.path=` there was a `"`)]
+* After `-Djava.library.path=`, delete the text. Stop deleting once you reach a space (` `) \[or a quotation mark (`"`) (Only if right after `-Djava.library.path=`, there was a `"`)\] (Basically once you reach the start of the next argument. I believe it starts with `-Dminecraft.~.*` or something. (Not 100% sure though, so be careful!))
 * Paste in the new folder location. (`Ctrl`+`V`)
 * Press `Ctrl`+`S` to save.
-#### For newer versions:
+#### For newer launchers:
 Whilst your Minecraft client is open, open File Explorer, go to the address bar, and type `%AppData%\.minecraft\`.
 * Double-click the `bin` folder.
 * Open a new File Explorer window and go to `%AppData%\.minecraft\`.
@@ -86,8 +86,8 @@ Whilst your Minecraft client is open, open File Explorer, go to the address bar,
   * Type `-Djava.library.path=`.
   * Press _Find_.
 * Look to the end of the file path, before the next argument. (The next argument starts with a `-`)
-* Take note of the folder. It will look something like `C:\Users\User\AppData\Roaming\.minecraft\bin\xxxx-xxxx-xxxx-xxxx`.
-  * Note the `xxxx-xxxx-xxxx-xxxx at the end.
+* Take note of the folder. It will look something like `C:\Users\`_User_`\AppData\Roaming\.minecraft\bin\xxxx-xxxx-xxxx-xxxx`.
+  * Note the `xxxx-xxxx-xxxx-xxxx` at the end.
 
 * Go back to the File Explorer window which is in `%AppData%\.minecraft\bin\`.
 * Copy the folder which has the same name as the one from Notepad (After `-Djava.library.path=`). (`Ctrl`+`C`)
@@ -108,7 +108,7 @@ Whilst your Minecraft client is open, open File Explorer, go to the address bar,
 * Click the address bar, copy the text inside it. (`Ctrl`+`C`)
 
 * Go back to Notepad.
-* After `-Djava.library.path=`, delete the text. Stop deleting once you reach a space (` `) [or a quotation mark (`"`) (Only if right after `-Djava.library.path=` there was a `"`)]
+* After `-Djava.library.path=`, delete the text. Stop deleting once you reach a space (` `) \[or a quotation mark (`"`) (Only if right after `-Djava.library.path=`, there was a `"`)\] (Basically once you reach the start of the next argument. I believe it starts with `-Dminecraft.~.*` or something. (Not 100% sure though, so be careful!))
 * Paste in the new folder location. (`Ctrl`+`V`)
 * Press `Ctrl`+`S` to save.
 ### 3B: Desktop Shortcut
