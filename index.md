@@ -14,10 +14,10 @@ I made this little site to showcase applications and projects I'm currently maki
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
 * **Discord:** @Toydotgam\#2540
 * [SevenForums](https://www.sevenforums.com/members/toydotgam.html)
-* [TenForums](https://www.tenforums.com/members/toydotgam.html) (Inactive account)
 * [StackOverflow](https://stackoverflow.com/users/13470945/toydotgam) (I'm too scared to go back there (Inactive))
 * [Twitch](https://www.twitch.tv/toydotgam) (Inactive)
 * [Tumblr](https://toydotgame.tumblr.com/) (Semi-inactive)
-* [SpigotMC \[Forums\]]() (Link soon)
+* [SpigotMC \[Forums\]](https://www.spigotmc.org/members/toydotgam.1096646/) (Semi-inactive)
+* [Twitter](https://twitter.com/Toydotgame/) (Semi-inactive)
 
 #### Thanks for stopping by!
