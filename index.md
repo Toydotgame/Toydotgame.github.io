@@ -20,8 +20,9 @@ I made this little site to showcase applications and projects I'm currently maki
 * [SevenForums](https://www.sevenforums.com/members/toydotgam.html)
 * [StackOverflow](https://stackoverflow.com/users/13470945/toydotgam) (I'm too scared to go back there (Inactive))
 * [Twitch](https://www.twitch.tv/toydotgam) (Inactive)
-* [Tumblr](https://toydotgame.tumblr.com/) (Semi-inactive)
-* [SpigotMC \[Forums\]](https://www.spigotmc.org/members/toydotgam.1096646/) (Semi-inactive)
+* [Tumblr](https://toydotgame.tumblr.com/) (Inactive)
+* [SpigotMC \[Forums\]](https://www.spigotmc.org/members/toydotgam.1096646/)
+* [Minecraft Forum](https://www.minecraftforum.net/members/toydotgam)
 * [Twitter](https://twitter.com/Toydotgame/) (Semi-inactive)
 
 #### Thanks for stopping by!
