@@ -4,7 +4,6 @@ I am a software developer on the Gold Coast, in Australia. I am also the co-foun
 
 I made this little site to showcase applications and projects I'm currently making or have completed, along with updates on these too.
 
-### [The Holy Cat Doctrine](https://catchurch.github.io/doctrine)
 ### [Code Projects](projects.md)
 ### [About Me](about.md)
 
@@ -16,13 +15,12 @@ I made this little site to showcase applications and projects I'm currently maki
 	* [Rontech Security Industries](https://github.com/rontech-si)
 	* [Abandoned Projects](https://github.com/toys-discarded-projects)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
-* **Discord:** @toydotgam\#2540
+* **Discord:** @toydotgame\#2540
 * [SevenForums](https://www.sevenforums.com/members/toydotgam.html)
 * [StackOverflow](https://stackoverflow.com/users/13470945/toydotgam) (I'm too scared to go back there (Inactive))
 * [Twitch](https://www.twitch.tv/toydotgam) (Inactive)
 * [Tumblr](https://toydotgame.tumblr.com/) (Inactive)
 * [SpigotMC \[Forums\]](https://www.spigotmc.org/members/toydotgam.1096646/)
 * [Minecraft Forum](https://www.minecraftforum.net/members/toydotgam)
-* [Twitter](https://twitter.com/toydotgame/) (Semi-inactive)
 
 #### Thanks for stopping by!
