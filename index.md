@@ -10,9 +10,9 @@ I made this little site to showcase applications and projects I'm currently maki
 ### A List of my Online Accounts:
 * [GitHub](https://github.com/toydotgame)
 	* [Rontech Security Industries](https://github.com/rontech-si)
-	* [Abandoned Projects](https://github.com/toys-discarded-projects)
+	* [Abandoned Projects](https://github.com/toydotgames-archive)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
-* **Discord:** @toydotgame\#2540
+* **Discord:** toydotgame\#2540
 * [Twitch](https://www.twitch.tv/toydotgame) (Inactive)
 * [Tumblr](https://toydotgame.tumblr.com/) (Inactive)
 * [SpigotMC \[Forums\]](https://www.spigotmc.org/members/toydotgam.1096646/)
