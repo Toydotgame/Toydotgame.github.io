@@ -2,5 +2,6 @@ theme: jekyll-theme-dinky
 
 github:
   show_downloads: false
-  repository_url: false
+  repository_url:
+    display: none
   is_user_page: false
