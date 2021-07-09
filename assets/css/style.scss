@@ -13,3 +13,8 @@ body {
 	background-color: #1c1c1c;
 	color: white;
 }
+
+/* Headings seem to have a problem where they remain dark grey */
+h1, h2, h3, h4, h5, h6 {
+	color: white;
+}
