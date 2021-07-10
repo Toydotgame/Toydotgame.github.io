@@ -1,4 +1,6 @@
 theme: jekyll-theme-dinky
 
 title: [toydotgame]
-description: ['<a href="/">Homepage</a>', \n, 'My personal website, mainly hosting pages about my projects.']
+description: ['<a href="/">Homepage</a>
+  
+  My personal website, mainly hosting pages about my projects.']
