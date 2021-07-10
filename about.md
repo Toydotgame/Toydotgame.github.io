@@ -2,7 +2,7 @@
 
 ## A Timeline, Year by Year
 ### 2016
-In 2016, I discovered Scratch. I made Scratch things. [They weren't good.](https://scratch.mit.edu/users/Minecraft-Game/).
+In 2016, I discovered Scratch. I made Scratch things. [They weren't good.](https://scratch.mit.edu/users/Minecraft-Game/)
 
 ### 2017
 By 2017, I made [another Scratch account](https://scratch.mit.edu/users/Toydotgam/). I made more Scratch things. They also sucked, but a bit less bad this time.
