@@ -30,8 +30,9 @@ code {
 	background-color: #0e0e0e !important; /* #0e0e0e is halfway between #1c1c1c and #000 */
 }
 
-img {
+img#inline {
 	margin: 0px 0px 0px 0px !important;
 	padding: 0px 0px 0px 0px !important;
 	border: none !important;
+	float: left;
 }
