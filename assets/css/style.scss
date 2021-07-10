@@ -23,3 +23,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	color: white !important;
 }
+
+/* Overwrite Dinky theme's CSS for <code> tags */
+code {
+	color: white !important;
+	background-color: #0e0e0e !important; /* #0e0e0e is halfway between #1c1c1c and #000 */
+}
+
