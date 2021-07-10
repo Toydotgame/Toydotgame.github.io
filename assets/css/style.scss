@@ -9,9 +9,9 @@ header ul, footer {
 	display: none;
 }
 
-header, header h1 {
+header, h1.header {
 	background-color: #e3e3e3;
-	color: black;
+	color: black !important;
 }
 
 body {
@@ -20,6 +20,6 @@ body {
 }
 
 /* Headings seem to have a problem where they remain dark grey */
-section h1, section h2, section h3, section h4, section h5, section h6 {
+h1, h2, h3, h4, h5, h6 {
 	color: white !important;
 }
