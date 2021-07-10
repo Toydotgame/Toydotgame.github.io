@@ -1,48 +1,34 @@
-# About
+# About Me
 
-## TSL
-I founded TSL under the name `The Scratchers Ltd.` in March of 2017 by myself as I had gained an interest in computers and coding the previous year and set off on _Scratch_ (yes, I know), to follow my dream of making cool new applications. Inevitably, in mid-2017, I moved on from Scratch, realising it wan't the best path to follow; I found it less and less _code_ like every as every minute of the day passed, so I left the site. (You can still find [my profile](https://scratch.mit.edu/users/Toydotgam/) there to this day anyhow)
-I went on to learn HTML and CSS, and after a week produced [this eyesore](https://thescratchersltd.github.io/home.html) (I _still_ used that page until late **2019**). I hosted the page on GitHub Pages after making my first GitHub account, which I used 'till early 2020, ([this is it](https://github.com/Toydotgam/)). On the last day of 2019, I completely redesigned the company's website, and renamed it to `TSL.`, to further myself even more from Scratch, and focusing on web development as a company. I still personally venture to create desktop applications and simple applications in languages like Java, actually; mainly Java. The TSL website is still up on the same design at [scratltd.github.io](https://scratltd.github.io/), but now with more content.
-The TSL team is two strong, and will stay as a very small buisness as it is more of a friends' shared hobby project rather than a real attempt of stable income.
+## A Timeline, Year by Year
+### 2016
+In 2016, I discovered Scratch. I made Scratch things. [They weren't good.](https://scratch.mit.edu/users/Minecraft-Game/).
 
-## Languages Through the Years
-* **2016**
-  * Scratch
-* **2017**
-  * Scratch
-  * Python
-  * HTML
-  * CSS
-* **2018**
-  * HTML
-  * CSS
-* **2019**
-  * HTML
-  * CSS
-  * JavaScript
-  * VBScript
-* **2020**
-  * Java
-  * C++
+### 2017
+By 2017, I made [another Scratch account](https://scratch.mit.edu/users/Toydotgam/). I made more Scratch things. They also sucked, but a bit less bad this time.
+I also became a Windows Insider and got my hands on the cool new features of Windows 10, build 1709. This marks the point where I really became interested in computing.
+By late 2017, I got HTML book. I made a terrible, terrible CSS stylesheet for a test website.
+With my bad website, I made a company for it: _The Scractchers Ltd._
 
-### My Progress
-#### Scratch
-In 2016 I discovered the wonderful world of coding, due to stumbling across a website called _Scratch_, where you could make cool games my snapping together functions like LEGO. I stayed interested in Scratch 'till 2017, where I would discover how to make a website with HTML and CSS.
+### 2018
+I played more with my HTML and CSS, and tweaked it to my liking. But, for most of 2018, I played with the Windows 10 updates 1803 and 1809. I also went back to visit my beloved Windows 7, after not having used it in years.
 
-#### HTML (And CSS)
-My first website was made in HTML alongside a CSS stylesheet with the world prize for sloppiest code organisation. It was done with the help of a book which had a little _too much_ want for style, and thus made me make [the most eye-destroying abomination to ever roam the earth](https://thescratchersltd.github.io/home.html). I - suprisingly - used this website layout until _2019_. On December 31<sup>st</sup>, 2019; I would re-make the TSL website to the design it uses today (committed on January 1<sup>st</sup>, as _[Update 4.0.0](https://github.com/scratltd/scratltd.github.io/commit/06fc72ed43be222dbd5ea99e059479e94acd0529)_; the site is still on the Update 4 structure, and as I write this, is on update [4.6.4](https://github.com/scratltd/scratltd.github.io/commit/99a62936bc77fad5de2620d295617c2c1c1c0059)), with a nice navigation bar from _W3 Schools_, tweaked to the width I wanted; a tutorial on the internet for CSS helped me make the style for the main content section and the footer; the rest (background, image positioning) was fiddled with my me. I find the website's design is dated, but in the good way which just _works_ and still holds up to this day, very well. (It definitely does better than someone's crappy 1997 GeoCities job! (I'm looking at you; 2017-19 _professional HTML rubbish maker_ me...))
+### 2019
+In 2019, I brought my bad 2017 website to GitHub, via GitHub Pages. By December, I rebranded The Scratchers Ltd. to _TSL._
+2019 was also the year I started my Linux shenanigans. I did a bit of distro-hopping with Ubuntu, Linux Mint, Manjaro, and Kubuntu.
 
-#### Scripts (Of the Java and Visual Basic kind)
-In 2018 I learned how to make a `MsgBox` command in Notepad, and enjoyed creating little storylines with choices and such, I would develop more skill with VBScript by searching up how to do _this_ or _that_ with VBS and make my stories more intricate, I never - and still to this day - made (or will be making) any proper useful or powerfull applications with it.
-In _2019_, I learnt to make little `alert()` popups with JavaScript to put in my websites, and I use JavaScript to make such popups on my websites, such as the TSL staff logon, it's made using JavaScript.
+### 2020
+I got a new computer in 2020. By new I mean 10 years old. It was a Dell Inspiron 1545 with 3 GBs of RAM, a 400 GB HDD, and a Pentium T4400. It also had Windows 7.
+In February, I started my Minecraft server. I started it on my personal computer. That wasn't a good idea, but I did it.
+2020 was the year I decided to learn Java. By mid-2020, I had made a few basic desktop applications.
+In November, I may or may not have "accidentally" wiped the parition table of my hard drive. I bought an SSD to replace it anyway. I did lose a lot of data, which I'll try recovering one day. With no Windows hard drive left, I installed Arch Linux.
+By December, I decided to try making Spigot plugins. I failed the first two times, but then I eventually sat down one day - that day being December 26th, 2020 - and I made a Spigot plugin: Thisway. This one worked. I liked this one.
 
-#### Python
-I never made anything big with Python, nor learned much with it, but I still know the _very_ basics and quite rearely play around with it.
+### 2021
+I upgraded my computer to what it has today. 8 GBs of RAM, an Intel Core 2 Duo T9900 (3.06 GHz), a WD Blue SATA SSD (1 TB) and Arch, now as my default!
+I also bought a lenovo ThinkCentre for my Minecraft server.
+In 2021, I had to make a few Unity games in C# for a project. C# isn't as bad as I thought.
+In July I rewrote my site. This text I am typing is from that rewrite.
 
-#### Java
-I decided to learn Java last month (June 2020) because I was feeling bored, I downloaded an IDE (I chose Eclipse), and followed an online tutorial on how to do it, it went well, and after a while I ventured further. I'm now learning on how to make GUIs and such with a simple button-based idle game I'm making for fun. ~~And also to spite my friend who did the same thing earlier in Scratch; and well, Scratch is, well, _Scratch_; so I decided to make the same thing as a standalone Java spplication.~~
-
-## The Internet
-### Where I'm most active:
-I have a [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw) account, where I'm usually commenting, and - quite rarely - posting. The next-most-active account I have is [this one here on GitHub](https://github.com/Toydotgame/).
-More of my accounts can be found on my [homepage](index.md).
+## What do I do on the internet?
+Aside from developing Spigot plugins, I play Minecraft on my Minecraft server (where I've done quite a few things), I use Twitter, and I frequent the Minecraft Forums. That's about it.
