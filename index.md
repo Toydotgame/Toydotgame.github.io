@@ -4,7 +4,7 @@ I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm
 
 ## Projects
 ### [Thisway](https://spigotmc.org/resources/thisway.87115/)
-<img src="assets/images/Thisway_Rounded.png" width="50" /> Thisway is a Spigot plugin for 1.6 and up which enables a bit of a simpler teleportation system for going in a certain direction.
+<img src="assets/images/Thisway_Rounded.png" width="50" id="inline" /> Thisway is a Spigot plugin for 1.6 and up which enables a bit of a simpler teleportation system for going in a certain direction.
 
 ## Tutorials
 * [How to Create an Instant-Launch Shortcut for Minecraft](tutorials/instantMinecraft.html)
