@@ -3,7 +3,8 @@ Hi, I'm toydotgame.
 I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](about.html)
 
 ## Projects
-* <img src="https://assets.jisho.org/assets/jisho-logo-v4@2x-7330091c079b9dd59601401b052b52e103978221c8fb6f5e22406d871fcc746a.png" display="inline" /> Hello, world!
+### [Thisway](https://spigotmc.org/resources/thisway.87115/)
+* <img src="assets/images/Thisway_Rounded.png" display="inline" /> Thisway is a Spigot plugin for 1.6 and up which enables a bit of a simpler teleportation system for going in a certain direction.
 
 ## Tutorials
 * [How to Create an Instant-Launch Shortcut for Minecraft](tutorials/instantMinecraft.html)
