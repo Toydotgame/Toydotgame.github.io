@@ -1,22 +1,16 @@
-# Toydotgam's Website
+# Welcome
+Hi, I'm toydotgame.
+I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](about.html)
 
-I am a software developer who doesn't really know what they're doing. I was also the co-founder of [scratltd](https://scratltd.github.io/), a now-defunct company. I enjoy making projects in Java (which I am learning, slowly) and Batch, and I usually just mess around on the command-line.
+## Projects
+* <img src="https://assets.jisho.org/assets/jisho-logo-v4@2x-7330091c079b9dd59601401b052b52e103978221c8fb6f5e22406d871fcc746a.png" display="inline" /> Hello, world!
 
-I made this little site to showcase applications and projects I'm currently making or have completed, along with updates on these too.
+## Tutorials
+* [How to Create an Instant-Launch Shortcut for Minecraft](tutorials/instantMinecraft.html)
 
-### [Code Projects](projects.md)
-### [About Me](about.md)
-
-### A List of my Online Accounts:
+## Active Accounts
 * [GitHub](https://github.com/toydotgame)
-	* [Rontech Security Industries](https://github.com/rontech-si)
-	* [Abandoned Projects](https://github.com/toydotgames-archive)
+* [Twitter](https://github.com/toydotgame)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
-* **Discord:** toydotgame\#2540
-* [Twitch](https://www.twitch.tv/toydotgame) (Inactive)
-* [Tumblr](https://toydotgame.tumblr.com/) (Inactive)
-* [SpigotMC \[Forums\]](https://www.spigotmc.org/members/toydotgam.1096646/)
+* [SpigotMC](https://www.spigotmc.org/members/toydotgam.1096646/)
 * [Minecraft Forum](https://www.minecraftforum.net/members/toydotgam)
-* [Planet Minecraft](https://www.planetminecraft.com/member/toydotgame/) (So inactive you wouldn't believe) (The last time I used PMC in a real capacity was 2016)
-
-#### Thanks for stopping by!
