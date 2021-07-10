@@ -5,11 +5,7 @@
 
 /* toydotgame 2021 */
 
-header ul, footer {
-	display: none;
-}
-
-header, h1.header {
+header, h1.header a {
 	background-color: #e3e3e3;
 	color: black !important;
 }
