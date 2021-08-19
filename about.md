@@ -43,5 +43,7 @@ In 2021, I had to make a few Unity games in C# for a project. C# isn't as bad as
 
 In July I rewrote my personal website. Now it's not half-bad!
 
+[I made a thing to show _3x+1_ sequences in August.](https://github.com/toydotgame/collatz-conjecture-sequence-generator)
+
 ## What do I do on the internet?
 Aside from developing Spigot plugins, I play Minecraft on my Minecraft server (where I've done quite a few things), I use Twitter (a bit), and I frequent the Minecraft Forums. That's about it.
