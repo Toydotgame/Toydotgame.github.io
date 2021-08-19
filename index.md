@@ -23,7 +23,7 @@ My laptop has a B43-series WiFi card, so I need the driver. This was the main re
 <br>
 ### [Cat & Search New Tab](https://github.com/cat-of-the-day-newtab)
 Some time in 2020, I found a site called [catoftheday.com](http://catoftheday.com/). [My cat even got on there!](http://catoftheday.com/archive/2020/March/18.html)
-I ended up making a simple website which hosted search bars for different search engines (including [Google](https://github.com/cat-of-the-day-newtab/google/), [Bing](https://github.com/cat-of-the-day-newtab/bing/), [DuckDuckGo](https://github.com/cat-of-the-day-newtab/duckduckgo/), and [Ask.com](https://github.com/cat-of-the-day-newtab/askjeeves)), with an iframe of the CotD website.
+I ended up making a simple website which hosted search bars for different search engines (including [Google](https://github.com/cat-of-the-day-newtab/google/), [Bing](https://github.com/cat-of-the-day-newtab/bing/), [DuckDuckGo](https://github.com/cat-of-the-day-newtab/duckduckgo/), and [Ask.com](https://github.com/cat-of-the-day-newtab/askjeeves)), with an `iframe` of the CotD website.
 
 ## Tutorials
 * [How to Create an Instant-Launch Shortcut for Minecraft](tutorials/instantMinecraft.html)
