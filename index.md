@@ -21,11 +21,6 @@ Check it out, if you'd like. It may be for you, or it may not.
 This one is just me doing my best to make a certain AUR package offline, for convenience. (Just in case thye AUR 404s the main one, too!)
 My laptop has a B43-series WiFi card, so I need the driver. This was the main reason I couldn't install Arch Linux. I keep it because it's vital for my system; and just in case anything goes wrong.
 <br>
-### My `~/.dotfiles/` Repo.
-This one is on GitHub, but closed-source - because it contains access keys and hashes, etc.
-
-I'm proud of it because of its `install.sh` file. It's quite nice, as it does everything, hands free. (If you run it as `sudo ./install.sh`, that is)
-<br>
 ### [Cat & Search New Tab](https://github.com/cat-of-the-day-newtab)
 Some time in 2020, I found a site called [catoftheday.com](http://catoftheday.com/). [My cat even got on there!](http://catoftheday.com/archive/2020/March/18.html)
 I ended up making a simple website which hosted search bars for different search engines (including [Google](https://github.com/cat-of-the-day-newtab/google/), [Bing](https://github.com/cat-of-the-day-newtab/bing/), [DuckDuckGo](https://github.com/cat-of-the-day-newtab/duckduckgo/), and [Ask.com](https://github.com/cat-of-the-day-newtab/askjeeves)), with an iframe of the CotD website.
