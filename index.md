@@ -1,7 +1,7 @@
 # Welcome
 Hi, I'm toydotgame.
 
-I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](about.html)
+I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](pages/about.html)
 
 ## Projects
 ### [Collatz Sequence Generator](https://github.com/toydotgame/collatz-conjecture-sequence-generator)
@@ -29,7 +29,7 @@ Some time in 2020, I found a site called [catoftheday.com](http://catoftheday.co
 I ended up making a simple website which hosted search bars for different search engines (including [Google](https://github.com/cat-of-the-day-newtab/google/), [Bing](https://github.com/cat-of-the-day-newtab/bing/), [DuckDuckGo](https://github.com/cat-of-the-day-newtab/duckduckgo/), and [Ask.com](https://github.com/cat-of-the-day-newtab/askjeeves)), with an `iframe` of the CotD website.
 
 ## Tutorials
-* [How to Create an Instant-Launch Shortcut for Minecraft](tutorials/instantMinecraft.html)
+* [How to Create an Instant-Launch Shortcut for Minecraft](pages/tutorials/instantMinecraft.html)
 
 ## Active Accounts
 * [GitHub](https://github.com/toydotgame)
