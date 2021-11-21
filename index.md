@@ -4,6 +4,9 @@ Hi, I'm toydotgame.
 I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](pages/about.html)
 
 ## Projects
+### [Old Google](https://github.com/toydotgame/old-google)
+This is a simple Firefox addon that replaces the current Google logo on google.com and the search page to use the old 2010 – 2013 logo.
+<br>
 ### [Collatz Sequence Generator](https://github.com/toydotgame/collatz-conjecture-sequence-generator)
 This is a simple and configurable program for generating sequences/trajectories for the _3x+1_ problem.
 <br>
@@ -24,9 +27,6 @@ Check it out, if you'd like. It may be for you, or it may not.
 This one is just me doing my best to make a certain AUR package offline, for convenience. (Just in case thye AUR 404s the main one, too!)
 My laptop has a B43-series WiFi card, so I need the driver. This was the main reason I couldn't install Arch Linux. I keep it because it's vital for my system; and just in case anything goes wrong.
 <br>
-### [Cat & Search New Tab](https://github.com/cat-of-the-day-newtab)
-Some time in 2020, I found a site called [catoftheday.com](http://catoftheday.com/). [My cat even got on there!](http://catoftheday.com/archive/2020/March/18.html)
-I ended up making a simple website which hosted search bars for different search engines (including [Google](https://github.com/cat-of-the-day-newtab/google/), [Bing](https://github.com/cat-of-the-day-newtab/bing/), [DuckDuckGo](https://github.com/cat-of-the-day-newtab/duckduckgo/), and [Ask.com](https://github.com/cat-of-the-day-newtab/askjeeves)), with an `iframe` of the CotD website.
 
 ## Tutorials
 * [How to Create an Instant-Launch Shortcut for Minecraft](pages/tutorials/instantMinecraft.html)
