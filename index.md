@@ -3,6 +3,12 @@ Hi, I'm toydotgame.
 
 I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](pages/about.html)
 
+## You may Know me For
+* [My cat being featured on Cat of the Day.](http://catoftheday.com/archive/2020/March/18.html)
+* [Low-quality YouTube videos.](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
+* [Low-quality code.](https://github.com/toydotgame/)
+* Nothing much else.
+
 ## Projects
 ### [Old Google](https://github.com/toydotgame/old-google)
 This is a simple Firefox addon that replaces the current Google logo on google.com and the search page to use the old 2010 – 2013 logo.
