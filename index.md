@@ -10,6 +10,9 @@ I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm
 * Nothing much else.
 
 ## Projects
+### [Calculator](https://github.com/toydotgame/calculator)
+A homemade Java calculator I made because Xfce doesn't come with a calculator. I just needed something better than the Google one (i.e: has support for typing instead of clicking the buttons).
+<br>
 ### [Old Google](https://github.com/toydotgame/old-google)
 This is a simple Firefox addon that replaces the current Google logo on google.com and the search page to use the old 2010 – 2013 logo.
 <br>
