@@ -27,14 +27,10 @@ This is a simple and configurable program for generating sequences/trajectories 
 
 SleepMessage is a visual copy of Legacy Console Edition Minecraft's chat messages when someone gets into a Bed.
 <br>
-### [ToyPack](pages/toypack.html)
+### ToyPack
 <img src="assets/images/pack.png" width="75" id="inline" style="border-radius:10%" /> ToyPack is a texture pack designed for Minecraft 1.6.4 (the version I play on), which features texture modifications that I prefer. It has a large feature list, and it's something that I actually have a need to continually work on.
 
 Check it out, if you'd like. It may be for you, or it may not.
-<br>
-### [b43-firmware, Offline Edition](https://github.com/toydotgame/b43-firmware/)
-This one is just me doing my best to make a certain AUR package offline, for convenience. (Just in case thye AUR 404s the main one, too!)
-My laptop has a B43-series WiFi card, so I need the driver. This was the main reason I couldn't install Arch Linux. I keep it because it's vital for my system; and just in case anything goes wrong.
 <br>
 
 ## Tutorials
