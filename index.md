@@ -1,7 +1,7 @@
 # Welcome
 Hi, I'm toydotgame.
 
-I'm currently developer and maintainer of a few Spigot plugins. I know Java; I'm learning C#; and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](pages/about.html)
+I'm currently developer and maintainer of a few Spigot plugins. I know Java, I'm learning C#, and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](pages/about.html)
 
 ## You may Know me For
 * [My cat being featured on Cat of the Day.](http://catoftheday.com/archive/2020/March/18.html)
@@ -41,4 +41,4 @@ Check it out, if you'd like. It may be for you, or it may not.
 * [Twitter](https://twitter.com/toydotgame)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
 * [SpigotMC](https://www.spigotmc.org/members/toydotgam.1096646/)
-* [Minecraft Forum](https://www.minecraftforum.net/members/toydotgam)
+* [Minecraft Forum](https://www.minecraftforum.net/members/toydotgame)
