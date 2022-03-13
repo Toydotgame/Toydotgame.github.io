@@ -39,6 +39,7 @@ Check it out, if you'd like. It may be for you, or it may not.
 ## Active Accounts
 * [GitHub](https://github.com/toydotgame)
 * [Twitter](https://twitter.com/toydotgame)
+* [Reddit](https://reddit.com/u/toydotgame) (Formerly /u/Toydotgam, a long time ago)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
 * [SpigotMC](https://www.spigotmc.org/members/toydotgam.1096646/)
 * [Minecraft Forum](https://www.minecraftforum.net/members/toydotgame)
