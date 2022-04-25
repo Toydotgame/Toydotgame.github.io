@@ -33,6 +33,6 @@ This site is mostly dedicated to my code-related doings, however.
 * In October, I started [my first ever browser extension](https://github.com/toydotgame/old-google)! It's a Firefox addon that achieved the fairly simple goal of changing the Google logo on google.com. Like Thisway, I still plan, and _do_, support this addon to this day.
 
 ### 2022
-* I built a new PC. [Specs here.]() It's a massive upgrade from what I came from.
+* I built a new PC. [Specs here.](https://pcpartpicker.com/b/PTskcf) It's a massive upgrade from what I came from.
 
 **Last Updated:** 2022-04-25
