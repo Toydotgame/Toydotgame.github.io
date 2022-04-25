@@ -1,45 +1,37 @@
 # Welcome
 Hi, I'm toydotgame.
 
-I'm currently developer and maintainer of a few Spigot plugins. I know Java, I'm learning C#, and I've done small amounts of static web-dev. [Find out a bit more about what I've done here.](pages/about.html)
+I'm currently developer and maintainer of a few Spigot plugins. I know Java, and I've worked with a bit of C#, JS, PHP, and your basic HTML and CSS static web dev. [Find out a bit more about what I've done here.](pages/about.html)
 
 ## You may Know me For
 * [My cat being featured on Cat of the Day.](http://catoftheday.com/archive/2020/March/18.html)
-* [Low-quality YouTube videos.](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
-* [Low-quality code.](https://github.com/toydotgame/)
-* Nothing much else.
+* Not much to show here. I've never really done anything that major.
 
 ## Projects
-### [Calculator](https://github.com/toydotgame/calculator)
-A homemade Java calculator I made because Xfce doesn't come with a calculator. I just needed something better than the Google one (i.e: has support for typing instead of clicking the buttons).
-<br>
 ### [Old Google](https://github.com/toydotgame/old-google)
 This is a simple Firefox addon that replaces the current Google logo on google.com and the search page to use the old 2010 – 2013 logo.
-<br>
-### [Collatz Sequence Generator](https://github.com/toydotgame/collatz-conjecture-sequence-generator)
-This is a simple and configurable program for generating sequences/trajectories for the _3x+1_ problem.
 <br>
 ### [Thisway](https://spigotmc.org/resources/thisway.87115/)
 <img src="assets/images/Thisway_Rounded.png" width="75" id="inline" /> Thisway is a Spigot plugin for 1.6 and up which enables a bit of a simpler teleportation system for going in a certain direction.
 <br><br>
 ### [SinglePlayerSleep](https://www.spigotmc.org/resources/singleplayersleep.91195/) & [SleepMessage](https://www.spigotmc.org/resources/sleepmessage.91191/)
-<img src="assets/images/Bed.png" width="75" id="inline" /> SinglePlayerSleep is a visual copy of Hermitcraft's singple player sleep plugin. It allows a player to skip the world's time to day when only they are sleeping in a Bed, rather than needing everyone online to be in a Bed.
-
-SleepMessage is a visual copy of Legacy Console Edition Minecraft's chat messages when someone gets into a Bed.
-<br>
-### ToyPack
-<img src="assets/images/pack.png" width="75" id="inline" style="border-radius:10%" /> ToyPack is a texture pack designed for Minecraft 1.6.4 (the version I play on), which features texture modifications that I prefer. It has a large feature list, and it's something that I actually have a need to continually work on.
-
-Check it out, if you'd like. It may be for you, or it may not.
+<img src="assets/images/Bed.png" width="75" id="inline" /> SinglePlayerSleep is a visual copy of Hermitcraft's single player sleep plugin. It allows a player to skip the world's time to day when only they are sleeping in a Bed, rather than needing everyone online to be in bed.
 <br>
 
-## Tutorials
+## Pages
+### Tutorials
 * [How to Create an Instant-Launch Shortcut for Minecraft](pages/tutorials/instantMinecraft.html)
 
-## Active Accounts
+## Accounts
+### Active
 * [GitHub](https://github.com/toydotgame)
 * [Twitter](https://twitter.com/toydotgame)
-* [Reddit](https://reddit.com/u/toydotgame) (Formerly /u/Toydotgam, a long time ago)
 * [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
+
+### Ones I Don't use so Much
+* [Steam](https://steamcommunity.com/id/toydotgame)
+* [Instagram](https://instagram.com/toydotgame)
+* [Reddit](https://reddit.com/u/toydotgame) (Formerly /u/Toydotgam, a long time ago)
+* [Twitch](https://twitch.tv/toydotgame)
 * [SpigotMC](https://www.spigotmc.org/members/toydotgam.1096646/)
 * [Minecraft Forum](https://www.minecraftforum.net/members/toydotgame)
