@@ -1,6 +1,6 @@
 # About Me
 ## What I Do
-Not much. I play Minecraft and Animal Crossing (the GameCube version because I'm cool like that), I code when I can actually come up with ideas, and I talk to friends.
+Not much. I play Minecraft and occasionally some of the Half-Life games, and I code _when I can actually come up with ideas_.
 
 This site is mostly dedicated to my code-related doings, however.
 
@@ -21,7 +21,7 @@ This site is mostly dedicated to my code-related doings, however.
 
 ### 2020
 * In 2020, I got a Dell Inspiron 1545 (from like 2009 or 2010 or something) with 3 GBs of RAM and an awful CPU. This was also my first personal computer that only I used.
-* In February, I started my Minecraft server, ICCMC. It started out being hosted on my "new" laptop, but as of early 2021 it has its own dedicated PC (an old Lenovo ThinkCentre).
+* In February, I started my Minecraft server, [ICCMC](https://iccmc.serveminecraft.net). It started out being hosted on my "new" laptop, but as of early 2021 it has its own dedicated PC (an old Lenovo ThinkCentre).
 * From early-mid-2020, I started learning Java.
 * This website was launched sometime in the middle of the year.
 * In November, I may or may not have accidentally wiped the parition table of my hard drive. I bought an SSD to replace it, which was a blessing on such an old laptop; and, as I was without any data and had nothing to lose, I might as well try Arch, right? Yeah, I still use Arch to this day and I'm never going back. So long, Windows 7.
@@ -34,5 +34,6 @@ This site is mostly dedicated to my code-related doings, however.
 
 ### 2022
 * I built a new PC. [Specs here.](https://pcpartpicker.com/b/PTskcf) It's a massive upgrade from what I came from.
+* I moved the ICCMC server from the Lenovo ThinkCentre (which now only hosts the website) to an old HTPC box from circa 2010.
 
-**Last Updated:** 2022-04-25
+**Last Updated:** 2022-09-07
