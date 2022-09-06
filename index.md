@@ -8,8 +8,8 @@ I'm a software developer who specialises in Java applications; my current work i
 * Not much really.
 
 ## Projects
-### [Old Google](https://github.com/toydotgame/old-google)
-This is a simple Firefox addon that replaces the current Google logo on google.com and the search page to use the old 2010 – 2013 logo.
+### [Old Google](https://addons.mozilla.org/en-GB/firefox/addon/old-google/)
+<img src="assets/images/old-google.png" width="75" id="inline" /> This is a simple Firefox addon that replaces the current Google logo on google.com and the search page to use the old 2010 – 2013 logo.
 <br>
 ### [Thisway](https://spigotmc.org/resources/thisway.87115/)
 <img src="assets/images/Thisway_Rounded.png" width="75" id="inline" /> Thisway is a Spigot plugin for 1.6 and up which implements a simpler teleportation system based off of local distances. (e.g: _Go this way 75 blocks_)
