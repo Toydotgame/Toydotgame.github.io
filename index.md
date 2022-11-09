@@ -22,16 +22,3 @@ I'm a software developer who specialises in Java applications; my current work i
 ### Tutorials
 * [How to Create an Instant-Launch Shortcut for Minecraft](pages/tutorials/instantMinecraft.html)
 
-## Accounts
-### Active
-* [GitHub](https://github.com/toydotgame)
-* [Twitter](https://twitter.com/toydotgame)
-* [Instagram](https://instagram.com/toydotgame)
-* [YouTube](https://www.youtube.com/channel/UCgkC2xFIPZCLEadyYZCsbWw)
-* [Steam](https://steamcommunity.com/id/toydotgame)
-
-### Ones I Don't use so Much
-* [Reddit](https://reddit.com/u/toydotgame) (Formerly /u/Toydotgam, a long time ago)
-* [Twitch](https://twitch.tv/toydotgame)
-* [SpigotMC](https://www.spigotmc.org/members/toydotgam.1096646/)
-* [Minecraft Forum](https://www.minecraftforum.net/members/toydotgame)
