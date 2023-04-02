@@ -1,5 +1,5 @@
 # Welcome
-Hi, I'm toydotgame.
+Hi, I'm toydotgame. ([en.pronouns.page here](https://en.pronouns.page/@toydotgame))
 
 I'm a software developer who specialises in Java applications; my current work includes developing and maintaining Spigot plugins, alongside the development of other things – mostly just small desktop applications. I have also worked with a bit of C# (for game dev) and JS (I maintain a Firefox addon). [Find out a bit more about what I've done here.](pages/about.html)
 
