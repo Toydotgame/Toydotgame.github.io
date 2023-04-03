@@ -63,12 +63,3 @@ html {
 h1 {
 	text-shadow: 0.5vh 0.5vh 1vh #b29abb60;
 }
-
-h1:hover {
-	background: url("media/cooltext.gif");
-	background-repeat: no-repeat;
-	background-size: calc(var(--card-width) - 2 * var(--padding)) calc(2 * var(--title-size)); 
-	background-position: center;
-	color: #00000000;
-	text-shadow: none;
-}
