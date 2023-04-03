@@ -52,4 +52,23 @@ html {
 	width: 20vh;
 	margin: var(--padding) auto 0vh auto; /* Copy padding consistency from #content element. */
 	border: calc(2 * var(--border-width)) double var(--accent-color);
+
+	transition: transform 0.2s ease-in-out;
+}
+
+.avatar:hover {
+	transform: rotate(360deg) scale(0.95);
+}
+
+h1 {
+	text-shadow: 0.5vh 0.5vh 1vh #b29abb60;
+}
+
+h1:hover {
+	background: url("media/cooltext.gif");
+	background-repeat: no-repeat;
+	background-size: calc(var(--card-width) - 2 * var(--padding)) calc(2 * var(--title-size)); 
+	background-position: center;
+	color: #00000000;
+	text-shadow: none;
 }

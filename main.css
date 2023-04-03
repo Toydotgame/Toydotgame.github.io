@@ -9,6 +9,7 @@
 	--background-color: #1c1c1c;
 	--accent-color: #b29abb;
 	--text-color: #fff;
+	--link-color: #5865f2; /* Stole new Discord Blurple. */
 	--padding: 5vh;
 	--title-size: 8vh;
 	--text-size: 3vh;
@@ -17,8 +18,6 @@
 @media only screen and (orientation: portrait) {
 	:root {
 		--padding: 2vh;
-		/*--title-size: 80px;
-		--text-size: 36px;*/
 	}
 }
 
@@ -30,14 +29,22 @@ body {
 	word-wrap: break-word;
 }
 
-.title, h1, h2 {
+h1, h2 {
 	font-family: "DM Serif Display", serif;
 	color: var(--accent-color);
 	font-size: var(--title-size);
 	text-align: center;
 	border-bottom: 3px ridge var(--accent-color);
 	padding-bottom: var(--padding);
-	text-shadow: 0.5vh 0.5vh 1vh #b29abb60;
+}
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .avatar {
