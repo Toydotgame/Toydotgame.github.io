@@ -9,6 +9,7 @@
 	--background-color: #1c1c1c;
 	--accent-color: #b29abb;
 	--text-color: #fff;
+	--secondarytext-color: #ccc;
 	--link-color: #5865f2; /* Stole new Discord Blurple. */
 	--padding: 5vh;
 	--title-size: 8vh;
@@ -52,4 +53,12 @@ a:hover {
 	border-radius: 50%;
 	width: 10vh;
 	display: block;
+}
+
+footer {
+	margin-top: var(--padding);
+	text-align: center;
+	color: var(--secondarytext-color);
+	-webkit-text-stroke: 0.3px black;
+	text-shadow: 0px 0px 1vh #000;
 }

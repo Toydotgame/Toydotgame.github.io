@@ -45,6 +45,10 @@ html {
 		border-radius: 0px;
 	}
 
+	footer {
+		background-color: var(--background-color);
+	}
+
 	.avatar {
 		margin-top: 0vh !important;
 	}
