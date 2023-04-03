@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&display=swap');
+
+/* AUTHOR: toydotgame
+ * CREATED ON: 2023-04-03
+ * Common styles for all pages.
+ */
+
+:root {
+	--background-color: #1c1c1c;
+	--accent-color: #b29abb;
+	--text-color: #fff;
+	--padding: 5vh;
+}
+
+body {
+	font-family: "Ubuntu", sans-serif;
+	color: var(--text-color);
+	word-wrap: break-word;
+}
+
+.title, h1, h2 {
+	font-family: "DM Serif Display", serif;
+	color: var(--accent-color);
+	font-size: 8vh;
+	text-align: center;
+	border-bottom: 3px solid var(--accent-color);
+	padding-bottom: var(--padding);
+}

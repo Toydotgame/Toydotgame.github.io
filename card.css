@@ -1,0 +1,40 @@
+/* AUTHOR: toydotgame
+ * CREATED ON: 2023-04-03
+ * Styles for the index page, kind of a carrd ripoff. Overwrites the main.css styles, if any, for certain elements.
+ */
+
+:root {
+	--card-width: 50vw;
+	--background-color: #1c1c1cee; /* Overwriting main.css' value. */
+}
+
+@media only screen and (orientation: portrait) {
+	:root{
+		--card-width: 75vw;
+	}
+}
+
+html {
+	background-image: url("media/background.jpg");
+	background-color: var(--background-color);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	background-size: auto 100vh;
+}
+
+/* Changes scaling when the vw is greater than the 4:3 ratio of the bg image. */
+@media only screen and (min-width: 133vh) {
+	html {
+		background-size: 100vw auto;
+	}
+}
+
+#content {
+	margin: calc(2 * var(--padding)) auto 0vh auto;
+	padding: 0vh var(--padding) 0vh var(--padding);
+	width: var(--card-width);
+	border: 5px solid var(--accent-color);
+	border-radius: 30px;
+	background-color: var(--background-color);
+}
