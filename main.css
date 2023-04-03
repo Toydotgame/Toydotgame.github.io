@@ -10,10 +10,22 @@
 	--accent-color: #b29abb;
 	--text-color: #fff;
 	--padding: 5vh;
+	--title-size: 8vh;
+	--text-size: 3vh;
+}
+
+@media only screen and (orientation: portrait) {
+	:root {
+		--padding: 2vh;
+		/*--title-size: 80px;
+		--text-size: 36px;*/
+	}
 }
 
 body {
 	font-family: "Ubuntu", sans-serif;
+	font-size: var(--text-size);
+	text-align: justify;
 	color: var(--text-color);
 	word-wrap: break-word;
 }
@@ -21,8 +33,15 @@ body {
 .title, h1, h2 {
 	font-family: "DM Serif Display", serif;
 	color: var(--accent-color);
-	font-size: 8vh;
+	font-size: var(--title-size);
 	text-align: center;
-	border-bottom: 3px solid var(--accent-color);
+	border-bottom: 3px ridge var(--accent-color);
 	padding-bottom: var(--padding);
+	text-shadow: 0.5vh 0.5vh 1vh #b29abb60;
+}
+
+.avatar {
+	border-radius: 50%;
+	width: 10vh;
+	display: block;
 }

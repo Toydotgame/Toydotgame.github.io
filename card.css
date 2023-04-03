@@ -6,12 +6,7 @@
 :root {
 	--card-width: 50vw;
 	--background-color: #1c1c1cee; /* Overwriting main.css' value. */
-}
-
-@media only screen and (orientation: portrait) {
-	:root{
-		--card-width: 75vw;
-	}
+	--border-width: 3px;
 }
 
 html {
@@ -34,7 +29,27 @@ html {
 	margin: calc(2 * var(--padding)) auto 0vh auto;
 	padding: 0vh var(--padding) 0vh var(--padding);
 	width: var(--card-width);
-	border: 5px solid var(--accent-color);
+	border: calc(2 * var(--border-width)) inset var(--accent-color);
 	border-radius: 30px;
 	background-color: var(--background-color);
+}
+
+@media only screen and (orientation: portrait) {
+	#content {
+		margin: 0vh auto 0vh auto;
+		padding: 2vh var(--padding) 2vh var(--padding);
+		width: calc(100% - 2 * var(--padding));
+		border: none;
+		border-radius: 0px;
+	}
+
+	.avatar {
+		margin-top: 0vh !important;
+	}
+}
+
+.avatar {
+	width: 20vh;
+	margin: var(--padding) auto 0vh auto; /* Copy padding consistency from #content element. */
+	border: calc(2 * var(--border-width)) double var(--accent-color);
 }
