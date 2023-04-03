@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&family=Open+Sans:wght@400;700&display=swap');
 
 /* AUTHOR: toydotgame
  * CREATED ON: 2023-04-03
@@ -41,6 +41,7 @@ h1, h2 {
 a {
 	color: var(--link-color);
 	text-decoration: none;
+	text-shadow: 0.5vh 0.5vh 1vh #5865f260;
 }
 
 a:hover {
