@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&family=Open+Sans:wght@400;700&family=Roboto+Mono&display=swap');
 
 /* AUTHOR: toydotgame
  * CREATED ON: 2023-04-04
@@ -104,6 +104,13 @@ small { /* Making footer inherit these styles as well. */
 	display: none;
 	font-weight: bold;
 	font-size: var(--h3-size);
+}
+
+code {
+	font-family: "Roboto Mono", monospace;
+	background-color: #111;
+	border-radius: 1vh;
+	padding: 0.5vh;
 }
 
 /*
