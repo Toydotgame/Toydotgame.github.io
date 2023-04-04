@@ -175,13 +175,13 @@ footer {
  * DIVS
  */
 
-header, footer {
+header {
 	float: right;
 	width: calc(85vw - 5 * var(--padding));
 	padding: var(--padding);
 }
 
-#content {
+#content, footer {
 	float: left;
 	margin-left: calc(15vw + 3 * var(--padding));
 	width: calc(100vw - 15vw - 5 * var(--padding));
@@ -210,7 +210,7 @@ header, footer {
 }
 
 @media only screen and (min-width: 1000px) {
-	#content {
+	#content, footer {
 		max-width: 60vw;
 	}
 }
