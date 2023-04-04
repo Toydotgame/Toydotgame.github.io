@@ -135,7 +135,7 @@ aside {
 	margin: var(--padding) 0 var(--padding) 0;
 	padding: var(--padding);
 	border-radius: 0 calc(2 * var(--padding)) calc(2 * var(--padding)) 0; /* NW, NE, SE, SW */
-	border: calc(var(--padding) / 2) outset #b29abb;
+	border: calc(var(--padding) / 2) outset var(--accent-color);
 	box-shadow: 0 0 calc(2 * var(--padding)) #b29abb80;
 	background-color: var(--aside-color);
 	color: var(--asidetext-color);
@@ -150,6 +150,25 @@ hr {
 footer {
 	text-align: center;
 	color: var(--small-color);
+}
+
+#content img:not([width]) {
+	width: 100%;
+}
+
+#content img {
+	border: calc(var(--padding) / 4) solid var(--accent-color);
+	border-radius: var(--padding);
+}
+
+#content img.fleft {
+	float: left;
+	margin-right: var(--padding);
+}
+
+#content img.fright {
+	float: right;
+	margin-left: var(--padding);
 }
 
 /*
