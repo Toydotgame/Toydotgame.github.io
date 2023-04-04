@@ -120,7 +120,7 @@ aside {
 	float: left;
 	position: absolute;
 	width: 15vw;
-	height: calc(100vh - 2 * var(--padding));
+	height: calc(100vh - 5 * var(--padding));
 	margin: var(--padding) 0 var(--padding) 0;
 	padding: var(--padding);
 	border-radius: 0 calc(2 * var(--padding)) calc(2 * var(--padding)) 0; /* NW, NE, SE, SW */
@@ -133,20 +133,19 @@ aside {
 
 aside iframe {
 	width: calc(15vw);
-	height: calc(75vh - 2 * var(--padding));
+	height: calc(85vh - 6 * var(--padding) - (var(--text-size) / 5) - var(--text-size));
 }
 
 aside hr {
 	border: none;
 	border-top: calc(var(--text-size) / 5) dotted var(--asidetext-color);
-	margin-top: calc(2 * var(--padding)); /* Arbitrary. */
+	margin-top: var(--padding);
 }
 
 hr {
 	border: none; /* Reset existing borders. */
 	border-top: calc(var(--text-size) / 5) dotted var(--accent-color);
 }
-
 
 footer {
 	text-align: center;
