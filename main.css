@@ -80,17 +80,6 @@ aside h1 a {
 	text-shadow: none;
 }
 
-aside hr {
-	border: none;
-	border-top: calc(var(--text-size) / 5) dotted var(--asidetext-color);
-	margin-top: calc(2 * var(--padding)); /* Arbitrary. */
-}
-
-aside iframe {
-	width: calc(15vw);
-	height: calc(75vh - 2 * var(--padding));
-}
-
 /* 
  * TEXT
  */
@@ -142,10 +131,22 @@ aside {
 	text-align: left;
 }
 
+aside iframe {
+	width: calc(15vw);
+	height: calc(75vh - 2 * var(--padding));
+}
+
+aside hr {
+	border: none;
+	border-top: calc(var(--text-size) / 5) dotted var(--asidetext-color);
+	margin-top: calc(2 * var(--padding)); /* Arbitrary. */
+}
+
 hr {
 	border: none; /* Reset existing borders. */
 	border-top: calc(var(--text-size) / 5) dotted var(--accent-color);
 }
+
 
 footer {
 	text-align: center;
