@@ -172,6 +172,7 @@ header, #content, footer {
 	}
 
 	header, #content, footer {
+		position: static;
 		float: none;
 		width: calc(100vw - 2 * var(--padding));
 	}
