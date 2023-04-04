@@ -1,3 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&family=Open+Sans:wght@400;700&display=swap');
+
+/* AUTHOR: toydotgame
+ * CREATED ON: 2023-04-03
+ * Common styles for all pages.
+ */
+
+:root {
+	--background-color: #1c1c1c;
+	--accent-color: #b29abb;
+	--text-color: #fff;
+	--secondarytext-color: #ccc;
+	--link-color: #5865f2; /* Stole new Discord Blurple. */
+	--padding: 5vh;
+	--title-size: 8vh;
+	--text-size: 3vh;
+}
+
+@media only screen and (orientation: portrait) {
+	:root {
+		--padding: 2vh;
+	}
+}
+
+body {
+	font-family: "Ubuntu", sans-serif;
+	font-size: var(--text-size);
+	text-align: justify;
+	color: var(--text-color);
+	word-wrap: break-word;
+}
+
+h1, h2 {
+	font-family: "DM Serif Display", serif;
+	color: var(--accent-color);
+	font-size: var(--title-size);
+	text-align: center;
+	border-bottom: 3px ridge var(--accent-color);
+	padding-bottom: var(--padding);
+}
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+	text-shadow: 0.5vh 0.5vh 1vh #5865f260;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.avatar {
+	border-radius: 50%;
+	width: 10vh;
+	display: block;
+}
+
+footer {
+	margin-top: var(--padding);
+	text-align: center;
+	color: var(--secondarytext-color);
+	-webkit-text-stroke: 0.3px black;
+	text-shadow: 0px 0px 1vh #000;
+}
+
 /* AUTHOR: toydotgame, Brad Taunt (for the code from https://bt.ht/aui/)
  * CREATED ON: 2023-04-03
  * Styles for the index page, kind of a carrd ripoff. Overwrites the main.css styles, if any, for certain elements.

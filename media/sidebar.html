@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!--
+	AUTHOR: toydotgame
+	CREATED ON: 2023-04-04
+	Sidebar page whose text is shown in an iframe on all pages that follow the normal webpage template.
+-->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+			/* Values hardcoded in as copied of main.css variables. */
+			body {
+				font-family: "Ubuntu", sans-serif;
+				font-size: 3vh;
+				color: #000;
+				word-wrap: break-word;
+				margin: 0;
+				padding: 0;
+			}
+
+			ul {
+				padding-left: 4vh;
+			}
+
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+		</style>
+		<base target="_parent">
+	</head>
+	<body>
+		<h3>Latest:</h3>
+		<ul>
+			<li><a href="#">Article 1</a></li>
+		</ul>
+	</body>
+</html>

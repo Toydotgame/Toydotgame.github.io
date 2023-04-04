@@ -1,43 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu&family=Open+Sans:wght@400;700&display=swap');
 
 /* AUTHOR: toydotgame
- * CREATED ON: 2023-04-03
+ * CREATED ON: 2023-04-04
  * Common styles for all pages.
+ * Shorthand reference because I'm bad at CSS: `margin: top right bottom left;`
  */
 
 :root {
 	--background-color: #1c1c1c;
 	--accent-color: #b29abb;
 	--text-color: #fff;
-	--secondarytext-color: #ccc;
-	--link-color: #5865f2; /* Stole new Discord Blurple. */
-	--padding: 5vh;
-	--title-size: 8vh;
+	--small-color: #999;
+	--link-color: #5865f2;
+	--aside-color: var(--accent-color);
+	--asidetext-color: #000;
+
+	--h1-size: 8vh; /* All sizes are based off of viewport dimensions. It ruins scaling but is my best solution for responsiveness. */
+	--h2-size: 6vh;
+	--h3-size: 4vh;
 	--text-size: 3vh;
+	--small-size: 2vh;
+
+	--padding: 2vw;
 }
 
-@media only screen and (orientation: portrait) {
-	:root {
-		--padding: 2vh;
-	}
-}
+/* 
+ * ROOT STYLES
+ */
 
 body {
 	font-family: "Ubuntu", sans-serif;
 	font-size: var(--text-size);
-	text-align: justify;
 	color: var(--text-color);
+	background-color: var(--background-color);
+	text-align: justify;
 	word-wrap: break-word;
+	margin: 0; /* Reset predefined margins from somewhere??? */
 }
 
-h1, h2 {
+/*
+ * HEADINGS
+ */
+
+h1, h2, h3 {
 	font-family: "DM Serif Display", serif;
 	color: var(--accent-color);
-	font-size: var(--title-size);
-	text-align: center;
-	border-bottom: 3px ridge var(--accent-color);
-	padding-bottom: var(--padding);
+	text-align: left;
 }
+
+h1 {
+	font-size: var(--h1-size);
+	/* Define underline: */
+	border-bottom: calc(var(--h1-size) / 10) ridge var(--accent-color);
+	padding-bottom: calc(var(--h1-size) / 2);
+	text-shadow: 0.5vh 0.5vh 1vh #b29abb60; /* 0x60 opacity of text color (--accent-color). */
+}
+
+h2 {
+	font-size: var(--h2-size);
+	/* Define underline: */
+	border-bottom: calc(var(--h2-size) / 10) ridge var(--accent-color);
+	padding-bottom: calc(var(--h2-size) / 2);
+}
+
+h3 {
+	font-size: var(--h3-size);
+}
+
+aside h1 {
+	font-size: 2.5vw; /* I…don't know where this number came from but it works I guess? */
+	color: var(--asidetext-color);
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+aside h1 a {
+	color: var(--asidetext-color);
+	text-shadow: none;
+}
+
+aside hr {
+	border: none;
+	border-top: calc(var(--text-size) / 5) dotted var(--asidetext-color);
+	margin-top: calc(2 * var(--padding)); /* Arbitrary. */
+}
+
+aside iframe {
+	width: calc(15vw);
+	height: calc(75vh - 2 * var(--padding));
+}
+
+/* 
+ * TEXT
+ */
 
 a {
 	color: var(--link-color);
@@ -49,16 +105,78 @@ a:hover {
 	text-decoration: underline;
 }
 
-.avatar {
-	border-radius: 50%;
-	width: 10vh;
-	display: block;
+small { /* Making footer inherit these styles as well. */
+	font-size: var(--small-size);
+	font-weight: bold;
+	color: var(--small-color);
+}
+
+#headerlink {
+	display: none;
+	font-weight: bold;
+	font-size: var(--h3-size);
+}
+
+/*
+ * ELEMENTS
+ */
+
+header {
+	position: absolute;
+	width: 96vw !important;
+	text-align: right;
+}
+
+aside {
+	float: left;
+	position: absolute;
+	width: 15vw;
+	height: calc(100vh - 2 * var(--padding));
+	margin: var(--padding) 0 var(--padding) 0;
+	padding: var(--padding);
+	border-radius: 0 calc(2 * var(--padding)) calc(2 * var(--padding)) 0; /* NW, NE, SE, SW */
+	border: calc(var(--padding) / 2) outset #b29abb;
+	box-shadow: 0 0 calc(2 * var(--padding)) #b29abb80;
+	background-color: var(--aside-color);
+	color: var(--asidetext-color);
+	text-align: left;
+}
+
+hr {
+	border: none; /* Reset existing borders. */
+	border-top: calc(var(--text-size) / 5) dotted var(--accent-color);
 }
 
 footer {
-	margin-top: var(--padding);
 	text-align: center;
-	color: var(--secondarytext-color);
-	-webkit-text-stroke: 0.3px black;
-	text-shadow: 0px 0px 1vh #000;
+	color: var(--small-color);
+}
+
+/*
+ * DIVS
+ */
+
+header, #content, footer {
+	float: right;
+	width: calc(85vw - 5 * var(--padding));
+	padding: var(--padding);
+}
+
+/*
+ * @MEDIA OVERRIDES
+ */
+
+@media only screen and (orientation: portrait) {
+	aside {
+		display: none;
+	}
+
+	header, #content, footer {
+		float: none;
+		width: calc(100vw - 2 * var(--padding));
+	}
+
+	#headerlink {
+		display: inline;
+	}
 }
