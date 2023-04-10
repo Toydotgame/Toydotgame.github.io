@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /blog/*
+Disallow: /media/blog/files
+Disallow: /media/icons
+Disallow: /media/sidebar.html
