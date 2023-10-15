@@ -27,9 +27,9 @@
 	</head>
 	<body>
 		<aside>
-			<h1><a href="index.html" title="My Card">toydotgame</a></h1>
+			<h1><a href="/" title="My Card">toydotgame</a></h1>
 			<a href="#"><br>Home</a>
-			<a href="blog/index.html"><br>Blog</a>
+			<a href="blog/"><br>Blog</a>
 			<hr>
 			<iframe src="media/sidebar.html" scrolling="no" frameborder="0"></iframe>
 		</aside>
