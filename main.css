@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Display:ital@1&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Display:ital@1&family=Fira+Mono&family=Ubuntu&display=swap');
 
 /* 
  * AUTHOR: toydotgame
@@ -6,7 +6,7 @@
  * Generic page CSS.
  */
 
-:root { /* Background, accent, primary and secondary text, and link colours. */
+:root { /* Background, accent, primary and secondary text, and link colours */
 	--bg1: #2a2a2f;
 	--bg2: #1c1c1c;
 	--acc: #b29abb;
@@ -26,7 +26,7 @@
 }
 
 html {
-	min-height: 100vh; /* Putting this in the body selector causes an overflow/scroll. */
+	min-height: 100vh; /* Putting this in the body selector causes an overflow/scroll */
 }
 
 body {
@@ -81,7 +81,7 @@ a:hover {
 
 #navpfp {
 	position: absolute;
-	left: calc((100% - 600px) / 2 + 20px); /* Sticky to the left side of the nav container. */
+	left: calc((100% - 600px) / 2 + 20px); /* Sticky to the left side of the nav container */
 	top: 31px;
 	width: 50px;
 	height: 50px;
@@ -99,7 +99,7 @@ a:hover {
 	margin: 0 auto;
 	padding: 0 10px;
 	text-align: justify;
-	overflow: hidden; /* Hack to fix if floating images exceed text length and break footer. */
+	overflow: hidden; /* Hack to fix if floating images exceed text length and break footer */
 }
 
 #content > h1 {
@@ -108,11 +108,24 @@ a:hover {
 	font-family: "DM Serif Display", serif;
 }
 
-#content > h2 {
+h2#subtitle {
 	margin-bottom: 16px;
 	font-size: 14px;
 	font-weight: normal;
 	color: var(--sec);
+}
+
+h2, h3, h4 {
+	font-family: "DM Serif Display", serif;
+	color: var(--acc);
+}
+
+h4 {
+	color: var(--sec);
+}
+
+#content > p {
+	margin-bottom: 14px; /* Paragraph spacing */
 }
 
 #content img:not([width]) {
@@ -120,9 +133,9 @@ a:hover {
 }
 
 #content img {
-	margin: 5px;
+	margin: 5px 0;
 	border: 2px solid var(--sec);
-	border-radius: 10px;
+		border-radius: 10px;
 }
 
 .fleft {
@@ -135,6 +148,24 @@ a:hover {
 	margin-left: 10px !important;
 }
 
+pre, code {
+	width: 100%;
+	margin-bottom: 10px; /* border-box doesn't work on these elements for some reason ∴ manual padding */
+	padding: 5px;
+	border: 1px solid var(--sec);
+		border-radius: 10px;
+	overflow-x: auto; /* Enables horiz scroll */
+	background-color: var(--bg2);
+	word-wrap: break-word;
+	font-family: "Fira Mono", monospace;
+}
+
+code {
+	padding: 0 5px;
+	border-radius: 5px;
+	color: var(--sec);
+}
+
 /* FOOTER */
 
 #footer {
@@ -144,7 +175,7 @@ a:hover {
 }
 
 #footer > hr {
-	margin: 5px 0; /* Counteract footer div padding so <hr> only has 5px between it and viewport edge. */
+	margin: 5px 0; /* Counteract footer div padding so <hr> only has 5px between it and viewport edge */
 }
 
 #recentblogs {
