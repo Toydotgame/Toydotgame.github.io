@@ -59,9 +59,15 @@ var footer = `
 <p>Website &#x1F12F; 2023 toydotgame</p>
 `;
 
-try {
-	document.getElementById("footer").innerHTML = "<hr>" + recentblogs + badges + footer;
-} catch {
-	document.getElementById("blogfooter").innerHTML = "<hr>" + badges + footer;
-	document.getElementById("blogfooter").id = "footer";
+/*
+ * Footer replacement shouldn't run on Japanese-language pages. `/jp/contento.js` handles that.
+ * However, this script is called and run by `contento.js`'s import statement.
+ */
+if(!window.location.pathname.startsWith("/jp/")) {
+	try {
+		document.getElementById("footer").innerHTML = "<hr>" + recentblogs + badges + footer;
+	} catch {
+		document.getElementById("blogfooter").innerHTML = "<hr>" + badges + footer;
+		document.getElementById("blogfooter").id = "footer";
+	}
 }
