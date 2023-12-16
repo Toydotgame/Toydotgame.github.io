@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<!--
+	AUTHOR: toydotgame
+	CREATED ON: 2023-04-04
+	Template page.
+-->
+
+<html>
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBKZKBJ0PJ"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-PBKZKBJ0PJ');
+		</script>
+		<meta charset="UTF-8"> 
+		<link rel="stylesheet" href="/main.css" />
+		<title>How to Create an Instant-Launch Shortcut for Minecraft – toydotgame</title>
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="toydotgame">
+		<meta property="og:title" content="How to Create an Instant-Launch Shortcut for Minecraft">
+		<meta name="description" content="Internet connection required">
+		<meta property="og:description" content="Internet connection required">
+	</head>
+	<body>
+		<aside>
+			<h1><a href="/" title="My Card">toydotgame</a></h1>
+			<a href="/home"><br>Home</a>
+			<a href="/blog/"><br>Blog</a>
+			<hr>
+			<iframe src="/media/sidebar.html" scrolling="no" frameborder="0"></iframe>
+		</aside>
+		<header>
+			Written: 2020-07-27<br>
+			Last Edited: 2021-10-09
+			<a id="headerlink" href="/home"><br>Home</a>
+		</header>
+		<div id="content">
+			<!-- Transcribed using https://markdowntohtml.com/ -->
+			<h1 id="how-to-create-an-instant-launch-shortcut-for-minecraft">How to Create an Instant-Launch Shortcut for Minecraft</h1>
+			<p>* Internet connection required<br>
+			* Tutorial made for Windows XP and higher</p>
+			<h2 id="step-1-preperation">Step 1: Preperation</h2>
+			<h3 id="1a-download-processexplorer">1A: Download ProcessExplorer</h3>
+			<p>Download <a href="https://live.sysinternals.com/procexp.exe">Process Explorer</a> from SysInternals, it&#39;s a Microsoft-approved application which has a feature that shows the command-line command used to launch any running application on your PC.</p>
+			<h3 id="1b-open-your-minecraft-launcher">1B: Open your Minecraft Launcher</h3>
+			<p>Open Minecraft&#39;s Launcher on your desktop, make sure you have selected the profile for your client.</p>
+			<h3 id="1c-open-processexplorer">1C: Open ProcessExplorer</h3>
+			<p>Make sure that you have Process Explorer open, and that you are on a screen that looks a bit like this:
+			<img src="https://docs.microsoft.com/en-us/media/landing/sysinternals/processexplorer.jpg" alt=""></p>
+			<h2 id="step-2-finding-the-command-line-arguments">Step 2: Finding the Command-Line Arguments</h2>
+			<h3 id="2a-launch-minecraft">2A: Launch Minecraft</h3>
+			<p>Launch your selected Minecraft client from the launcher. Do not close it until you reach the step telling you to do so.</p>
+			<h3 id="2b-get-the-arguments">2B: Get the Arguments</h3>
+			<ul>
+			<li>Switch back to Process Explorer (Do not close your Minecraft client)</li>
+			<li>Look [and scroll if necessary] for the process <code>javaw.exe</code> in the task list.<ul>
+			<li>Right click on it</li>
+			<li>Select <em>Properties</em>.</li>
+			</ul>
+			</li>
+			<li>Highlight the contents of the <em>Command line</em> box in the newly opened window: (In your case there will be text there, this example image does not have it)<br>
+			<img src="https://www.filecroco.com/wp-content/uploads/2016/11/process-explorer-6.jpg" alt=""></li>
+			<li>Copy the contents of the <em>Command line</em> box. (<code>Ctrl</code>+<code>C</code>)</li>
+			</ul>
+			<h4 id="if-processexplorer-doesn-t-run-">If ProcessExplorer Doesn&#39;t Run:</h4>
+			<ul>
+			<li>Open either Command Prompt or PowerShell. (<code>Win</code>+<code>R</code>; then type either <code>cmd</code> or <code>powershell</code>, press <em>OK</em>)</li>
+			<li>Type <code>tasklist</code>.<ul>
+			<li>Find <code>javaw.exe</code> on the left of the list.</li>
+			<li>Look at the number to the immediate right of <code>javaw.exe</code> (This is the <em>PID</em>)</li>
+			</ul>
+			</li>
+			<li>Type the following command: <code>wmic.exe path Win32_Process where handle=&#39;x&#39; get Commandline /format:list</code>. Replace <code>x</code> with the PID you just got.</li>
+			<li>Copy the output of that command.</li>
+			</ul>
+			<h3 id="2c-creating-the-batch-file">2C: Creating the Batch File</h3>
+			<ul>
+			<li>Open <em>Notepad</em>. (<code>Win</code>+<code>R</code>, type in <code>notepad</code>, press <em>OK</em>; or search for &quot;<code>Notepad</code>&quot; in the Start menu)</li>
+			<li>Paste the text. (<code>Ctrl</code>+<code>V</code>)</li>
+			<li>Save the file <em>as</em>. (<code>Ctrl</code>+<code>S</code>)<ul>
+			<li>Click the address bar at the top of the window.</li>
+			<li>Type in the following: <code>%AppData%\.minecraft\</code></li>
+			<li>Go to the <em>Name:</em> box. Type in <code>runmc.bat</code>.<ul>
+			<li>Make sure that is all that is in the box, <code>.txt</code> might be there - make sure it is not.</li>
+			</ul>
+			</li>
+			<li>Click the dropdown next to <em>Save as type:</em>.</li>
+			<li>Select <em>All files (*.*)</em>.</li>
+			<li>Press <em>Save</em>.</li>
+			</ul>
+			</li>
+			</ul>
+			<h2 id="step-3-file-management">Step 3: File Management</h2>
+			<h3 id="3a-the-_natives_-files-">3A: The <em>natives</em> files.</h3>
+			<h4 id="for-older-launchers-">For older launchers:</h4>
+			<p>Whilst your Minecraft client is open, open File Explorer, go to the address bar, and type <code>%AppData%\.minecraft\</code>.</p>
+			<ul>
+			<li>Double-click the <code>versions</code> folder.</li>
+			<li>Double-click the folder in <code>versions</code> which your client is using; it&#39;s usually <code>1.x.x</code> (OptiFine installations are usually <code>1.x.x_OptiFine_HD_xx</code>)</li>
+			<li>There will be a folder in it which ends with <code>-natives</code>. If not, move to the &quot;For newer versions&quot; section below.</li>
+			<li><p>Copy that folder. (Click on it and press <code>Ctrl</code>+<code>C</code>)</p>
+			</li>
+			<li><p>Go back to <code>%AppData%\.minecraft\</code></p>
+			</li>
+			<li>Create a new folder and call it something like <code>quickLaunch</code></li>
+			<li><p>Go into that folder and paste. (<code>Ctrl</code>+<code>V</code>)</p>
+			</li>
+			<li><p>Go back to <code>%AppData%\.minecraft\</code></p>
+			</li>
+			<li>Find <code>runmc.bat</code>.</li>
+			<li>Right click it.<ul>
+			<li>Select <em>Edit</em>.</li>
+			</ul>
+			</li>
+			<li><p>Once Notepad opens, press <code>Ctrl</code>+<code>F</code>; then type in <code>-Djava.library.path=</code>. Press <em>Find</em>.</p>
+			</li>
+			<li><p>Go back to File Explorer. (You should be in <code>%AppData%\.minecraft\</code> still)</p>
+			</li>
+			<li>Open the new <code>quickLaunch</code> folder.</li>
+			<li>Open the folder inside. (The one ending in <code>-natives</code>)</li>
+			<li><p>Click the address bar, copy the text inside it. (<code>Ctrl</code>+<code>C</code>)</p>
+			</li>
+			<li><p>Go back to Notepad.</p>
+			</li>
+			<li>After <code>-Djava.library.path=</code>, delete the text. Stop deleting once you reach a space (<code>`) \[or a quotation mark (</code>&quot;<code>) (Only if right after</code>-Djava.library.path=<code>, there was a</code>&quot;<code>)\] (Basically once you reach the start of the next argument. I believe it starts with</code>-Dminecraft.~.*` or something. (Not 100% sure though, so be careful!))</li>
+			<li>Paste in the new folder location. (<code>Ctrl</code>+<code>V</code>)</li>
+			<li>Press <code>Ctrl</code>+<code>S</code> to save.<h4 id="for-newer-launchers-">For newer launchers:</h4>
+			Whilst your Minecraft client is open, open File Explorer, go to the address bar, and type <code>%AppData%\.minecraft\</code>.</li>
+			<li>Double-click the <code>bin</code> folder.</li>
+			<li>Open a new File Explorer window and go to <code>%AppData%\.minecraft\</code>.</li>
+			<li>Right-click <code>runmc.bat</code>.</li>
+			<li>When Notepad opens, press <code>Ctrl</code>+<code>F</code>.<ul>
+			<li>Type <code>-Djava.library.path=</code>.</li>
+			<li>Press <em>Find</em>.</li>
+			</ul>
+			</li>
+			<li>Look to the end of the file path, before the next argument. (The next argument starts with a <code>-</code>)</li>
+			<li><p>Take note of the folder. It will look something like <code>C:\Users\</code><em>User</em><code>\AppData\Roaming\.minecraft\bin\xxxx-xxxx-xxxx-xxxx</code>.</p>
+			<ul>
+			<li>Note the <code>xxxx-xxxx-xxxx-xxxx</code> at the end.</li>
+			</ul>
+			</li>
+			<li><p>Go back to the File Explorer window which is in <code>%AppData%\.minecraft\bin\</code>.</p>
+			</li>
+			<li><p>Copy the folder which has the same name as the one from Notepad (After <code>-Djava.library.path=</code>). (<code>Ctrl</code>+<code>C</code>)</p>
+			</li>
+			<li><p>Go back to <code>%AppData%\.minecraft\</code></p>
+			</li>
+			<li>Create a new folder and call it something like <code>quickLaunch</code></li>
+			<li><p>Go into that folder and paste. (<code>Ctrl</code>+<code>V</code>)</p>
+			</li>
+			<li><p>Go back to <code>%AppData%\.minecraft\</code></p>
+			</li>
+			<li>Find <code>runmc.bat</code>.</li>
+			<li>Right click it.<ul>
+			<li>Select <em>Edit</em>.</li>
+			</ul>
+			</li>
+			<li><p>Once Notepad opens, press <code>Ctrl</code>+<code>F</code>; then type in <code>-Djava.library.path=</code>. Press <em>Find</em>.</p>
+			</li>
+			<li><p>Go back to File Explorer. (You should be in <code>%AppData%\.minecraft\</code> still)</p>
+			</li>
+			<li>Open the new <code>quickLaunch</code> folder.</li>
+			<li>Open the folder inside. (The one formatted like <code>xxxx-xxxx-xxxx-xxxx</code>)</li>
+			<li><p>Click the address bar, copy the text inside it. (<code>Ctrl</code>+<code>C</code>)</p>
+			</li>
+			<li><p>Go back to Notepad.</p>
+			</li>
+			<li>After <code>-Djava.library.path=</code>, delete the text. Stop deleting once you reach a space (<code>`) \[or a quotation mark (</code>&quot;<code>) (Only if right after</code>-Djava.library.path=<code>, there was a</code>&quot;<code>)\] (Basically once you reach the start of the next argument. I believe it starts with</code>-Dminecraft.~.*` or something. (Not 100% sure though, so be careful!))</li>
+			<li>Paste in the new folder location. (<code>Ctrl</code>+<code>V</code>)</li>
+			<li>Press <code>Ctrl</code>+<code>S</code> to save.<h3 id="3b-desktop-shortcut">3B: Desktop Shortcut</h3>
+			</li>
+			<li>Go to your desktop. (<code>Win</code>+<code>D</code>)</li>
+			<li>Right-click.<ul>
+			<li>Click <em>New</em>.</li>
+			<li>Click <em>Shortcut</em>.<ul>
+			<li>It will ask for the location of the file.</li>
+			<li>Type <code>%AppData%\.minecraft\runmc.bat</code>.</li>
+			<li>Press <em>Next</em>.</li>
+			<li>Fill the box with a name for you shortcut, something like <em><code>Minecraft</code></em>.</li>
+			</ul>
+			</li>
+			</ul>
+			</li>
+			</ul>
+			<h2 id="congratulations-you-ve-just-made-a-shortcut-direct-to-minecraft-no-launcher-needed-">Congratulations! You&#39;ve just made a shortcut direct to Minecraft, no launcher needed.</h2>
+			<h3 id="you-are-able-to-close-the-notepad-minecraft-and-file-explorer-windows-now-">You are able to close the Notepad, Minecraft and File Explorer windows now.</h3>
+			<h3 id="-processexplorer-exe-can-safely-be-deleted-from-your-_downloads_-folder-nothing-else-though-"><code>ProcessExplorer.exe</code> can safely be deleted from your <em>Downloads</em> folder, nothing else though!</h3>
+		</div>
+		<footer>
+			Website © 2023 toydotgame
+		</footer>
+	</body>
+</html>
