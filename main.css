@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Display:ital@1&family=Ubuntu&display=swap');
+
+/* 
+ * AUTHOR: toydotgame
+ * CREATED ON: 2023-12-16
+ * Generic page CSS.
+ */
+
+:root { /* Background, accent, primary and secondary text, and link colours. */
+	--bg1: #2a2a2f;
+	--bg2: #1c1c1c;
+	--acc: #b29abb;
+	--pri: #fff;
+	--sec: #ccc;
+	--lnk: #5865f2;
+}
+
+/* GENERIC */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Ubuntu", sans-serif;
+	word-wrap: break-word;
+}
+
+html {
+	min-height: 100vh; /* Putting this in the body selector causes an overflow/scroll. */
+}
+
+body {
+	color: var(--pri);
+	background-image: linear-gradient(var(--bg1), var(--bg2));
+		background-size: cover;
+}
+
+hr {
+	height: 3px;
+	margin: 5px;
+	border: 1px double var(--acc);
+}
+
+a {
+	color: var(--lnk);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	text-shadow: 1px 1px 3px;
+}
+
+::selection {
+	color: var(--bg1);
+	background-color: var(--acc);
+}
+
+/* NAVBAR */
+
+#nav {
+	width: 50%;
+		min-width: 600px;
+	margin: 16px auto;
+	text-align: center;
+}
+
+#nav > h1 {
+	font-family: "Cookie";
+	font-size: 48px;
+	color: var(--acc);
+}
+
+#nav > a {
+	color: var(--acc);
+}
+
+#nav > a:hover {
+	color: var(--lnk);
+}
+
+#navpfp {
+	position: absolute;
+	left: calc((100% - 600px) / 2 + 20px); /* Sticky to the left side of the nav container. */
+	top: 31px;
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	box-shadow: 0 0 5px var(--bg1) inset;
+	background-image: url("media/profile.png");
+		background-size: cover;
+}
+
+/* CONTENT */
+
+#content {
+	width: 75%;
+		min-width: 600px;
+	margin: 0 auto;
+	padding: 0 10px;
+	text-align: justify;
+	overflow: hidden; /* Hack to fix if floating images exceed text length and break footer. */
+}
+
+#content > h1 {
+	border-bottom: 1px solid var(--acc);
+	color: var(--acc);
+	font-family: "DM Serif Display", serif;
+}
+
+#content > h2 {
+	margin-bottom: 16px;
+	font-size: 14px;
+	font-weight: normal;
+	color: var(--sec);
+}
+
+#content img:not([width]) {
+	width: 100%;
+}
+
+#content img {
+	margin: 5px;
+	border: 2px solid var(--sec);
+	border-radius: 10px;
+}
+
+.fleft {
+	float: left;
+	margin-right: 10px !important;
+}
+
+.fright {
+	float: right;
+	margin-left: 10px !important;
+}
+
+/* FOOTER */
+
+#footer {
+	margin: 16px 0;
+	padding: 5px;
+	text-align: center;
+}
+
+#footer > hr {
+	margin: 5px 0; /* Counteract footer div padding so <hr> only has 5px between it and viewport edge. */
+}
+
+#recentblogs {
+	width: calc(50% + 10px);
+		min-width: 600px;
+	margin: 16px auto;
+	color: var(--acc);
+	text-align: left;
+}
+
+#recentblogs > h1 {
+	margin-bottom: 5px;
+	border-bottom: 1px solid var(--acc);
+	font-family: "DM Serif Display", serif;
+	font-size: 24px;
+}
+
+#recentblogs > ul {
+	list-style-position: inside;
+}
+
+#recentblogs li::marker {
+	color: var(--sec);
+}
+
+#footer > p {
+	font-size: 12px;
+	color: var(--sec);
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 600px) {
+	#nav {
+		width: 100%;
+			min-width: 0;
+	}
+
+	#navpfp {
+		display: none;
+	}
+
+	#content {
+		width: 100%;
+			min-width: 0;
+		text-align: left;
+	}	
+}
+
+/*
+ * Earlier, the width of the #recentblogs div was set by `calc(50% + 10px)`, to counteract the 2x 5px padding set
+ * by its parent (the #footer div). So, to make the responsive design smooth like it is with the #nav div, we have
+ * to start shrinking the #recentblogs div once the viewport reaches 610px rather than 600px. 
+ */
+@media only screen and (max-width: 610px) {
+	#recentblogs {
+		width: 100%;
+			min-width: 0;
+	}
+}
