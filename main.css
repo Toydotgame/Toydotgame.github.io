@@ -60,6 +60,15 @@ ul {
 	list-style-position: inside;
 }
 
+copyleft:before {
+	content: "©";
+}
+
+copyleft {
+	display: inline-block;
+	transform: rotateY(180deg);
+}
+
 /* NAVBAR */
 
 #nav {
