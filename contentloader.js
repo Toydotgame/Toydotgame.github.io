@@ -29,7 +29,7 @@ var recentblogs = `
 </div>
 `;
 
-var footer = `
+var badges = `
 <a href="http://www.wtfpl.net/"><img src="/media/badges/wtfpl.png" width="88"></a>
 <img src="/media/badges/2019.gif" width="88">
 <a href="https://cyber.dabamos.de/88x31/"><img src="/media/badges/88x31.gif" width="88"></a>
@@ -48,14 +48,18 @@ var footer = `
 <a href="https://yesterweb.org/no-to-web3/"><img src="/media/badges/roly-saynotoweb3.gif" width="88"></a>
 <img src="/media/badges/transnow2.gif" width="88">
 <a href="https://donate.wikimedia.org/><img src="/media/badges/wikipedia.gif" width="88"></a>
+`;
+export { badges };
+
+var footer = `
 <br>
 <a href="https://www.free-website-hit-counter.com/"><img src="https://www.free-website-hit-counter.com/c.php?d=6&id=160327&s=5" width="88"></a>
 <p>Website &#x1F12F; 2023 toydotgame</p>
 `;
 
 try {
-	document.getElementById("footer").innerHTML = "<hr>" + recentblogs + footer;
+	document.getElementById("footer").innerHTML = "<hr>" + recentblogs + badges + footer;
 } catch {
-	document.getElementById("blogfooter").innerHTML = "<hr>" + footer;
+	document.getElementById("blogfooter").innerHTML = "<hr>" + badges + footer;
 	document.getElementById("blogfooter").id = "footer";
 }
