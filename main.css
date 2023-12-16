@@ -63,6 +63,7 @@ a:hover {
 		min-width: 600px;
 	margin: 16px auto;
 	text-align: center;
+	user-select: none;
 }
 
 #nav > h1 {
@@ -89,6 +90,11 @@ a:hover {
 	box-shadow: 0 0 5px var(--bg1) inset;
 	background-image: url("media/profile.png");
 		background-size: cover;
+	cursor: pointer;
+}
+
+#navpfp:active {
+	transform: scale(0.95);
 }
 
 /* CONTENT */
@@ -115,7 +121,7 @@ h2#subtitle {
 	color: var(--sec);
 }
 
-h2, h3, h4 {
+h2:not(#subtitle), h3, h4 {
 	font-family: "DM Serif Display", serif;
 	color: var(--acc);
 }
