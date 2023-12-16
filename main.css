@@ -259,7 +259,3 @@ code {
 			min-width: 0;
 	}
 }
-
-body {
-	visibility: visible !important;
-}
