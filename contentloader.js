@@ -60,7 +60,7 @@ var footer = `
 <br>
 <a href="https://www.free-website-hit-counter.com/"><img src="https://www.free-website-hit-counter.com/c.php?d=6&id=160327&s=5" width="88"></a>
 <p>Website <copyleft></copyleft> 2023 toydotgame</p>
-<style>body { visibility:visible; }</style>
+<style>body { visibility:visible !important; }</style>
 `;
 
 /*
