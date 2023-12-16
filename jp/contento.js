@@ -1,30 +1,26 @@
 /*
  * AUTHOR: toydotgame
  * CREATED ON: 2023-12-16
- * Content-loading script so that I can update nav, header and footer,
- * etc all here and have it dynamically update across all pages.
+ * Content-loading script for JP pages.
  */
 
 document.getElementById("nav").innerHTML = `
-<div id="navpfp"></div><h1>toydotgame</h1>
-<a href="/home">home</a>
+<div id="navpfp"></div><h1>トイドットゲーム</h1>
+<a href="/jp/">トップ</a>
 |
-<a href="/blog/">blog</a>
+<a href="/jp/burogu/">ブログ</a>
 |
-<a href="/">card</a>
+<a href="/">カード（英語）</a>
 |
-<a href="/jp/">日本語</a>
+<a href="/home">English</a>
 <hr>
 `;
 
 var recentblogs = `
 <div id="recentblogs">
-<h1>Recent Blog Posts</h1>
+<h1>最新</h1>
 <ul>
-	<li><a href="/blog/2023-04-10_toypack"><b>2023-04-10:</b> ToyPack v1.13.6</a></li>
-	<li><a href="/blog/2023-04-05_pfpgallery"><b>2023-04-05:</b> A Gallery of all my Profile Pictures</a></li>
-	<li><a href="/blog/2023-04-05_myname"><b>2023-04-05:</b> The History of my names Online and Where "toydotgame" came From</a></li>
-	<li><a href="/blog/2023-04-04_sitev4"><b>2023-04-03:</b> This site gets rewritten for the 4th time!</a></li>
+	<li><a href="/jp/burogu/2023-04-04_saito4"><b>２０２３年０４月０４日:</b> このサイトが４回書き換えっています！</a></li>
 </ul>
 </div>
 `;
@@ -50,7 +46,7 @@ var footer = `
 <a href="https://donate.wikimedia.org/><img src="/media/badges/wikipedia.gif" width="88"></a>
 <br>
 <a href="https://www.free-website-hit-counter.com/"><img src="https://www.free-website-hit-counter.com/c.php?d=6&id=160327&s=5" width="88"></a>
-<p>Website &#x1F12F; 2023 toydotgame</p>
+<p>このサイトは &#x1F12F; ２０２３年 トイドットゲーム</p>
 `;
 
 try {

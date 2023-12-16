@@ -56,6 +56,10 @@ a:hover {
 	background-color: var(--acc);
 }
 
+ul {
+	list-style-position: inside;
+}
+
 /* NAVBAR */
 
 #nav {
@@ -109,6 +113,7 @@ a:hover {
 }
 
 #content > h1 {
+	text-align: left;
 	border-bottom: 1px solid var(--acc);
 	color: var(--acc);
 	font-family: "DM Serif Display", serif;
@@ -116,12 +121,14 @@ a:hover {
 
 h2#subtitle {
 	margin-bottom: 16px;
+	text-align: left;
 	font-size: 14px;
 	font-weight: normal;
 	color: var(--sec);
 }
 
 h2:not(#subtitle), h3, h4 {
+	text-align: left;
 	font-family: "DM Serif Display", serif;
 	color: var(--acc);
 }
@@ -131,7 +138,7 @@ h4 {
 }
 
 #content > p {
-	margin-bottom: 14px; /* Paragraph spacing */
+	margin: 7px 0; /* Paragraph spacing (14px between paragraphs, 7px below headings */
 }
 
 #content img:not([width]) {
@@ -164,6 +171,8 @@ pre, code {
 	background-color: var(--bg2);
 	word-wrap: break-word;
 	font-family: "Fira Mono", monospace;
+	tab-size: 4; /* For some reason this is the one thing Firefox ignores */
+	-moz-tab-size: 4;
 }
 
 code {
@@ -173,6 +182,10 @@ code {
 }
 
 /* FOOTER */
+
+#blogfooter > #recentblogs {
+	display: none; /* Don't display recent articles on the footer of the blog listing page */
+}
 
 #footer {
 	margin: 16px 0;
@@ -197,10 +210,6 @@ code {
 	border-bottom: 1px solid var(--acc);
 	font-family: "DM Serif Display", serif;
 	font-size: 24px;
-}
-
-#recentblogs > ul {
-	list-style-position: inside;
 }
 
 #recentblogs li::marker {

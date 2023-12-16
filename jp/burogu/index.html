@@ -2,13 +2,12 @@
 
 <!--
 	AUTHOR: toydotgame
-	CREATED ON: 2023-10-15
-	JP blog index.
+	CREATED ON: 2023-12-16
+	JP generic page.
 -->
 
 <html>
 	<head>
-		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBKZKBJ0PJ"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -16,7 +15,8 @@
 			gtag('js', new Date());
 			gtag('config', 'G-PBKZKBJ0PJ');
 		</script>
-		<meta charset="UTF-8"> 
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="/main.css" />
 		<title>ブログ – トイドットゲーム</title>
 		<meta property="og:type" content="website">
@@ -24,30 +24,20 @@
 		<meta property="og:title" content="ブログ">
 		<meta name="description" content="時々に書きます。">
 		<meta property="og:description" content="時々に書きます。">
+		<meta name="viewport" content="width=device-width">
+		<script src="/jp/contento.js" defer></script>
 	</head>
 	<body>
-		<aside>
-			<h1><a href="/" title="（英語で）私のカード">トイドットゲーム</a></h1>
-			<a href="/jp/home"><br>トップページ</a>
-			<a href=""><br>ブログ</a>
-			<hr>
-			<iframe src="/jp/sidebar.html" scrolling="no" frameborder="0"></iframe>
-		</aside>
-		<header>
-			書いた: ２０２３年０４月０５日<br>
-			更新した: まだしない
-			<a id="headerlink" href="/jp/home"><br>トップページ</a>
-		</header>
+		<div id="nav"></div>
 		<div id="content">
 			<h1>ブログ</h1>
+			<h2 id="subtitle">書いた: <b>２０２３年０４月０５日</b> &centerdot; 更新した: <b>まだしない</b></h2>
 			<p>時々に書きます。でも、私は日本語下手があります。だから書きにくいです。私は何時かに日本語でたくさん記事と口コミを書きたいです。今に書きませんでした。</p>
 			<h2>２０２３年</h2>
 			<ul>
-				<li><a href="/jp/blog/2023-04-04_sitev4"><b>２０２３年０４月０４日:</b> このサイトが４回書き換えっています！</a></li>
+				<li><a href="/jp/burogu/2023-04-04_saito4"><b>２０２３年０４月０４日:</b> このサイトが４回書き換えっています！</a></li>
 			</ul>
 		</div>
-		<footer>
-			このサイトは © ２０２３年 トイドットゲーム
-		</footer>
+		<div id="blogfooter"></div>
 	</body>
 </html>

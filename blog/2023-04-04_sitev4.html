@@ -2,13 +2,12 @@
 
 <!--
 	AUTHOR: toydotgame
-	CREATED ON: 2023-04-04
-	Blog page.
+	CREATED ON: 2023-12-16
+	Generic page.
 -->
 
 <html>
 	<head>
-		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBKZKBJ0PJ"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -16,7 +15,8 @@
 			gtag('js', new Date());
 			gtag('config', 'G-PBKZKBJ0PJ');
 		</script>
-		<meta charset="UTF-8"> 
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="/main.css" />
 		<title>This site gets rewritten for the 4th time! – toydotgame</title>
 		<meta property="og:type" content="website">
@@ -24,22 +24,14 @@
 		<meta property="og:title" content="This site gets rewritten for the 4th time!">
 		<meta name="description" content="Yeah.">
 		<meta property="og:description" content="Yeah.">
+		<meta name="viewport" content="width=device-width">
+		<script src="/contentloader.js" defer></script>
 	</head>
 	<body>
-		<aside>
-			<h1><a href="/" title="My Card">toydotgame</a></h1>
-			<a href="/home"><br>Home</a>
-			<a href="/blog/"><br>Blog</a>
-			<hr>
-			<iframe src="/media/sidebar.html" scrolling="no" frameborder="0"></iframe>
-		</aside>
-		<header>
-			Written: 2023-04-04<br>
-			Last Edited: 2023-04-05
-			<a id="headerlink" href="/home"><br>Home</a>
-		</header>
+		<div id="nav"></div>
 		<div id="content">
 			<h1>This site gets rewritten for the 4th time!</h1>
+			<h2 id="subtitle">Written: <b>2023-04-04</b> &centerdot; Last Updated: <b>2023-04-05</b></h2>
 			<img class="fright" width="50%" src="/media/blog/2023-04-04_sitev4_tslsitev1.png" />
 			<p>Yeah. This is the fourth time I've done this. To be fair, the first edition of my site was in 2017 and was based off of my first ever "Hello, world!" page in HTML; obviously, it was bad. (See inset image)</p>
 			<p>Rewrites 2 and 3 used GitHub Pages' Jekyll static site generator. They actually weren't that bad, web-design speaking, but I've rewritten the site again using my own code because I think it's just better. No frameworks, therefore no bloat, right? (I do apologise as this idea sounds pretty weak given that my CSS code I've just finished writing now for this page is uh…not the greatest. (I just discovered the <code>calc()</code> function in CSS))</p>
@@ -54,8 +46,6 @@
 			<p>After publishing this, I'm thinking of importing my old "blog" posts and stuff from previous site designs, just so the current thing I've got set up doesn't feel void of content – and also because I believe strongly in the archival of all internet content. (Currently there are a few Wayback snapshots of my old articles but they're pretty inaccessible for most)</p>
 			<p>I like blogging. Usually <a href="https://twitter.com/toydotgame">I tweet</a>, but Twitter is a short-form blogging service, and short-form content social medias kinda suck. I never really got into Tumblr blogging either, as I started using Tumblr past its hayday of blogging; Tumblr has a really different culture nowadays and blogging just doesn't fit right on there imo. Having my own blog on my own site is nice. I'd be lucky to get one person to actually read 50% of a single article, but that's fine. It's nice to scream into the void sometimes.</p>
 		</div>
-		<footer>
-			Website © 2023 toydotgame
-		</footer>
+		<div id="footer"></div>
 	</body>
 </html>

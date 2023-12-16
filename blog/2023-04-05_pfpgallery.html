@@ -2,13 +2,12 @@
 
 <!--
 	AUTHOR: toydotgame
-	CREATED ON: 2023-04-05
-	Blog page.
+	CREATED ON: 2023-12-16
+	Generic page.
 -->
 
 <html>
 	<head>
-		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBKZKBJ0PJ"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
@@ -16,7 +15,8 @@
 			gtag('js', new Date());
 			gtag('config', 'G-PBKZKBJ0PJ');
 		</script>
-		<meta charset="UTF-8"> 
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" href="/main.css" />
 		<title>A Gallery of all my Profile Pictures – toydotgame</title>
 		<meta property="og:type" content="website">
@@ -24,22 +24,14 @@
 		<meta property="og:title" content="A Gallery of all my Profile Pictures">
 		<meta name="description" content="I've had a few profile pictures over the years.">
 		<meta property="og:description" content="I've had a few profile pictures over the years.">
+		<meta name="viewport" content="width=device-width">
+		<script src="/contentloader.js" defer></script>
 	</head>
 	<body>
-		<aside>
-			<h1><a href="/" title="My Card">toydotgame</a></h1>
-			<a href="/home"><br>Home</a>
-			<a href="/blog/"><br>Blog</a>
-			<hr>
-			<iframe src="/media/sidebar.html" scrolling="no" frameborder="0"></iframe>
-		</aside>
-		<header>
-			Written: 2023-04-05<br>
-			Last Edited: 2023-08-14
-			<a id="headerlink" href="/home.html"><br>Home</a>
-		</header>
+		<div id="nav"></div>
 		<div id="content">
 			<h1>A Gallery of all my Profile Pictures</h1>
+			<h2 id="subtitle">Written: <b>2023-04-05</b> &centerdot; Last Updated: <b>2023-08-14</b></h2>
 			<p>I've had a few profile pictures over the years. I have no idea if or what I had on my older accounts, but since 2017, most things are relatively well-documented.</p>
 			<br>
 			<h3>Ravenclaw (2017)</h3>
@@ -72,8 +64,6 @@
 			<img class="fleft" width="30%" src="/media/blog/2023-04-05_pfp4tech.png" />
 			<p><b>Update </b>(2023-08-14)<b>:</b> <a href="https://namemc.com/skin/b22cbb133dd1bf77" title="NameMC - toydotgame Minecraft Skin">Oops! All furries!</a> I updated my Minecraft skin and so thus the trend continues. The skin is named "4Tech" in honour of the player I took the most inspiration from when making the source skin – 4TechM. This skin is my fursona, Nitrogen. Maybe I'll write about them the one day I decide to be that mundane.</p>
 		</div>
-		<footer>
-			Website © 2023 toydotgame
-		</footer>
+		<div id="footer"></div>
 	</body>
 </html>
