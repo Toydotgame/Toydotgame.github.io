@@ -31,6 +31,7 @@ html {
 
 body {
 	color: var(--pri);
+	background-color: var(--bg1); /* Fallback */
 	background-image: linear-gradient(var(--bg1), var(--bg2));
 		background-size: cover;
 }
