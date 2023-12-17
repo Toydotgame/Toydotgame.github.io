@@ -1,190 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Display:ital@1&family=Fira+Mono&family=Ubuntu:wght@400;700&display=swap');
-
-/* AUTHOR: toydotgame
- * CREATED ON: 2023-04-03
- * Old main.css:
+/*
+	AUTHOR: toydotgame
+	CREATED ON: 2023-12-17
+	V2 card CSS. Note: footer is not sticky.
+	Assumes that there is enough content at the max width of 700px
+	so that the footer is always at the bottom of the viewport.
  */
-
-:root {
-	--background-color: #1c1c1c;
-	--accent-color: #b29abb;
-	--text-color: #fff;
-	--secondarytext-color: #ccc;
-	--link-color: #5865f2; /* Stole new Discord Blurple. */
-	--padding: 5vh;
-	--title-size: 8vh;
-	--text-size: 3vh;
-}
-
-@media only screen and (orientation: portrait) {
-	:root {
-		--padding: 2vh;
-	}
-}
 
 body {
-	font-family: "Ubuntu", sans-serif;
-	font-size: var(--text-size);
-	text-align: justify;
-	color: var(--text-color);
-	word-wrap: break-word;
-}
-
-h1, h2 {
-	font-family: "DM Serif Display", serif;
-	color: var(--accent-color);
-	font-size: var(--title-size);
-	text-align: center;
-	border-bottom: 3px ridge var(--accent-color);
-	padding-bottom: var(--padding);
-}
-
-a {
-	color: var(--link-color);
-	text-decoration: none;
-	text-shadow: 0.5vh 0.5vh 1vh #5865f260;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-.avatar {
-	border-radius: 50%;
-	width: 10vh;
-	display: block;
-}
-
-footer {
-	margin-top: var(--padding);
-	text-align: center;
-	color: var(--secondarytext-color);
-	-webkit-text-stroke: 0.3px black;
-	text-shadow: 0px 0px 1vh #000;
-}
-
-/* AUTHOR: toydotgame, Brad Taunt (for the code from https://bt.ht/aui/)
- * CREATED ON: 2023-04-03
- * Styles for the index page, kind of a carrd ripoff. Overwrites the main.css styles, if any, for certain elements.
- */
-
-:root {
-	--card-width: 50vw;
-	--background-color: #1c1c1cee; /* Overwriting main.css' value. */
-	--button-color: #8e48a8;
-	--border-width: 3px;
-	--buttontext-size: 6vh;
-}
-
-html {
-	background-image: url("media/background.jpg");
-	background-color: var(--background-color);
+	background-image: url("/media/background.jpg");
 	background-repeat: repeat;
 	background-attachment: fixed;
 	background-position: center bottom;
-	background-size: auto 100vh;
+	background-size: cover;
 }
 
-/* Changes scaling when the vw is greater than the 4:3 ratio of the bg image. */
-@media only screen and (min-width: 133vh) {
-	html {
-		background-size: 100vw auto;
-	}
+#card {
+	width: 60%;
+		min-width: 600px;
+		max-width: 700px;
+	margin: 48px auto;
+	padding: 14px;
+	border: 2px solid var(--acc);
+		border-radius: 35px;
+	background-color: color-mix(in srgb, var(--bg1), transparent 10%);
+		backdrop-filter: blur(5px);
 }
 
-#content {
-	margin: calc(2 * var(--padding)) auto 0vh auto;
-	padding: 0vh var(--padding) 0vh var(--padding);
-	width: var(--card-width);
-	border: calc(2 * var(--border-width)) inset var(--accent-color);
-	border-radius: 30px;
-	background-color: var(--background-color);
-}
-
-@media only screen and (orientation: portrait) {
-	#content {
-		margin: 0vh auto 0vh auto;
-		padding: 2vh var(--padding) 2vh var(--padding);
-		width: calc(100% - 2 * var(--padding));
-		border: none;
-		border-radius: 0px;
-	}
-
-	footer {
-		background-color: var(--background-color);
-	}
-
-	.avatar {
-		margin-top: 0vh !important;
-	}
-}
-
-.avatar {
-	width: 20vh;
-	margin: var(--padding) auto 0vh auto; /* Copy padding consistency from #content element. */
-	border: calc(2 * var(--border-width)) double var(--accent-color);
-
-	transition: transform 0.2s ease-in-out;
-}
-
-.avatar:hover {
-	transform: rotate(360deg) scale(0.95);
+#pfp {
+	width: 25%;
+	float: left;
+	margin: 0 14px 14px 0;
+	border-radius: 100%;
+	box-shadow: 7px 7px 5px #00000080;
 }
 
 h1 {
-	text-shadow: 0.5vh 0.5vh 1vh #b29abb60;
+	width: calc(75% - 14px);
+	float: right;
+	margin-bottom: 7px;
+	padding: 0 7px;
+	font-family: "Cookie";
+	font-size: 64px;
+	color: var(--acc);
+	border-bottom: 1px solid var(--acc);
 }
 
-.button {
-	display: block;
-	width: calc(var(--card-width) - var(--padding));
-	height: calc(2 * var(--buttontext-size) + 2);
-	background-color: #c7c7c7;
-    border-radius: 125px;
-    box-shadow: inset 0 13px 25px rgba(128,128,128,0.5), 0 3px 5px rgba(0,0,0,0.2), 0 10px 13px rgba(0,0,0,0.5);
-	font-family: "Open Sans", sans-serif;
-	font-size: var(--buttontext-size);
-    cursor: pointer;
-	margin: 0vh 0vh var(--padding) 0vh;
-    padding: 1.2rem 1rem;
-    position: relative;
-    transition: all 0.2s ease-in-out;
-	font-weight: bold;
-	text-align: center;
-	color: #000;
-	text-shadow: none;
+h1 > sup {
+	font-size: 14px;
 }
 
-@media only screen and (orientation: portrait) {
-	.button {
-		width: calc(100% - (8vh * var(--padding)));
+#footer {
+	margin: 0; /* Override main.css */
+		margin-top: 14px;
+	background-color: color-mix(in srgb, var(--bg1), transparent 10%);
+		backdrop-filter: blur(5px);
+	box-shadow: 0 0 5px 5px var(--bg1);
+}
+
+heart::before {
+	content: "♥";
+}
+
+heart { /* Heart emoji pseudo-tag */
+	display:inline;
+	color:#964594;
+}
+
+hr {
+	margin: 5px 0;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 640px) {
+	#card {
+		width: calc(100% - 40px);
+			min-width: 0;
+		margin: 20px;
+		border-radius: 20px;
+	}
+
+	#pfp {
+		display: block;
+		float: none;
+		margin: 0 auto;
+	}
+
+	h1 {
+		width: 100%;
+		float: none;
+		text-align: center;
 	}
 }
 
+/* BUTTON STYLING - https://bt.ht/aui/ */
+
+.button:before {
+	content: "";
+	position: absolute;
+		width: 92%;
+		height: 60%;
+		left: 4%;
+		top: 0;
+		z-index: 1;
+	background: linear-gradient(#ffffffbf, #ffffff00);
+	border-radius: 125px;
+}
+
+.button {
+	position: relative;
+	display: block;
+	min-height: 70px;
+	margin: 7px 0;
+	padding: 19px 64px;
+	background: #d0d0d0;
+	border: 1px solid #b8b8b8;
+		border-radius: 125px;
+	box-shadow: inset 0 13px 25px #1c1c1c80,
+					  0 3px 5px #00000032,
+					  0 10px 13px #00000019;
+	cursor: pointer;
+	font-family: "Helvetica", "Arial", sans-serif;
+		font-size: 32px;
+	text-align: center;
+	transition: all ease 0.1s;
+	color: #1c1c1c;
+}
+
 .button:hover {
-    background: var(--button-color);
-	color: var(--text-color);
-	transform: scale(1.05);
+	box-shadow: inset 0 13px 25px var(--acc),
+					  0 3px 5px #00000032,
+					  0 10px 13px #00000032;
+	background-color: #8e48a8;
+	transform: scale(1.01);
+	color: var(--sec);
 	text-decoration: none;
 }
 
-.button:hover > .buttonsvg {
-	filter: invert(100%);
+.svg {
+	position: relative;
+	float: left;
+	height: 42px;
+	top: -4px;
 }
 
-.button:before {
-    background: linear-gradient(rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    border-radius: 125px;
-    content: "";
-    height: 7vh;
-    left: 4%;
-    position: absolute;
-    top: 1px;
-    transition: all 0.2s ease-in-out;
-    width: 92%;
-}
+@media only screen and (max-width: 640px) {
+	/* Fixes buttons on mobile but isn't a smooth transition when changing viewport width.
+	 * No, I'm not bothered to fix it */
+	.button:before {
+		width: 85%;
+		left: 7.5%;
+	}
 
-.buttonsvg {
-	width: var(--buttontext-size);
-	margin-right: 0.5em;
+	.button {
+		font-size: 5vw;
+	}
 }
