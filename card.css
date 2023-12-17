@@ -116,6 +116,7 @@ summary {
 		width: 100%;
 		float: none;
 		text-align: center;
+		font-size: min(64px, 12vw);
 	}
 }
 
