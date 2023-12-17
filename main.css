@@ -70,6 +70,10 @@ copyleft {
 	transform: rotateY(180deg);
 }
 
+small {
+	color: var(--sec);
+}
+
 /* NAVBAR */
 
 #nav {
@@ -232,6 +236,7 @@ code {
 }
 
 /* RESPONSIVE */
+
 @media only screen and (max-width: 600px) {
 	#nav {
 		width: 100%;
