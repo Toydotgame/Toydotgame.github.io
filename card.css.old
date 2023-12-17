@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Display:ital@1&family=Fira+Mono&family=Ubuntu:wght@400;700&display=swap');
+
+/* AUTHOR: toydotgame
+ * CREATED ON: 2023-04-03
+ * Old main.css:
+ */
+
+:root {
+	--background-color: #1c1c1c;
+	--accent-color: #b29abb;
+	--text-color: #fff;
+	--secondarytext-color: #ccc;
+	--link-color: #5865f2; /* Stole new Discord Blurple. */
+	--padding: 5vh;
+	--title-size: 8vh;
+	--text-size: 3vh;
+}
+
+@media only screen and (orientation: portrait) {
+	:root {
+		--padding: 2vh;
+	}
+}
+
+body {
+	font-family: "Ubuntu", sans-serif;
+	font-size: var(--text-size);
+	text-align: justify;
+	color: var(--text-color);
+	word-wrap: break-word;
+}
+
+h1, h2 {
+	font-family: "DM Serif Display", serif;
+	color: var(--accent-color);
+	font-size: var(--title-size);
+	text-align: center;
+	border-bottom: 3px ridge var(--accent-color);
+	padding-bottom: var(--padding);
+}
+
+a {
+	color: var(--link-color);
+	text-decoration: none;
+	text-shadow: 0.5vh 0.5vh 1vh #5865f260;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.avatar {
+	border-radius: 50%;
+	width: 10vh;
+	display: block;
+}
+
+footer {
+	margin-top: var(--padding);
+	text-align: center;
+	color: var(--secondarytext-color);
+	-webkit-text-stroke: 0.3px black;
+	text-shadow: 0px 0px 1vh #000;
+}
+
+/* AUTHOR: toydotgame, Brad Taunt (for the code from https://bt.ht/aui/)
+ * CREATED ON: 2023-04-03
+ * Styles for the index page, kind of a carrd ripoff. Overwrites the main.css styles, if any, for certain elements.
+ */
+
+:root {
+	--card-width: 50vw;
+	--background-color: #1c1c1cee; /* Overwriting main.css' value. */
+	--button-color: #8e48a8;
+	--border-width: 3px;
+	--buttontext-size: 6vh;
+}
+
+html {
+	background-image: url("media/background.jpg");
+	background-color: var(--background-color);
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: center bottom;
+	background-size: auto 100vh;
+}
+
+/* Changes scaling when the vw is greater than the 4:3 ratio of the bg image. */
+@media only screen and (min-width: 133vh) {
+	html {
+		background-size: 100vw auto;
+	}
+}
+
+#content {
+	margin: calc(2 * var(--padding)) auto 0vh auto;
+	padding: 0vh var(--padding) 0vh var(--padding);
+	width: var(--card-width);
+	border: calc(2 * var(--border-width)) inset var(--accent-color);
+	border-radius: 30px;
+	background-color: var(--background-color);
+}
+
+@media only screen and (orientation: portrait) {
+	#content {
+		margin: 0vh auto 0vh auto;
+		padding: 2vh var(--padding) 2vh var(--padding);
+		width: calc(100% - 2 * var(--padding));
+		border: none;
+		border-radius: 0px;
+	}
+
+	footer {
+		background-color: var(--background-color);
+	}
+
+	.avatar {
+		margin-top: 0vh !important;
+	}
+}
+
+.avatar {
+	width: 20vh;
+	margin: var(--padding) auto 0vh auto; /* Copy padding consistency from #content element. */
+	border: calc(2 * var(--border-width)) double var(--accent-color);
+
+	transition: transform 0.2s ease-in-out;
+}
+
+.avatar:hover {
+	transform: rotate(360deg) scale(0.95);
+}
+
+h1 {
+	text-shadow: 0.5vh 0.5vh 1vh #b29abb60;
+}
+
+.button {
+	display: block;
+	width: calc(var(--card-width) - var(--padding));
+	height: calc(2 * var(--buttontext-size) + 2);
+	background-color: #c7c7c7;
+    border-radius: 125px;
+    box-shadow: inset 0 13px 25px rgba(128,128,128,0.5), 0 3px 5px rgba(0,0,0,0.2), 0 10px 13px rgba(0,0,0,0.5);
+	font-family: "Open Sans", sans-serif;
+	font-size: var(--buttontext-size);
+    cursor: pointer;
+	margin: 0vh 0vh var(--padding) 0vh;
+    padding: 1.2rem 1rem;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+	font-weight: bold;
+	text-align: center;
+	color: #000;
+	text-shadow: none;
+}
+
+@media only screen and (orientation: portrait) {
+	.button {
+		width: calc(100% - (8vh * var(--padding)));
+	}
+}
+
+.button:hover {
+    background: var(--button-color);
+	color: var(--text-color);
+	transform: scale(1.05);
+	text-decoration: none;
+}
+
+.button:hover > .buttonsvg {
+	filter: invert(100%);
+}
+
+.button:before {
+    background: linear-gradient(rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 7vh;
+    left: 4%;
+    position: absolute;
+    top: 1px;
+    transition: all 0.2s ease-in-out;
+    width: 92%;
+}
+
+.buttonsvg {
+	width: var(--buttontext-size);
+	margin-right: 0.5em;
+}

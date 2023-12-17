@@ -67,7 +67,19 @@ heart { /* Heart emoji pseudo-tag */
 }
 
 hr {
+	display: block;
+	width: 100%;
 	margin: 5px 0;
+}
+
+h3 {
+	text-align: center;
+}
+
+summary::marker, summary::-webkit-details-marker {
+	content: "(click)";
+	font-size: 12px;
+	color: var(--sec);
 }
 
 /* RESPONSIVE */
@@ -110,7 +122,7 @@ hr {
 .button {
 	position: relative;
 	display: block;
-	min-height: 70px;
+	height: 70px;
 	margin: 7px 0;
 	padding: 19px 64px;
 	background: #d0d0d0;
@@ -120,7 +132,7 @@ hr {
 					  0 3px 5px #00000032,
 					  0 10px 13px #00000019;
 	cursor: pointer;
-	font-family: "Helvetica", "Arial", sans-serif;
+	/*font-family: "Helvetica", "Arial", sans-serif;*/
 		font-size: 32px;
 	text-align: center;
 	transition: all ease 0.1s;
@@ -153,6 +165,7 @@ hr {
 	}
 
 	.button {
+		padding-left: 7.5%;
 		font-size: 5vw;
 	}
 }
