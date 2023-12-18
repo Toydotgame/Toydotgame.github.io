@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Display:ital@1&family=Fira+Mono&family=Ubuntu&display=swap');
-
 /* 
  * AUTHOR: toydotgame
  * CREATED ON: 2023-12-16
@@ -13,6 +11,20 @@
 	--pri: #fff;
 	--sec: #ccc;
 	--lnk: #5865f2;
+}
+
+@font-face {
+	font-family: "Cookie";
+	src: url("/media/fonts/Cookie-reg.ttf");
+} @font-face {
+	font-family: "DM Serif Display";
+	src: url("/media/fonts/DM-Serif-ita.ttf");
+} @font-face {
+	font-family: "Fira Mono";
+	src: url("/media/fonts/Fira-Mono-reg.ttf");
+} @font-face {
+	font-family: "Ubuntu";
+	src: url("/media/fonts/Ubuntu-reg.ttf");
 }
 
 /* GENERIC */
