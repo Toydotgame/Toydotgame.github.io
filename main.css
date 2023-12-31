@@ -221,6 +221,32 @@ blockquote {
 	font-style: italic;
 }
 
+/* IMAGE MODAL, child of #content */
+
+#modaldim {
+	position: fixed;
+	display: none;
+	padding: 5%;
+	width: 100%;
+	height: 100%;
+		top: 0;
+		left: 0;
+	background-color: color-mix(in srgb, var(--bg2), transparent 10%);
+		backdrop-filter: blur(5px);
+	text-align: center;
+}
+
+#modalimg {
+	/* Reset styles from normal imgs on the page */
+	margin: 0 !important;
+	border: 0 !important;
+		border-radius: 0 !important;
+	
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
 /* FOOTER */
 
 #blogfooter > #recentblogs {
@@ -279,8 +305,8 @@ blockquote {
 		text-align: left;
 	}
 
-	#content > img {
-		width: 100% !important; /* Gotta override hardcoded HTML widths */
+	#modaldim {
+		padding: 0;
 	}
 }
 
