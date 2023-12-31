@@ -207,6 +207,10 @@ code {
 	color: var(--sec);
 }
 
+a > code {
+	color: var(--lnk);
+}
+
 /* FOOTER */
 
 #blogfooter > #recentblogs {
