@@ -30,7 +30,7 @@ var recentblogs = `
 var footer = `
 <br>
 <a href="https://www.free-website-hit-counter.com/"><img src="https://www.free-website-hit-counter.com/c.php?d=6&id=160327&s=5" width="88"></a>
-<p>このサイトは <copyleft></copyleft> ２０２３年 トイドットゲーム</p>
+<p>このサイトは <copyleft></copyleft> ２０２４年 トイドットゲーム</p>
 `;
 
 try {
