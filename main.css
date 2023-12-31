@@ -277,7 +277,11 @@ blockquote {
 		width: 100%;
 			min-width: 0;
 		text-align: left;
-	}	
+	}
+
+	#content > img {
+		width: 100% !important; /* Gotta override hardcoded HTML widths */
+	}
 }
 
 /*
