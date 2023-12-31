@@ -69,7 +69,7 @@ a:hover {
 	background-color: var(--acc);
 }
 
-ul {
+ol, ul {
 	list-style-position: inside;
 }
 
