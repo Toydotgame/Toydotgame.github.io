@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<!--
+	AUTHOR: toydotgame
+	CREATED ON: 2023-12-16
+	Generic page.
+-->
+
+<html>
+	<head>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PBKZKBJ0PJ"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-PBKZKBJ0PJ');
+		</script>
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/main.css">
+		<title>Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks – toydotgame</title>
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="toydotgame">
+		<meta property="og:title" content="Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks">
+		<meta name="description" content="You might have noticed that your silver-age Minecraft server crashes with more than one player online? Why?">
+		<meta property="og:description" content="You might have noticed that your silver-age Minecraft server crashes with more than one player online? Why?">
+		<meta name="viewport" content="width=device-width">
+		<script src="/contentloader.js" type="module"></script>
+	</head>
+	<body>
+		<div id="nav"></div>
+		<div id="content">
+			<h1>Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks</h1>
+			<h2 id="subtitle">Written: <b>2024-01-01</b> &centerdot; Last Updated: <b>Never</b></h2>
+			<p>You might have noticed that your silver-age Minecraft server crashes with more than one player online? Why? Let me tell.</p>
+			<h2>Background</h2>
+			<p>So to set the story, I run a Minecraft server. This was in 2021, back when the server ran on the gimmick of it being on Release 1.6.4. In order to run the server at a decent speed on the poor hardware I had, I employed the use of Spigot – which gave me better performance and access to plugins. Spigot is a fork (derivative software) of Bukkit, which itself can be boiled down to the vanilla Minecraft server software plus plugin functionality. Spigot is like the faster cooler big brother of Bukkit that everyone actually uses. It was the case then and it still is the case now (although now Paper is a more popular server, but again, Paper is a Spigot fork so it all stems back to the same place). Stories for later, though.</p>
+			<p>What happened was this: It was mid-January 2021 (this is an important part of the issue), and I was playing on my Minecraft server. It's just me online. I see that my friend joins the game in the chat. All of a sudden, it's as if my ping is 1 million – chunks won't load, blocks won't break, etc. I time out and get kicked. I checked the server log and I see a <code>java.lang.ArrayIndexOutOfBoundsException</code> and a stack trace showing me what crashed the server.</p>
+			<h2>Alright, so how does the bug work?</h2>
+			<small>Quick disclaimer: I'm talking about 11 year old code here. Most of it is indistinguishable now from what it was in the day.</small>
+			<p>An out of bounds exception is a pretty strange thing to see when you're just playing on a Minecraft server and not working on plugins or anything. Turns out the key to this whole debacle is the date. My explanation of this bug follows the <a href="https://www.spigotmc.org/threads/arrayindexoutofboundsexception.14826/">official SpigotMC announcement</a> made shortly after a patch was released.</p>
+			<p>So, computers usually store time as a UNIX timestamp, which is a signed 64-bit integer that counts the number of seconds since midnight on January 1<sup>st</sup>, 1970, UTC (for the sake of simplicity: it's similar to London time). As of writing, the Unix time is <code>1704040880</code> – 1,704,040,880 seconds since 1970. How big is a 64-bit signed integer you may ask? 292 billion years long.<sup><a href="#1">[1]</a></sup> <i>"Good enough" for most intents and purposes.</i> Spigot, on the other hand, stores time using Minecraft ticks (1/20<sup>th</sup>s of a second since the server started for the first time), as a 32-bit integer – that famous 2.147 billion number. i.e: 107,350,00 seconds (~3.5 years).</p>
+			<p>What actually caused the crash is a Spigot feature, one that [basically] sends a player's ping to all other online players. The current list of online players is stored as an array in memory.</p>
+			<small>If you want to know, the code that casts the <code>ArrayIndexOutOfBoundsException</code> is <a href="https://hub.spigotmc.org/stash/projects/SPIGOT/repos/craftbukkit/browse/nms-patches/net/minecraft/server/players/PlayerList.patch?until=1dced6a2c58fa1113fb2c123c8f066991fd73d8b&untilPath=nms-patches%2FPlayerList.patch#788"><code>PlayerList#tick</code></a>.</small>
+			<p>Spigot gets ticks based on some Bukkit code:<sup><a href="#2">[2]</a></sup>
+<pre>
+MinecraftServer.currentTick = (int) (System.currentTimeMillis() / 50);
+</pre>
+			What this code does is that it gets the current Unix timestamp (in milliseconds, stored as a <code>long</code> (64-bit)), divides it by 50, and then casts it to an <code>int</code>. In Java, when you use a cast to convert an object to a different type, it converts things. How well does Java convert things? It chops. It chops and chops. It basically gets that system time, and just chops down that 64-bit number it calculated and shoves it into a 32-bit variable.</p>
+			<p>The SpigotMC announcement can state the pretty glaring issue I'm sure you see now:<sup><a href="#3">[3]</a></sup>
+			<blockquote>
+				This means that every so often (roughly every 7 years) it will overflow, making the server state that the current tick is negative. Whilst this likely causes some of the code within the server to malfunction the tick it overflows […], it doesn't really cause any other issues with stock behavior. Unfortunately however, our tab list patch expected this variable to be always positive (it is currentTick after all!). Once this variable became negative, we would try and look up negative indexes in the player list, causing a crash.
+			</blockquote>
+			That's it. It looks for some Array at index <code>-1</code>, obviously Java only wants positive integers as an argument for array index, it throws an out of bounds, the server has no way to catch it due to it being such an out-of-left-field bug, and therefore stack traces be a-printin' and <code>[SEVERE]</code> error messages be a-goin' and all of a sudden before you know it your server has died.</p>
+			<h2>The Resolution</h2>
+			<p>This was an incredibly painful bug to research, and finding the following in that SpigotMC article was a nice surprise to see just how hard the figurative Minecraft-server-strange-crash-diagnosis nail had been hit on its head:<sup><a href="#3">[3]</a></sup>
+			<blockquote>
+				This happened at exactly Wed, 26 Mar 2014 20:06:11 UTC: at Unix time 1395864371199 all was good, however at 1395864371200 it overflowed and became negative. This overflow will happen again at 14 Jan 2021 08:25:36 GMT
+			</blockquote>
+			This was great because on the 12<sup>th</sup> or 13<sup>th</sup> (IIRC), I had been playing fine on the server, and then all of a sudden it broke.</p>
+			<p><b>Alright, so how do I fix it?</b> Well, this is the jank part. Given the severity of this bug, despite Spigot support being at the latest version (1.7), a patch was backported to 1.6.4 server owners and a binary was distributed with said hotfix. Unfortunately, Time has not treated this kindly. All three mirrors are lost media as far as I'm concerned, and I spent a <i>good</i> deal of time looking. So how did I fix it? Well, I would just reset the server's date to a time when it did work:</p>
+			<h3>Windows</h3>
+			<code>setdate.bat</code>:
+<pre>
+@echo off
+date 01-01-2018
+</pre>
+			<p>(Then go into Windows' Task Scheduler and set the script to run on 2021-01-01)</p>
+			<h3>Linux</h3>
+			<code>setdate.sh</code>:
+<pre>
+sudo timedatectl set-date "2018-01-01 00:00:00"
+</pre>
+<pre>
+$ chmod +x setdate.sh
+# timedatectl set-ntp 0
+# crontab -e
+</pre>
+			<p>(Create a cron job to run <code>setdate.sh</code> on 2021-01-01)</p>
+			<p>This is how I was reminded of this article. I had a calendar entry set for today (2024-01-01) to check that the script had executed correctly, as by 1 January 2024 (real world time), the server's time would have reached 1 January 2021. It was just a reminder to check that the scheduled task had worked and that the year was back to 2018.</p>
+			<p>This is a long-since forgotten thing for me. I moved to latest-release Paper (Spigot) in 2022 and then to Fabric a few months after. Past 1.8 on Bukkit/Spigot this just isn't a problem in the first place, but for builds before then it is. I hope Google indexes this page so that this fix becomes available to whichever server owner is currently going through Hell to find an answer/diagnosis to this strange bug.</p>
+			<h2>Post-Script on the DMCA Drama</h2>
+			<p>If you don't know, in 2014 a user by the name of Wolvereness submitted a takedown request to the Bukkit and Spigot GitHub repositories (among other things IIRC)<sup><a href="#4">[4]</a></sup> under personal copyright protections via the DMCA. To boil down the complex situation that unfolded to real basic stuff: Mojang's EULA prohibits redistribution of Mojang code (including the vanilla server software's code), whereas Bukkit/Spigot were licensed under the GNU GPL and LGPL respectively. One notable thing with GPL is that all code under that license is kinda irrevocably GNU-"freed" – which the Mojang EULA does not permit. What happened was that Mojang code (<u>under the Mojang EULA, <b>not</b> the GPL</u>) ended up in Bukkit, which by Mojang's rule was "not authorised."<sup><a href="#4">[4]</a></sup> Having proprietary code in the Bukkit project really meant that Mojang's EULA in theory had taken precedence and effectively "stole" the entire codebase of Bukkit, an open-source project. As counter to this action, Wolvereness filed a DMCA takedown of all Bukkit (and derivative) code online under personal copyright protections – as the community had written the code for Bukkit and thus it was covered under some personal copyright legislation I won't even <i>begin</i> to understand, parse, or explain.</p>
+			<p>To say the Minecraft community did not take it lightly would be to underserve the sheer internet tidal wave of hatred that spewed forth in the following months. Wolvereness was effectively outcast due to seeking justice for the open-source integrity of Bukkit, due to the notable massive side-effect of many, many commits being DMCA'd and lost development. This very nearly killed Bukkit, and the developers and communities who used these programs were not happy at the guy who took it all away.</p>
+			<p>Fun fact: I've actually <a href="https://github.com/Wolvereness/Bukkit-Bleeding/commit/8d5b4c1e9acc499377da0d807e7ca2245d5c3bdf#commitcomment-46907070">talked to the guy</a>. Initially all I saw was him being the sole evil faceless figure that made my use of 1.6.4 Spigot software a painful and slow process due to the DMCA destroying many resources online. But after talking to him and in the long time that has passed and having read about it all then and now, I can see what he was standing for and as a believer and strong advocate for OSS myself, I see his actions as moral, correct, and ultimately a better choice than to let Mojang's proprietary grasp seep any further into these projects. The fact that this might be some kind of controversial take to the average Spigot server admin affected by the DMCA only speaks words about how one-sided things can be sometimes.</p>
+			<h2>Sources</h2>
+			<ol>
+				<li><a name="1" href="https://en.wikipedia.org/wiki/Unix_time#Range_of_representable_times">Wikipedia – Unix time</a></li>
+				<li><a name="2" href="https://hub.spigotmc.org/stash/projects/SPIGOT/repos/craftbukkit/browse/nms-patches/net/minecraft/server/MinecraftServer.patch?until=07e5dd5d594259f42e7fd42920bc45fb63a6c958&untilPath=nms-patches%2Fnet%2Fminecraft%2Fserver%2FMinecraftServer.patch#576">SpigotMC Stash – CraftBukkit /nms-patches/net/minecraft/server/MinecraftServer.patch</a></li>
+				<li><a name="3" href="https://www.spigotmc.org/threads/arrayindexoutofboundsexception.14826/">SpigotMC – ArrayIndexOutOfBoundsException</a></li>
+				<li><a name="4" href="https://github.com/github/dmca/blob/master/2014/2014-09-05-CraftBukkit.md">GitHub – dmca /2014/2014-09-05-CraftBukkit.md </a></li>
+			</ol>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>

@@ -21,11 +21,11 @@ var recentblogs = `
 <div id="recentblogs">
 <h1>Recent Blog Posts</h1>
 <ul>
+	<li><a href="/blog/2024-01-01_spigot-dating-sucks.html"><b>2024-01-01:</b> Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks</a></li>
 	<li><a href="/blog/2023-12-16_v5"><b>2023-12-16:</b> Site v5</a></li>
 	<li><a href="/blog/2023-04-10_toypack"><b>2023-04-10:</b> ToyPack v1.13.6</a></li>
 	<li><a href="/blog/2023-04-05_pfpgallery"><b>2023-04-05:</b> A Gallery of all my Profile Pictures</a></li>
 	<li><a href="/blog/2023-04-05_myname"><b>2023-04-05:</b> The History of my names Online and Where "toydotgame" came From</a></li>
-	<li><a href="/blog/2023-04-04_sitev4"><b>2023-04-03:</b> This site gets rewritten for the 4th time!</a></li>
 </ul>
 </div>
 `;
