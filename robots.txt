@@ -1,6 +1,4 @@
 User-agent: *
-Allow: /blog/*
-Allow: /jp/*
-Disallow: /media/blog/files*
-Disallow: /media/icons*
-Disallow: /template*
+Disallow: /media/*/
+Allow: /media/blog/
+Disallow: /template
