@@ -225,7 +225,7 @@ blockquote {
 	font-style: italic;
 }
 
-#table { /* Unfortunately requires a parent <div> to contain table */
+.table { /* Unfortunately requires a parent <div> to contain table */
 	display: block;
 	overflow-x: auto;
 }
