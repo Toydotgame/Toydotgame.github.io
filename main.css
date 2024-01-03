@@ -232,6 +232,7 @@ blockquote {
 
 table, th, td {
 	border: 1px solid var(--acc);
+	text-align: left;
 }
 
 th, td {
