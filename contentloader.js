@@ -25,20 +25,20 @@ var recentblogs = `
 <div id="recentblogs">
 <h1>Recent Blog Posts</h1>
 <ul>
+	<li><a href="/blog/2024-01-03_fs-measurements"><b>2024-01-03:</b> Digital Metric Unit Nomenclature for Dummies</a></li>
 	<li><a href="/blog/2024-01-01_web-design"><b>2024-01-01:</b> What's the deal with Modern Web Design?</a></li>
 	<li><a href="/blog/2024-01-01_spigot-dating-sucks"><b>2024-01-01:</b> Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks</a></li>
 	<li><a href="/blog/2023-12-16_v5"><b>2023-12-16:</b> Site v5</a></li>
 	<li><a href="/blog/2023-04-10_toypack"><b>2023-04-10:</b> ToyPack v1.13.6</a></li>
-	<li><a href="/blog/2023-04-05_pfpgallery"><b>2023-04-05:</b> A Gallery of all my Profile Pictures</a></li>
 </ul>
 </div>
 `;
 
 var badges = `
-<img src="/media/badges/toydotgame.png" width="88">
+<img src="/media/badges/toydotgame.gif" width="88">
 <img src="/media/badges/invalidator.gif" width="88">
 <img src="/media/badges/vcss-blue.gif" width="88">
-<a href="http://www.wtfpl.net/"><img src="/media/badges/wtfpl.png" width="88"></a>
+<a href="http://www.wtfpl.net/"><img src="/media/badges/wtfpl.gif" width="88"></a>
 <a href="https://thardwardy.github.io/"><img src="/media/badges/thardwardy.gif" width="88"></a>
 <img src="/media/badges/2019.gif" width="88">
 <a href="https://cyber.dabamos.de/88x31/"><img src="/media/badges/88x31.gif" width="88"></a>

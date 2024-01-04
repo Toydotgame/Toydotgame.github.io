@@ -73,6 +73,10 @@ ol, ul {
 	padding-left: 1em;
 }
 
+li::marker {
+	color: var(--acc);
+}
+
 copyleft:before {
 	content: "©";
 }
@@ -221,6 +225,39 @@ blockquote {
 	font-style: italic;
 }
 
+.table { /* Unfortunately requires a parent <div> to contain table */
+	display: block;
+	overflow-x: auto;
+}
+
+table, th, td {
+	border: 1px solid var(--acc);
+	text-align: left;
+}
+
+th, td {
+	padding: 5px;
+}
+
+th {
+	text-align: center;
+	background-color: color-mix(in srgb, var(--acc), transparent 60%);
+}
+
+th[colspan] {
+	font-size: 18px;
+	font-family: "DM Serif Display", serif;
+}
+
+tr:nth-child(odd) {
+	background-color: color-mix(in srgb, var(--acc), transparent 90%);
+}
+
+.tnum {
+	text-align: right;
+	font-family: "Fira Mono", monospace;
+}
+
 /* IMAGE MODAL, child of #content */
 
 #modaldim {
@@ -303,6 +340,10 @@ blockquote {
 		width: 100%;
 			min-width: 0;
 		text-align: left;
+	}
+
+	table {
+		width: 100%;
 	}
 
 	#modaldim {
