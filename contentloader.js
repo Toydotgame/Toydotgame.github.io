@@ -13,6 +13,8 @@ document.getElementById("nav").innerHTML = `
 |
 <a href="/blog/">blog</a>
 |
+<a href="/utils">utils</a>
+|
 <a href="/">card</a>
 |
 <a href="/jp/">日本語</a>
