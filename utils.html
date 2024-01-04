@@ -48,11 +48,33 @@
 				outline: 2px solid var(--acc);
 			}
 
-			button {
+			select {
+				padding: 7px;
+				border: none;
+					border-radius: 2px;
+				color: var(--pri);
+				background-color: var(--acc);
 				cursor: pointer;
 			}
 
+			button {
+				padding: 7px;
+				border: none;
+					border-radius: 2px;
+				color: var(--pri);
+				background-color: var(--acc);
+				cursor: pointer;
+			}
+
+			button:active {
+				background-color: var(--bg1);
+			}
+
 			@media only screen and (max-width: 600px) {
+				select, button {
+					padding: 14px;
+				}
+				
 				tr:has(> th:not([colspan])) {
 					display: none;
 				}
