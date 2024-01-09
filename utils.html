@@ -154,6 +154,11 @@
 								output += input[i].split("?")[0].replace(/(?<!x)twitter\.com\/|x\.com\//i, "fxtwitter.com/").replace(/youtu\.be\//i, "youtube.com/watch?v=") + "\n";
 							}
 							break;
+						case "sga":
+							altpha = [":a_:", ":b_:", ":c_:", ":d_:", ":e_:", ":f_:", ":g_:", ":h_:", ":i_:", ":j_:", ":k_:", ":l_:", ":m_:", ":n_:", ":o_:", ":p_:", ":q_:", ":r_:", ":s_:", ":t_:", ":u_:", ":v_:", ":w_:", ":x_:", ":y_:", ":z_:", ":a_:", ":b_:", ":c_:", ":d_:", ":e_:", ":f_:", ":g_:", ":h_:", ":i_:", ":j_:", ":k_:", ":l_:", ":m_:", ":n_:", ":o_:", ":p_:", ":q_:", ":r_:", ":s_:", ":t_:", ":u_:", ":v_:", ":w_:", ":x_:", ":y_:", ":z_:", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+							ReplaceUsingAltpha();
+							output = output.replace(/ /g, "   ") + " _ _";
+							break;
 						case "m": // Monospace
 							altpha = [..."\u{1D670}\u{1D671}\u{1D672}\u{1D673}\u{1D674}\u{1D675}\u{1D676}\u{1D677}\u{1D678}\u{1D679}\u{1D67A}\u{1D67B}\u{1D67C}\u{1D67D}\u{1D67E}\u{1D67F}\u{1D680}\u{1D681}\u{1D682}\u{1D683}\u{1D684}\u{1D685}\u{1D686}\u{1D687}\u{1D688}\u{1D689}\u{1D68A}\u{1D68B}\u{1D68C}\u{1D68D}\u{1D68E}\u{1D68F}\u{1D690}\u{1D691}\u{1D692}\u{1D693}\u{1D694}\u{1D695}\u{1D696}\u{1D697}\u{1D698}\u{1D699}\u{1D69A}\u{1D69B}\u{1D69C}\u{1D69D}\u{1D69E}\u{1D69F}\u{1D6A0}\u{1D6A1}\u{1D6A2}\u{1D6A3}\u{1D7F7}\u{1D7F8}\u{1D7F9}\u{1D7FA}\u{1D7FB}\u{1D7FC}\u{1D7FD}\u{1D7FE}\u{1D7FF}\u{30}"];
 							ReplaceUsingAltpha();
@@ -237,6 +242,7 @@
 							<option value="unixde">Unix Time → Formatted</option>
 							<option value="unix">Current Unix Time</option>
 							<option value="detelemetry">De-Telemetry URL(s)</option>
+							<option value="sga">SGA Server Emojis</option>
 						</optgroup>
 						<optgroup label="Fancy Text">
 							<option value="m">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</option>
