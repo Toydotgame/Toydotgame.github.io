@@ -8,8 +8,9 @@ document.getElementById("content").innerHTML += '<div id="modaldim" style="displ
 var overlay = document.getElementById("modaldim");
 overlay.addEventListener("click", onClick);
 
-for(var i = 0; i <= document.getElementById("content").getElementsByTagName("img").length - 1; i++) {
-	document.getElementsByTagName("img")[i].addEventListener("click", onClick);
+var imgs = document.getElementById("content").getElementsByTagName("img");
+for(var i = 0; i <= imgs.length - 1; i++) {
+	imgs[i].addEventListener("click", onClick);
 }
 
 overlay.innerHTML = '<img id="modalimg">';
