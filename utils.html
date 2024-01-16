@@ -151,7 +151,11 @@
 						case "detelemetry":
 							input = input.split("\n");
 							for(i = 0; i < input.length; i++) {
-								output += input[i].split("?")[0].replace(/(?<!x)twitter\.com\/|x\.com\//i, "fxtwitter.com/").replace(/youtu\.be\//i, "youtube.com/watch?v=") + "\n";
+								if(/youtube\.com\/watch\?v=.+/gi.test(input[i])) {
+									output += input[i].split("&")[0] + "\n";
+								} else {
+									output += input[i].split("?")[0].replace(/(?<!x)twitter\.com\/|x\.com\//i, "fxtwitter.com/").replace(/youtu\.be\//i, "youtube.com/watch?v=") + "\n";
+								}
 							}
 							break;
 						case "sga":
