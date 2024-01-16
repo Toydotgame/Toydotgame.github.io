@@ -126,7 +126,7 @@
 
 					switch(picker.value) {
 						case "url":
-							output = decodeURI(input);
+							output = decodeURIComponent(input);
 							break;
 						case "genmaths":
 							output = eval(input);
