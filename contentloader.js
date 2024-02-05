@@ -36,6 +36,7 @@ var recentblogs = `
 
 var badges = `
 <img src="/media/badges/toydotgame.gif" width="88">
+<img src="/media/badges/win7.gif" width="88">
 <img src="/media/badges/invalidator.gif" width="88">
 <img src="/media/badges/vcss-blue.gif" width="88">
 <a href="http://www.wtfpl.net/"><img src="/media/badges/wtfpl.gif" width="88"></a>
