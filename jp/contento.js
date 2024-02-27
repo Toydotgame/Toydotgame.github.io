@@ -22,7 +22,7 @@ var recentblogs = `
 <div id="recentblogs">
 <h1>最新</h1>
 <ul>
-	<li><a href="/jp/burogu/2024-02-27_jidouhanbaiki"><b>２０２３年０２月２７日:</b> 自動販売機</a></li>
+	<li><a href="/jp/burogu/2024-02-26_jidouhanbaiki"><b>２０２３年０２月２６日:</b> 自動販売機</a></li>
 	<li><a href="/jp/burogu/2023-04-04_saito4"><b>２０２３年０４月０４日:</b> このサイトが４回書き換えっています！</a></li>
 </ul>
 </div>
