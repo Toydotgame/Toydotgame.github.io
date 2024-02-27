@@ -3,3 +3,4 @@ Disallow: /media/*/
 Allow: /media/blog/
 Disallow: /404
 Disallow: /template
+Disallow: /jp/template
