@@ -101,7 +101,7 @@ small {
 }
 
 #nav > h1 {
-	font-family: "Cookie";
+	font-family: "Cookie", cursive;
 	font-size: 48px;
 	color: var(--acc);
 }
