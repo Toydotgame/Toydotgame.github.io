@@ -5,8 +5,6 @@
  * etc all here and have it dynamically update across all pages.
  */
 
-import {} from "/imgmodal.js";
-
 document.getElementById("nav").innerHTML = `
 <div id="navpfp"></div><h1>toydotgame</h1>
 <a href="/home">home</a>
@@ -20,6 +18,8 @@ document.getElementById("nav").innerHTML = `
 <a href="/jp/">日本語</a>
 <hr>
 `;
+
+import {} from "/imgmodal.js";
 
 var recentblogs = `
 <div id="recentblogs">
