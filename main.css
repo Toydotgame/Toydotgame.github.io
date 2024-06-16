@@ -165,6 +165,7 @@ h4 {
 
 #content > p {
 	margin: 7px 0; /* Paragraph spacing (14px between paragraphs, 7px below headings */
+	line-height: 20px;
 }
 
 #content img:not([width]) {
@@ -186,6 +187,14 @@ h4 {
 .fright {
 	float: right;
 	margin-left: 10px !important;
+}
+
+#content ol, #content ul {
+	padding-left: 1.5em;
+}
+
+#content li {
+	padding: 5px 0;
 }
 
 pre, code {
@@ -267,9 +276,17 @@ tr:nth-child(odd) {
 	content: "]";
 }
 
-.reflist {
+h2.reflist {
 	margin: 5px 0;
 	border-bottom: 1px solid var(--acc);
+}
+
+ol.reflist {
+	padding-left: 1em; /* Reset */
+}
+
+ol.reflist > li {
+	padding: unset !important;
 }
 
 /* IMAGE MODAL, child of #content */
