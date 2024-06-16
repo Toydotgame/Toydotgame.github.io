@@ -301,6 +301,7 @@ tr:nth-child(odd) {
 		min-width: 600px;
 	margin: 16px auto;
 	color: var(--acc);
+	text-align: left;
 }
 
 #recentblogs > h1 {
@@ -308,6 +309,7 @@ tr:nth-child(odd) {
 	border-bottom: 1px solid var(--acc);
 	font-family: "DM Serif Display", serif;
 	font-size: 24px;
+	text-align: left;
 }
 
 #recentblogs li::marker {
