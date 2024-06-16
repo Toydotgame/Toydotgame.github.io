@@ -267,7 +267,7 @@ tr:nth-child(odd) {
 	content: "]";
 }
 
-#reflist {
+.reflist {
 	margin: 5px 0;
 	border-bottom: 1px solid var(--acc);
 }
