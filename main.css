@@ -254,6 +254,24 @@ tr:nth-child(odd) {
 	font-family: "Fira Mono", monospace;
 }
 
+.cite:before {
+	content: "[";
+}
+
+.cite {
+	vertical-align: top;
+	font-size: 65%;
+}
+
+.cite:after {
+	content: "]";
+}
+
+#reflist {
+	margin: 5px 0;
+	border-bottom: 1px solid var(--acc);
+}
+
 /* IMAGE MODAL, child of #content */
 
 #modaldim {
