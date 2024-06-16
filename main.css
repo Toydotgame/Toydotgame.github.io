@@ -138,12 +138,10 @@ small {
 		min-width: 600px;
 	margin: 0 auto;
 	padding: 0 10px;
-	text-align: justify;
 	overflow: hidden; /* Hack to fix if floating images exceed text length and break footer */
 }
 
 #content > h1 {
-	text-align: left;
 	border-bottom: 1px solid var(--acc);
 	color: var(--acc);
 	font-family: "DM Serif Display", serif;
@@ -151,14 +149,12 @@ small {
 
 h2#subtitle {
 	margin-bottom: 16px;
-	text-align: left;
 	font-size: 14px;
 	font-weight: normal;
 	color: var(--sec);
 }
 
 h2:not(#subtitle), h3, h4 {
-	text-align: left;
 	font-family: "DM Serif Display", serif;
 	color: var(--acc);
 }
@@ -233,7 +229,6 @@ blockquote {
 
 table, th, td {
 	border: 1px solid var(--acc);
-	text-align: left;
 }
 
 th, td {
@@ -306,7 +301,6 @@ tr:nth-child(odd) {
 		min-width: 600px;
 	margin: 16px auto;
 	color: var(--acc);
-	text-align: left;
 }
 
 #recentblogs > h1 {
@@ -340,7 +334,6 @@ tr:nth-child(odd) {
 	#content {
 		width: 100%;
 			min-width: 0;
-		text-align: left;
 	}
 
 	table {
