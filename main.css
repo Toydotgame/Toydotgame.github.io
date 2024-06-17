@@ -141,6 +141,10 @@ small {
 	overflow: hidden; /* Hack to fix if floating images exceed text length and break footer */
 }
 
+#content p, #content pre, #content code, #content td, #content blockquote {
+	line-height: 20px; /* Anything that isn't a heading basically */
+}
+
 #content > h1 {
 	border-bottom: 1px solid var(--acc);
 	color: var(--acc);
@@ -165,7 +169,6 @@ h4 {
 
 #content > p {
 	margin: 7px 0; /* Paragraph spacing (14px between paragraphs, 7px below headings */
-	line-height: 20px;
 }
 
 #content img:not([width]) {
@@ -209,6 +212,16 @@ pre, code {
 	font-family: "Fira Mono", monospace;
 	tab-size: 4; /* For some reason this is the one thing Firefox ignores */
 	-moz-tab-size: 4;
+}
+
+pre {
+	background: repeating-linear-gradient(0,
+	            	color-mix(in srgb, var(--bg2), transparent 30%) 0,
+					color-mix(in srgb, var(--bg2), transparent 30%) 20px,
+					color-mix(in srgb, var(--bg1), transparent 30%) 20px,
+					color-mix(in srgb, var(--bg1), transparent 30%) 40px
+	            );
+	background-origin: content-box;
 }
 
 code {
