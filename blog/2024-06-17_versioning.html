@@ -23,63 +23,47 @@
 	<body>
 		<div id="nav"></div>
 		<div id="content">
-			<blockquote style="font-size:24px; font-weight:bold; font-style:normal; color:#f00; text-align:center">THIS IS A DRAFT</blockquote>
 			<h1>toy's Standardised Versioning</h1>
 			<h2 id="subtitle">Written: <b>2024-06-17</b> &centerdot; Last Updated: <b>Never</b></h2>
-			<p>After seven years or so of releasing software, I felt it was time to address a common problem in my personal programming style: the lack of a consistent versioning standard. Probably the most common versioning system for a long time now is <a href="https://semver.org/">Semantic Versioning</a>, or SemVer.</p>
-			<p>SemVer, overall, is a pretty decent system; however, it has one main issue: its design target. SemVer is for stuff like libraries and services—things that provide APIs. For that purpose, it works pretty well and helps devs avoid Dependency Hell and its related issues by establishing a kind of paradigm for releasing software that enforces a standard of mutually understood versioning between developers and the other developers that use their API. But my main issue here is that <i>I've never used npm, I've never spun up a Node instance, and I've never had to deal with dependency chains</i>. I'm not a Web dev, I'm a desktop programmer at heart. My applications and coding practices are a different world than that which SemVer was designed for.<br>
-			So, for ages I've basically just ad-libbed my versioning from project to project, making it up as I go. This is not <i>entirely</i> bad for the fact that nothing has ever had to actually <b>depend</b> on my code, but it does suck that every time I switch project I have to go check the GitHub releases tab to see how I was formatting things.</p>
-			<p>I have a couple goals for my standard:</p>
+			<p>After seven years or so of releasing software, I felt it was time to address a common problem in my personal programming style: the lack of a consistent versioning standard.</p>
+			<p>The most common standard for a single versioning system is <a href="https://semver.org/">Semantic Versioning</a>. Overall, it's pretty good, but it has one main drawback: it is designed exclusively for APIs. I'm a desktop dev at heart, and my stuff doesn't have dependent software packages. So, for years, I've been ad-libbing my versioning system from project to project; every time I switched between projects I'd need to check the convention I had set in place before, which quickly gets annoying.</p>
+			<p>I have a couple goals for my new standard:</p>
 			<ol>
-				<li><b>Be stricter and more concise than SemVer:</b> SemVer has what it calls "pre-release version" and "metadata" strings than can even be used simultaneously, such as <code>1.0.0-alpha+001</code>.<a class="cite" href="#1">1</a> I think is not strict enough for my use case, and there are better, more concise ways to convey meaning in my version strings.</li>
-				<li><b>Establish a strict and upholdable standard for myself:</b> I want something with a clear and concise reference that not only I, but anyone else can also apply to their general software production practice.</li>
+				<li><b>Be stricter and more concise than SemVer:</b> SemVer has strings that get appended to version numbers like <code>-alpha+001</code>.<a class="cite" href="#1">1</a> I want to limit the number of characters in general use and over-simplify version strings, whilst still maintaining the possibility to represent things like preview releases and alphas and betas.</li>
+				<li><b>Establish a strict and consistent standard for myself:</b> I want something with a clear and concise reference that not only I, but anyone else can cite in their own projects as a concrete system to use..</li>
 			</ol>
 			<p>…And so, I present you with:</p>
-			<h2 style="text-align:center">toy's Standardised Versioning</h2>
+			<h2 style="text-align:center">toy's Standardised Versioning v1.0</h2>
 			<small style="display:block; text-align:center">(Working Title)</small>
-			<p style="text-align:center"><b>Format:</b> <code>&lt;ring&gt;&lt;major&gt;.&lt;minor&gt;[.&lt;patch&gt;][_hotfix|-rc]</code></p>
+			<p style="text-align:center"><b>Format:</b> <code>&lt;channel&gt;&lt;major&gt;.&lt;minor&gt;[.&lt;patch&gt;][hotfix|rc]</code></p>
 			<ul>
 				<li>
-					<b><code>&lt;ring&gt;</code>:</b> A "ring" is a bit of Microsoft terminology that I'm going to repurpose here.<a class="cite" href="#2">2</a> By "ring," I'm referring to Alpha/Beta/Release channels throughout your software development process, which I will define as follows:
+					<b><code>&lt;channel&gt;</code>:</b> By "channel," I'm referring to whether your software is in alpha, beta, or is the full production release.
 					<ul>
-						<li><b>Alpha</b> is when you're right at the start of the project and you're primarily focused on completing full functionality to your application. The string for the alpha phase is <code>a</code>.</li>
-						<li><b>Beta</b> is the bug-fixing process and the point in time when edge-case testing etc occurs. This might also be the time when you open an early access preview to your software. The string for beta is <code>b</code>.</li>
-						<li><b>Release</b> is the production copy of your software: fully functional and free of bugs. Release versions use the string <code>v</code> (for "version").</li>
+						<li><b>Alpha (<code>a</code>)</b> is the unstable version of your software, when you're still working on adding all the features.</li>
+						<li><b>Beta (<code>b</code>)</b> is when all functionality is there, and bug-fixing/testing takes place. Some small final tweaks to functionality get made.</li>
+						<li><b>Release (<code>v</code>)</b> is the production copy of your software.</li>
 					</ul>
 				</li>
-				<li><b><code>&lt;major&gt;</code>:</b> The major version number always starts from 1, even in alpha. A major version of 0 is not allowed. This number is incremented when your program implements a <b>breaking</b> incompatibility (<i>i.e:</i> dropping support for an old config file format; but <b>not</b> when config specifications are changed but the program retains functionality to update configs to the new format) or when a complete refactor/redesign of the application occurs that changes the underlying method in which your software works. In short: this number is rarely updated—it might even stay at <code>1</code> for over a decade! It doesn't increment like Firefox or Chrome major version 7 billion releases every month.</li>
-				<li><b><code>&lt;minor&gt;</code>:</b> A minor update would usually be something like a feature update that adds or removes a chunk of functionality to/from your program. This number starts at 0 whenever the major release is incremented, and can increment indefinitely. (In this case, it <i>can</i> increment like a Firefox major version does, if your project is <i>that</i> big, then I'd expect a version number like <code>v1.159</code> to come around after 10 or 15 years easy)</li>
-				<li><b><code>[patch]</code>:</b> Patches are purely bugfix updates and <i>shouldn't</i> (but not strictly) change any functionality whatsoever. Each patch update starts at 0 when the minor version is incremented, and can go indefinitely. Patch updates should usually be shipped as a bundle of bugfixes per patch, rather than batching the bug-fixing process into multiple patches.</li>
+				<li><b><code>&lt;major&gt;</code>:</b> The major version is ≥1 (never 0), and increments when you do refactoring that changes the underlying algorithms behind your program's functionality. It is also for <b>breaking changes</b>, such as dropping an old config file format without providing automatic migration to the new format in your code.</li>
+				<li><b><code>&lt;minor&gt;</code>:</b> The minor version starts at 0 when the major version increments, and increments when you release batches of new features and bugfixes ("feature updates"). A minor update <b>cannot</b> be bugfix-only.</li>
+				<li><b><code>[patch]</code>:</b> The patch number starts at 0 for every minor increment, and increments when you release bugfixes consolidated into one rollup patch update. They <i>ideally</i> shouldn't change functionality at all.</li>
 				<li>
-					<b><code>[_hotfix|-rc]</code>:</b> The final part of the version is two mutually exclusive options:
+					The final part of the version is two mutually exclusive options:
 					<ul>
-						<li><b><code>[hotfix]</code>:</b> A hotfix is a hastily created update with a small number (usually just one) of bug fixes. The kind of thing you'd ship on short notice if your latest version has a critical bug in it that can't wait until the next patch. Generally, I keep hotfix numbers two digits long at least, so if I were to patch <code>v1.2</code>, then the update would be <code>v1.2_01</code>—then I could release <code>_02</code>, <code>_03</code>, etc indefinitely (including adding more digits, but over 99 hotfixes to one update is some pretty embarrasing code writing). Hotfixes should not be applied to alpha and beta ring versions, but this is not a strict rule.</li>
-						<li><b><code>[rc]</code>:</b> "RC" stands for <b>r</b>elease <b>c</b>andidate. It is mutually exclusive to hotfixes because a release candidate is a non-production piece of software that the user, in downloading your software, is knowingly accepting its instability. Release candidates are also how you distribute early access releases once you are past the <code>v1.0</code> version number. Rather than implement a more complex system (as one of my goals is to be <u>strict and concise</u>), a release candidate system is all I will add for already released software's early access channels.<br>
-						Say you're at <code>v1.2.3</code>, and you want to release a preview for update <code>v1.3</code>; the version would be <code>v1.3-rc1</code>. You can then release an rc2 and rc3, as many as you'd like, until the real v1.3 is released. Also, as your <code>rc</code>s are pre-releases, you can continue deploy an update to the regular channel like update <code>v1.2.4</code>.</li>
+						<li><b><code>[hotfix]</code>:</b> A hotfix is a small <b>bugfix-only</b> update that contains fixes for <b>critical</b> bugs in the latest release of your production software. The hotfix number is padded with zeroes to be two digits long and is appended to the latest version with an underscore, <i>e.g:</i> <code>_01</code>.</li>
+						<li><b><code>[rc]</code>:</b> Release candidates are for the <i>release</i> channel of your software <b>only</b>, and should not have hotfix updates shipped for them—as the user knowingly accepts that a release candidate version is inherently an unstable preview version. The number for RCs starts at 1 and increments indefinitely until the production release arrives. <i>e.g:</i> The first beta build of <code>v1.2</code>, based on <code>v1.1</code>'s codebase, is <code>v1.2-rc1</code>. Whilst you're releasing RC pre-releases, you can still update your production releases:
+						<img src="/media/blog/2024-06-17_rc-branching.png" class="fcenter" width="75%">
+						</li>
 					</ul>
 				</li>
 			</ul>
-			<h3>Example of toy's Standardised Versioning: Through a Software Lifecycle</h3>
-			<ol>
-				<li><code>a1.0</code>: The project is created, manifests/makefiles/build tools/documentation/code structure is set up.</li>
-				<li><code>a1.1</code>: Some more code is added to do more things.</li>
-				<li><code>b1.0</code>: The program can do everything it is designed to do, but very likely not reliably nor efficiently.</li>
-				<li><code>b1.0.1</code>: b1.0 had a couple bugs in it that have now been fixed.</li>
-				<li>(Skipping ahead a bit) <code>b1.5.3</code>: Bugfixing and optimisations have changed a lot of the structure of the code and its algorithms are likely very different, if not indistinguishable, from late alpha/<code>b1.0</code>.</li>
-				<li><code>v1.0</code>: The fully-functional, bug-free software is released!</li>
-				<li><code>v1.1</code>: Some new function is added.</li>
-				<li><code>v1.1_01</code>: The new function had an unhandled exception which was not caught and unfortunately caused user's PCs to combust—which has now been fixed.</li>
-				<li>(Skipping a bit more) <code>v1.3.7</code>: The software now does a few new things and is overall more stable due to bugfixes. The names of some options in the config files have changed since v1.0, but functions exist to update the config files of users with outdated configs. One function of the software has also been removed.</li>
-				<li><code>v2.0-rc1</code>: Based on the v1.3.7 codebase, a major refactor occurs and the pre-v1.3.7 config specification is discarded, meaning no v1.0–v1.36-created config files will work in the software anymore. Additionally, some functions have been added and some have been removed.</li>
-				<li><code>v2.0-rc2</code>: This update changes one line of code because the last update wouldn't launch on certain devices</li>
-				<li>(Skipping) <code>v2.0-rc10</code>: Numerous changes to functions, bugfixes, and compatibility have been made</li>
-				<li><code>v2.0</code>: A full, stable release (based on the v2.0-rc10 codebase) releases to succeed the last general release, v1.3.7.</li>
-			</ol>
 			<br>
+			<h3>Example Valid Version Numbers</h3>
+			<p><code>a1.0</code> → <code>a1.1</code> → <code>b1.0</code> → <code>b1.0.1</code> → <code>v1.0</code> → <code>v1.1</code> → <code>v1.1_01</code> → <code>v1.2-rc1</code> and <code>v1.1.1</code> (based on the same prior release) → <code>v1.2</code></p>
 			<h2 class="reflist">Sources</h2>
 			<ol class="reflist">
 				<li><a name="1" href="https://semver.org/">"Semantic Versioning 2.0.0"</a>. Preston-Werner, T.</li>
-				<li><a name="2" href="https://blogs.windows.com/windows-insider/2016/02/10/announcing-windows-10-mobile-insider-preview-build-10586-107/">"Announcing Windows 10 Mobile Insider Preview Build 10586.107"</a>. Aul, G.</li>
 			</ol>
 		</div>
 		<div id="footer"></div>
