@@ -285,15 +285,25 @@ tr:nth-child(odd) {
 	font-family: "Fira Mono", monospace;
 }
 
+sub, sup, .cite {
+	position: relative;
+	vertical-align: top;
+}
+
+sub {
+	bottom: -4px;
+}
+
+sup, .cite {
+	top: -4px;
+}
+
 .cite:before {
 	content: "[";
 }
 
 .cite {
-	position: relative;
-	top: -4px;
-	vertical-align: top;
-	font-size: 65%;
+	font-size: smaller;
 }
 
 .cite:after {
