@@ -290,6 +290,8 @@ tr:nth-child(odd) {
 }
 
 .cite {
+	position: relative;
+	top: -4px;
 	vertical-align: top;
 	font-size: 65%;
 }
