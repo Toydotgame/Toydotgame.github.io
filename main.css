@@ -331,6 +331,7 @@ ol.reflist > li {
 #modaldim {
 	position: fixed;
 	display: none;
+	z-index: 1; /* Copyleft element displays above modaldim for some reason */
 	padding: 5%;
 	width: 100%;
 	height: 100%;
