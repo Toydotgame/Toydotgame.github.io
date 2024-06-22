@@ -89,7 +89,7 @@ copyleft {
 	transform: rotateY(180deg);
 }
 
-small {
+small, figcaption {
 	color: var(--sec);
 }
 
@@ -190,9 +190,13 @@ h4 {
 	margin-right: 10px !important;
 }
 
+figure.fcenter { /* Figures provide their own 5px margins */
+	margin: 0 auto !important;
+}
+
 .fcenter {
 	display: block;
-	margin: 0 auto !important;
+	margin: 5px auto !important;
 }
 
 .fright {
@@ -202,6 +206,13 @@ h4 {
 
 .freset { /* Clearfix to display below floats instead of wrapping around */
 	clear: both;
+}
+
+figure > img {
+	margin-bottom: 0 !important;
+} figcaption {
+	margin-bottom: 5px;
+	text-align: center;
 }
 
 #content ol, #content ul {
@@ -324,6 +335,10 @@ ol.reflist {
 
 ol.reflist > li {
 	padding: unset !important;
+}
+
+figcaption {
+	font-size: smaller;
 }
 
 /* IMAGE MODAL, child of #content */
