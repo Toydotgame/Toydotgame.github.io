@@ -29,7 +29,7 @@
 				vertical-align: top;
 			}
 
-			td > img {
+			td img {
 				width: 50% !important;
 				display: block;
 				margin: 0 auto !important;
@@ -38,7 +38,7 @@
 				border-radius: 28px !important;
 			}
 
-			td > h2 {
+			td h2 {
 				padding-top: 4px;
 				text-align: center;
 				font-size: 20px;
@@ -55,7 +55,7 @@
 				border-radius: unset !important;
 			}
 
-			td > small {
+			td small {
 				display: block;
 				text-align: center;
 			}
@@ -63,6 +63,20 @@
 			.noborder {
 				border: none !important;
 				border-radius: unset !important;
+			}
+
+			td > a {
+				color: unset;
+				text-decoration: unset;
+			}
+
+			td > a:hover {
+				text-decoration: unset;
+				text-shadow: unset;
+			}
+
+			img {
+				cursor: unset !important;
 			}
 
 			@media only screen and (max-width: 600px) {
@@ -78,69 +92,102 @@
 		<div id="content">
 			<h1>Projects</h1>
 			<p>My primary language is Java, but I have experience in designing full-stack solutions using HTML/CSS/JS/PHP, and some lesser experience in additional languages for other applications.</p>
+			<h2>Miscellaneous Projects</h2>
+			<table>
+				<tr><td><a href="https://addons.mozilla.org/en-GB/firefox/addon/old-google/">
+					<img src="/media/projects/old-google.png">
+					<img class="shield" src="https://img.shields.io/amo/users/old-google?style=plastic&label=Firefox%20Active%20Users&labelColor=2a2a2f&color=5865f2">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Thisway/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
+					<h2>Old Google</h2>
+					<p>Old Google is a Firefox addon that replaces many Google site logos with their older pre-2013 equivalents—because the old logo was just better!</p>
+				</a></td><td><a href="https://github.com/toydotgame/ToyPack/">
+					<img src="/media/projects/toypack.png">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/ToyPack/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
+					<h2>ToyPack</h2>
+					<p>ToyPack is my personal resource pack for Minecraft, featuring custom OpenGL shaders and many tweaks. It started out as a backport of some Vanilla Tweaks packs to 1.6, but since then has updated to the latest version and has had years worth of updates to the visual style piled on.</p>
+				</a></td><td><a href="https://github.com/toydotgame/racecartsplusplus/">
+					<h2>Racecarts++</h2>
+					<p>Racecarts++ is an updated fork of Firebug (on PMC)'s <i>Faster Minecarts</i> datapack, updated to work more reliably with corners and complex machines involving rails. It is my first real usage of mcfunction code in a project.</p>
+				</a></td></tr>
+			</table>
 			<h2>Server-side Software</h2>
 			<p>In total, I have had over 1,100 individual administrators use my server utilities over about 2 years.</p>
 			<table>
-				<tr><td>
+				<tr><td><a href="https://www.spigotmc.org/resources/thisway.87115/">
 					<img src="/media/projects/thisway.png">
 					<img class="shield" src="https://img.shields.io/spiget/downloads/87115?style=plastic&label=Spigot%20Users&labelColor=2a2a2f&color=5865f2">
-					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Thisway/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2	">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Thisway/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
 					<h2>Thisway</h2>
 					<p>Thisway is a simple Minecraft navigation plugin for server operators, allowing players to quickly travel <code>x</code> blocks in the direction you're facing in.</p>
-				</td><td>
+				</a></td><td><a href="https://www.spigotmc.org/resources/singleplayersleep.91195/">
 					<img class="noborder" src="/media/projects/ssp.png">
 					<img class="shield" src="https://img.shields.io/spiget/downloads/91195?style=plastic&label=Spigot%20Users&labelColor=2a2a2f&color=5865f2">
 					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/SinglePlayerSleep/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
 					<h2>Single&#x200B;Player&#x200B;Sleep</h2>
 					<small>Deprecated</small>
 					<p>A very simple plugin for pre-1.13 servers that lack native multiplayer sleep functionality through gamerules and datapacks.</p>
-				</td><td>
+				</a></td><td><a href="https://www.spigotmc.org/resources/sleepmessage.91191/">
 					<img class="noborder" src="/media/projects/ssp.png">
 					<img class="shield" src="https://img.shields.io/spiget/downloads/91191?style=plastic&label=Spigot%20Users&labelColor=2a2a2f&color=5865f2">
 					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/SleepMessage/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
 					<h2>Sleep&#x200B;Message</h2>
 					<small>Deprecated</small>
 					<p>Another simple plugin that emulates Legacy Console's chat messages when players are in bed, completely server-side.</p>
-				</td></tr>
-				<tr><td>
+				</a></td></tr>
+				<tr><td><a href="https://github.com/toydotgame/Thisway-Light/">
 					<img src="/media/projects/thisway.png">
 					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Thisway-Light/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
 					<h2>Thisway Light</h2>
 					<small>Deprecated</small>
 					<p>My first real foray into highly optimised code back in 2020, Thisway Light was an incredibly stripped down hyper-optimised version of Thisway intended for very mod-heavy servers which couldn't afford the fully-featured version. Thisway Light had over 60 users on SpigotMC before it was discontinued in 2021.</p>
-				</td></tr>
+				</a></td><td><a href="https://github.com/toydotgame/SetWorldSpawn/">
+					<h2>SetWorldSpawn</h2>
+					<small>Deprecated</small>
+					<p><code>/setworldspawn</code> was added in 1.7.2, this is a backport to versions before then.</p>
+				</a></td><td><a href="https://github.com/toydotgame/Gamemode/">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Gamemode/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
+					<h2>Gamemode</h2>
+					<small>Deprecated</small>
+					<p>Very lightweight quick shorthand commands for switching between Creative and Survival mode.</p>
+				</a></td></tr>
 			</table>
 			<h2>Desktop Applications</h2>
-			<p></p>
 			<table>
-				<tr><td>
-					collatz sequence generator
-				</td><td>
-					calculator
-				</td></tr>
+				<tr><td><a href="https://github.com/toydotgame/collatz-sequence-generator/">
+					<h2>Collatz Sequence Generator</h2>
+					<p>A quick, lightweight, and efficient (or, as well as Java can get) calculator for Collatz Conjecture sequences.</p>
+				</a></td><td><a href="https://github.com/toydotgame/calculator">
+					<h2>Calculator</h2>
+					<p>Basic calculator using Java 8's embedded JS engine to evaluate basic mathematical functions, with some hotkeys and shortcuts under a design based off of the Casio fx-82AU PLUS II's design.</p>
+				</a></td></tr>
 			</table>
-			<h2>Miscellaneous Projects</h2>
-			<table>
-				<tr><td>
-					old google
-				</td><td>
-					toypack
-				</td></tr>
-			</table>
-			<p></p>
 			<h2>Things I've Contributed To</h2>
 			<table>
-				<tr><td>
-					depix
-				</td><td>
-					oldcord
-				</td><td>
-					miku cursors
-				</td></tr>
-				<tr><td>
-					big text generator
-				</td></tr>
+				<tr><td><a href="https://github.com/spipm/Depix/">
+					<img src="https://github.com/spipm/Depix/raw/main/docs/img/Recovering_prototype_latest.png" style="border-radius:4px !important; min-width:80%">
+					<img class="shield" src="https://img.shields.io/pepy/dt/depix?style=plastic&label=PyPI%20Downloads&labelColor=2a2a2f&color=5865f2">
+					<h2>Depix</h2>
+					<p>Depix is a proof-of-concept tool that can recover text from pixelised screenshots simply given a font face.</p>
+				</a></td><td><a href="https://github.com/milbits/oldcord/">
+					<h2>OldCord</h2>
+					<p>OldCord is a modded Discord theme that tries to bring back the 2020 look as faithfully as possible.</p>
+				</a></td><td><a href="https://github.com/spipm/Depix/">
+					<img src="https://raw.githubusercontent.com/supermariofps/hatsune-miku-windows-linux-cursors/main/thumb.png" style="border-radius:4px !important; min-width:80%">
+					<img class="shield" src="https://img.shields.io/github/downloads/supermariofps/hatsune-miku-windows-linux-cursors/total?style=plastic&label=GitHub%20Downloads&labelColor=2a2a2f&color=5865f2">
+					<h2>Hatsune Miku Cursors for Windows/Linux</h2>
+					<p>Kinda what it just says on the tin; I helped out in properly fleshing out the Linux XCursor support, in order to get it properly working on most DEs.</p>
+				</a></td></tr>
 			</table>
+			<script>
+				window.addEventListener('load', function () {
+					var imgs = document.querySelectorAll("img");
+					for(var i = 0; i < imgs.length; i++) {
+						var oldimg = imgs[i];
+						var newimg = imgs[i].cloneNode(true);
+						oldimg.parentNode.replaceChild(newimg, oldimg);
+					}
+				});
+			</script>
 		</div>
 		<div id="footer"></div>
 	</body>
