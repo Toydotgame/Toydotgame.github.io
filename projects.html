@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<!--
+	AUTHOR: toydotgame
+	CREATED ON: 2023-12-16
+	Generic page.
+-->
+
+<html>
+	<head>
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/main.css">
+		<title>Projects - toydotgame.net</title>
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="toydotgame.net">
+		<meta property="og:title" content="Projects">
+		<meta property="og:description" content="My primary language is Java, but I have experience in designing full-stack solutions using HTML/CSS/JS/PHP, and some lesser experience in additional languages for other applications.">
+		<meta property="og:image" content="/media/banner.png">
+		<meta name="viewport" content="width=device-width">
+		<script src="/contentloader.js" type="module"></script>
+		<style>
+			table {
+				width: 100%;
+				table-layout: fixed; /* Force equal col width */
+			}
+
+			td {
+				vertical-align: top;
+			}
+
+			td > img {
+				width: 50% !important;
+				display: block;
+				margin: 0 auto !important;
+				padding: unset;
+				border-width: 1.5px !important;
+				border-radius: 28px !important;
+			}
+
+			td > h2 {
+				padding-top: 4px;
+				text-align: center;
+				font-size: 20px;
+				text-decoration: underline;
+			}
+
+			.shield {
+				width: unset !important;
+					max-width: 100%;
+				height: auto;
+					max-height: 18px;
+				padding-top: 2px;
+				border: none !important;
+				border-radius: unset !important;
+			}
+
+			td > small {
+				display: block;
+				text-align: center;
+			}
+
+			.noborder {
+				border: none !important;
+				border-radius: unset !important;
+			}
+
+			@media only screen and (max-width: 600px) {
+				td > img {
+					width: 100% !important;
+					max-width: 90px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav"></div>
+		<div id="content">
+			<h1>Projects</h1>
+			<p>My primary language is Java, but I have experience in designing full-stack solutions using HTML/CSS/JS/PHP, and some lesser experience in additional languages for other applications.</p>
+			<h2>Server-side Software</h2>
+			<p>In total, I have had over 1,100 individual administrators use my server utilities over about 2 years.</p>
+			<table>
+				<tr><td>
+					<img src="/media/projects/thisway.png">
+					<img class="shield" src="https://img.shields.io/spiget/downloads/87115?style=plastic&label=Spigot%20Users&labelColor=2a2a2f&color=5865f2">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Thisway/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2	">
+					<h2>Thisway</h2>
+					<p>Thisway is a simple Minecraft navigation plugin for server operators, allowing players to quickly travel <code>x</code> blocks in the direction you're facing in.</p>
+				</td><td>
+					<img class="noborder" src="/media/projects/ssp.png">
+					<img class="shield" src="https://img.shields.io/spiget/downloads/91195?style=plastic&label=Spigot%20Users&labelColor=2a2a2f&color=5865f2">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/SinglePlayerSleep/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
+					<h2>Single&#x200B;Player&#x200B;Sleep</h2>
+					<small>Deprecated</small>
+					<p>A very simple plugin for pre-1.13 servers that lack native multiplayer sleep functionality through gamerules and datapacks.</p>
+				</td><td>
+					<img class="noborder" src="/media/projects/ssp.png">
+					<img class="shield" src="https://img.shields.io/spiget/downloads/91191?style=plastic&label=Spigot%20Users&labelColor=2a2a2f&color=5865f2">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/SleepMessage/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
+					<h2>Sleep&#x200B;Message</h2>
+					<small>Deprecated</small>
+					<p>Another simple plugin that emulates Legacy Console's chat messages when players are in bed, completely server-side.</p>
+				</td></tr>
+				<tr><td>
+					<img src="/media/projects/thisway.png">
+					<img class="shield" src="https://img.shields.io/github/downloads/toydotgame/Thisway-Light/total?style=plastic&label=GitHub%20Users&labelColor=2a2a2f&color=5865f2">
+					<h2>Thisway Light</h2>
+					<small>Deprecated</small>
+					<p>My first real foray into highly optimised code back in 2020, Thisway Light was an incredibly stripped down hyper-optimised version of Thisway intended for very mod-heavy servers which couldn't afford the fully-featured version. Thisway Light had over 60 users on SpigotMC before it was discontinued in 2021.</p>
+				</td></tr>
+			</table>
+			<h2>Desktop Applications</h2>
+			<p></p>
+			<table>
+				<tr><td>
+					collatz sequence generator
+				</td><td>
+					calculator
+				</td></tr>
+			</table>
+			<h2>Miscellaneous Projects</h2>
+			<table>
+				<tr><td>
+					old google
+				</td><td>
+					toypack
+				</td></tr>
+			</table>
+			<p></p>
+			<h2>Things I've Contributed To</h2>
+			<table>
+				<tr><td>
+					depix
+				</td><td>
+					oldcord
+				</td><td>
+					miku cursors
+				</td></tr>
+				<tr><td>
+					big text generator
+				</td></tr>
+			</table>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>
