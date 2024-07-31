@@ -11,7 +11,7 @@ document.getElementById("nav").innerHTML = `
 |
 <a href="/blog/">blog</a>
 |
-<a href="/projects">projects</a>
+<a href="/projects/">projects</a>
 |
 <a href="/utils">utils</a>
 |
