@@ -16,18 +16,23 @@
 @font-face {
 	font-family: "Cookie";
 	src: url("/media/fonts/Cookie-reg.ttf");
+	font-display: swap;
 } @font-face {
 	font-family: "DM Serif Display";
 	src: url("/media/fonts/DM-Serif-ita.ttf");
+	font-display: swap;
 } @font-face {
 	font-family: "Fira Mono";
 	src: url("/media/fonts/Fira-Mono-reg.ttf");
+	font-display: swap;
 } @font-face {
 	font-family: "Ubuntu";
 	src: url("/media/fonts/Ubuntu-reg.ttf");
+	font-display: swap;
 } @font-face {
 	font-family: "Twemoji";
 	src: url("/media/fonts/Twemoji.ttf");
+	font-display: swap;
 }
 
 /* GENERIC */
