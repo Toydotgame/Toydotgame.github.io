@@ -44,7 +44,7 @@ var badges = `
 <img src="/media/badges/invalidator.gif" width="88">
 <img src="/media/badges/vcss-blue.gif" width="88">
 <a href="http://www.wtfpl.net/"><img src="/media/badges/wtfpl.gif" width="88"></a>
-<a href="https://thardwardy.github.io/"><img src="/media/badges/thardwardy.gif" width="88"></a>
+<a href="https://thardwardy.com/"><img src="/media/badges/thardwardy.gif" width="88"></a>
 <img src="/media/badges/2019.gif" width="88">
 <a href="https://cyber.dabamos.de/88x31/"><img src="/media/badges/88x31.gif" width="88"></a>
 <img src="/media/badges/abrowser.gif" width="88">
