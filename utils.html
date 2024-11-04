@@ -109,8 +109,8 @@
 				 */
 
 				function Go() {
-					var picker = document.getElementById("funcpicker");
-					var input = document.getElementById("input").value;
+					var picker = document.querySelector("#funcpicker");
+					var input = document.querySelector("#input").value;
 					var output = "";
 					/*console.log("User selected item `" + picker.value + "` (" + picker.options[picker.selectedIndex].text + ")");*/
 
@@ -264,7 +264,20 @@
 				<tr><th>Input</th><th>Output</th></tr>
 				<tr><td><textarea id="input" rows="10"></textarea></td><td><textarea id="output" rows="10" readonly></textarea></td></tr>
 			</table></div>
-			<script>setTimeout(function() {document.getElementById("input").focus();}, 250);</script>
+			<script>
+				setTimeout(function() {
+					var func = (new URLSearchParams(window.location.search)).get("func");
+					var picker = document.querySelector("#funcpicker");
+					var options = [];
+					for(var i = 0; i < picker.options.length; i++) {
+						options.push(picker.options[i].value);
+					}
+					if(options.includes(func))
+						picker.value = func;
+
+					document.getElementById("input").focus();
+				}, 250);
+			</script>
 			<small>You can view math.js' syntax documentation <a href="https://mathjs.org/docs/expressions/syntax.html">here</a>. math.js provides a more natural syntax over the forced nature of JavaScript's <code>eval()</code>.</small><br>
 			<small>Formatted time input/output is in your timezone unless specified.</small><br>
 			<small>The URL de-telemetry-er simply removes all query strings. Additionally, it converts twitter/x.com URLs to fxtwitter.com, to make embedding easier; youtu.be is also converted to a regular <code>/watch?v=</code> link.</small>
