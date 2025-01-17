@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!--
+	AUTHOR: toydotgame
+	CREATED ON: 2023-12-16
+	Generic page.
+-->
+
+<html>
+	<head>
+		<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/media/styles/main.css">
+		<title>How to Downgrade from iOS 9 to iOS 6 - toydotgame.net</title>
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="toydotgame.net">
+		<meta property="og:title" content="How to Downgrade from iOS 9 to iOS 6">
+		<meta property="og:description" content="It's completely possible to effectively downgrade any 32-bit iDevice from iOS 9 to iOS 6, provided you've got some technical confidence.">
+		<meta property="og:image" content="/media/resources/banner.png">
+		<meta name="viewport" content="width=device-width">
+		<script src="/media/js/contentloader.js" type="module"></script>
+	</head>
+	<body>
+		<div id="nav"></div>
+		<div id="content">
+			<blockquote style="width:100%; font-size:24px; font-weight:bold; font-style:normal; color:#f00; text-align:center">THIS IS A DRAFT</blockquote>
+			<h1>How to Downgrade from iOS 9 to iOS 6</h1>
+			<small>Or technically from iOS 9.3.5/9.3.6 to iOS 6.0–9.3.5.</small>
+			<h2 id="subtitle">Written: <b>2025-01-17</b> &centerdot; Last Updated: <b>Never</b></h2>
+			<p>It's completely possible to effectively downgrade any 32-bit iDevice from iOS 9 to iOS 6, provided you've got some technical confidence.</p>
+			<p>This all started because I had this <i>horrid</i> 5th generation iPod touch (incidentally my first iDevice) that ran its latest release, iOS 9.3.5. It ran <i>so horribly</i> that it would last a solid <b>20 seconds</b> (I'm not kidding) from charger unplug to completely dead flat just sitting on the iOS 9 homescreen. Not only that, but as is the case with basically every Apple product ever, our good friend Planned Obsolescence meant that this thing running it's ultimate release OS was <i>slow as <b>hell</b></i>—not responsive at <i>all</i>.</p>
+			<p>And so I got the idea that, <i>Hey, iPhone 4 was good on iOS 6 but terrible on 7—why don't I try a little bit of Golden Age iOS to try and bring a little life back into this thing?</i> And so it began.</p>
+			<br>
+			<blockquote style="width:100%; font-size:24px; font-weight:bold; font-style:normal; color:#f00; text-align:center">
+				THIS PROCEDURE INVOLVES JAILBREAKING AND FLASHING YOUR device
+				<p style="font-size:16px; font-weight:normal">This process will wipe your device for certain. Don't do this on a device with important data or on a device that you depend on for anything. <u>You <b>will</b> lose everything</u>.</p>
+				<p style="font-size:16px; font-weight:normal">Additionally, improper following of instructions may soft-brick and boot-loop your device. However, you can always remedy this by <a href="https://support.apple.com/en-au/118106">rebooting the device into Recovery Mode</a> and re-flashing iOS 9.3.5 in iTunes.</p>
+			</blockquote>
+			<br>
+			<h2>Procedure</h2>
+			<h3>You will need:</h3>
+			<ul>
+				<li>
+					<b>Both a Windows <b>and</b> Linux install, or just a macOS install.</b> If you're not on macOS, you'll need Windows for sideloading, and Linux for OTA downgrading.
+					If you're a Windows user only, you'll need to figure out how to get a Live USB <a href="https://ubuntu.com/tutorials/create-a-usb-stick-on-windows">(tutorial here)</a>; I recommend doing this on a minimum of a 16 GiB USB, because you'll be downloading multiple IPSWs and you'll need the space—any less and it's likely you'll get corrupted IPSWs that can brick your device. I recommend setting the biggest persistent partition size you can in Rufus when flashing the USB so that you have the safety net of being able to restart Linux without losing your progress
+				</li>
+				<li>A USB-A or USB-C to Lightning cable to connect the iDevice to your computer</li>
+				<li>
+					<b>Git, SSH, and cURL.</b> On Ubuntu, they can all be installed through the terminal with:
+					<pre>sudo apt update && sudo apt install git ssh curl</pre>
+				</li>
+				<li>
+					A 32-bit iDevice, specifically one with an A5 SoC, <b><u>running iOS 8.4.1 or later</u></b>. If you're not sure what that is, it's one of these:
+					<ul>
+						<li>iPhone 4S (<code>iPhone4,1</code>)</li>
+						<li>iPhone 5 (<code>iPhone5,1–2</code>)</li>
+						<li>iPad 2 (<code>iPad2,1–4</code>)</li>
+						<li>iPad 3 (<code>iPad3,1–3</code>)</li>
+						<li>iPad 4 (<code>iPad3,4–6</code>)</li>
+						<li>iPad mini, 1st Generation (<code>iPad2,5–7</code>)</li>
+						<li>iPod touch, 5th Generation (<code>iPod5,1</code>)</li>
+					</ul>
+				</li>
+				<li>
+					<a href="https://github.com/LukeZGD/Legacy-iOS-Kit">Legacy-iOS-Kit.</a> This is what we'll use to send OTA (<b>o</b>ver <b>t</b>he <b>a</b>ir) updates. You need this installed on macOS/Linux, open your terminal and run the following:
+<pre>
+git clone https://github.com/LukeZGD/Legacy-iOS-Kit.git
+cd Legacy-iOS-Kit/
+</pre>
+				</li>
+				<li><a href="https://sideloadly.io/">Sideloadly.</a> Install this on Windows or macOS</li>
+				<li>An Apple ID. You'll need this to temporarily sign IPAs when sideloading, you <i>do not</i> need an Apple Developer account or subscription</li>
+				<li><a href="https://phoenixpwn.com/download.php">Phœnix jailbreak IPA.</a> This is only for iOS 9.3.5/9.3.6. If your device is already on iOS 8.4.1, you can skip the iOS 9 stage of instructions</li>
+				<li><a href="https://etasonjb.tihmstar.net/">EtasonJB IPA.</a> This is for iOS 8.4.1</li>
+			</ul>
+			<br>
+			<h3>Stage 1: The iOS 9 Stuff</h3>
+			<p>First, we'll need to jailbreak iOS 9 then downgrade it to the last release of iOS 8.4.1. We will jailbreak iOS 9.3.5/9.3.6 with Phoenixpwn, a <b>semi-untethered</b> jailbreak, meaning you <i>don't</i> need to have a computer connected for it to stay jailbroken on reboot, but you <i>do</i> need to manually re-"kickstart" the jailbreak every time you reboot the device. For this tutorial, we only really need to be in iOS 9 for one power cycle, so re-kickstarting isn't needed.</p>
+			<ol>
+				<li>
+					Connect the iDevice to your computer and make sure to hit <i>Trust</i> in iOS. Open Sideloadly and click the big "IPA" button to select the Phoenixpwn IPA file. Enter in your Apple ID e-mail address you wish to use. You are allowed 11 unique app IDs to sign a week; we'll only use two for the two jailbreak apps in this tutorial.<br>
+					Type in your Apple ID and hit <i>Start</i>
+					<img class="fcenter" width="50%" src="/media/blog/2025/01-17_how-to-downgrade-from-ios-9-to-6/sideloadly.png" />
+				</li>
+			</ol>
+			<h2>Troubleshooting</h2>
+			<h3>Issues refreshing repositories in Cydia or signing apps in Sideloadly</h3>
+			<p>The most common cause for this is an incorrect system time. This can be caused in Windows by the way Ubuntu works with the hardware clock in your computer, meaning sometimes when you reboot into Windows the clock is set to the wrong time. This breaks HTTPS/TLS stuff and means Apple's servers won't want to talk to you for app signing. A similar issue arises in iOS after you flash an iOS update to it: usually the system's timezone is reset and thus Cydia throws a bunch of SSL errors at you when trying to refresh sources.</p>
+
+			<h2 class="reflist freset">Reference List</h2>
+			<ol>
+				<li><a name="1" href="https://www.lipsum.com/">"Page Title"</a>. Commercial Author or First Name, Middle/Last Initials. (Optional) Additional notes clause.</li>
+			</ol>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>
