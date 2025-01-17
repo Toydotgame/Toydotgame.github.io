@@ -16,8 +16,6 @@ document.getElementById("nav").innerHTML = `
 <a href="/utils">utils</a>
 |
 <a href="/">card</a>
-|
-<a href="/jp/">日本語</a>
 <hr>
 `;
 
@@ -71,15 +69,9 @@ var footer = `
 <p>Website <copyleft></copyleft> 2025 toydotgame</p>
 `;
 
-/*
- * Footer replacement shouldn't run on Japanese-language pages. `/jp/contento.js` handles that.
- * However, this script is called and run by `contento.js`'s import statement.
- */
-if(!window.location.pathname.startsWith("/jp/")) {
-	try {
-		document.getElementById("footer").innerHTML = "<hr>" + recentblogs + badges + footer;
-	} catch {
-		document.getElementById("blogfooter").innerHTML = "<hr>" + badges + footer;
-		document.getElementById("blogfooter").id = "footer";
-	}
+try {
+	document.getElementById("footer").innerHTML = "<hr>" + recentblogs + badges + footer;
+} catch {
+	document.getElementById("blogfooter").innerHTML = "<hr>" + badges + footer;
+	document.getElementById("blogfooter").id = "footer";
 }
