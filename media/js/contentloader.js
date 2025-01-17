@@ -25,41 +25,41 @@ var recentblogs = `
 <div id="recentblogs">
 <h1>Recent Blog Posts</h1>
 <ul>
-	<li><a href="/blog/2024-07-23_mbs"><b>2024-07-23:</b> The Tale of Minecraft's Baddest Server</a></li>
-	<li><a href="/blog/2024-06-17_versioning"><b>2024-06-17:</b> toy's Standardised Versioning</a></li>
-	<li><a href="/blog/2024-01-03_fs-measurements"><b>2024-01-03:</b> Digital Metric Unit Nomenclature for Dummies</a></li>
-	<li><a href="/blog/2024-01-01_web-design"><b>2024-01-01:</b> What's the deal with Modern Web Design?</a></li>
-	<li><a href="/blog/2024-01-01_spigot-dating-sucks"><b>2024-01-01:</b> Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks</a></li>
+	<li><a href="/blog/2024/07-23_mbs"><b>2024-07-23:</b> The Tale of Minecraft's Baddest Server</a></li>
+	<li><a href="/blog/2024/06-17_versioning"><b>2024-06-17:</b> toy's Standardised Versioning</a></li>
+	<li><a href="/blog/2024/01-03_fs-measurements"><b>2024-01-03:</b> Digital Metric Unit Nomenclature for Dummies</a></li>
+	<li><a href="/blog/2024/01-01_web-design"><b>2024-01-01:</b> What's the deal with Modern Web Design?</a></li>
+	<li><a href="/blog/2024/01-01_spigot-dating-sucks"><b>2024-01-01:</b> Minecraft Server Crashing? Try This. – or (Another Reason) why Spigot Sucks</a></li>
 </ul>
 </div>
 `;
 
 var badges = `
-<img src="/media/badges/toydotgame.gif" width="88">
-<img src="/media/badges/lucida.gif" width="88">
-<a href="https://www.7-zip.org/"><img src="/media/badges/7z.gif" width="88"></a>
-<img src="/media/badges/win7.gif" width="88">
-<img src="/media/badges/invalidator.gif" width="88">
-<img src="/media/badges/vcss-blue.gif" width="88">
-<a href="http://www.wtfpl.net/"><img src="/media/badges/wtfpl.gif" width="88"></a>
-<a href="https://thardwardy.com/"><img src="/media/badges/thardwardy.gif" width="88"></a>
-<img src="/media/badges/2019.gif" width="88">
-<a href="https://cyber.dabamos.de/88x31/"><img src="/media/badges/88x31.gif" width="88"></a>
-<img src="/media/badges/abrowser.gif" width="88">
-<img src="/media/badges/anythingbut.gif" width="88">
-<a href="https://archlinux.org/"><img src="/media/badges/archlinux.gif" width="88"></a>
-<img src="/media/badges/cssdif.gif" width="88">
-<a href="https://www.dell.com/"><img src="/media/badges/dell.gif" width="88"></a>
-<a href="https://www.mozilla.org/en-US/firefox/new/"><img src="/media/badges/firefox3.gif" width="88"></a>
-<img src="/media/badges/gregg.gif" width="88">
-<a href="https://archive.org/donate"><img src="/media/badges/internetarchive.gif" width="88"></a>
-<img src="/media/badges/miku.gif" width="88">
-<a href="https://minecraft.net/"><img src="/media/badges/minecraft.gif" width="88"></a>
-<img src="/media/badges/minibanner.gif" width="88">
-<img src="/media/badges/right2repair.gif" width="88">
-<a href="https://yesterweb.org/no-to-web3/"><img src="/media/badges/roly-saynotoweb3.gif" width="88"></a>
-<img src="/media/badges/transnow2.gif" width="88">
-<a href="https://donate.wikimedia.org/><img src="/media/badges/wikipedia.gif" width="88"></a>
+<img src="/media/resources/badges/toydotgame.gif" width="88">
+<img src="/media/resources/badges/lucida.gif" width="88">
+<a href="https://www.7-zip.org/"><img src="/media/resources/badges/7z.gif" width="88"></a>
+<img src="/media/resources/badges/win7.gif" width="88">
+<img src="/media/resources/badges/invalidator.gif" width="88">
+<img src="/media/resources/badges/vcss-blue.gif" width="88">
+<a href="http://www.wtfpl.net/"><img src="/media/resources/badges/wtfpl.gif" width="88"></a>
+<a href="https://thardwardy.com/"><img src="/media/resources/badges/thardwardy.gif" width="88"></a>
+<img src="/media/resources/badges/2019.gif" width="88">
+<a href="https://cyber.dabamos.de/88x31/"><img src="/media/resources/badges/88x31.gif" width="88"></a>
+<img src="/media/resources/badges/abrowser.gif" width="88">
+<img src="/media/resources/badges/anythingbut.gif" width="88">
+<a href="https://archlinux.org/"><img src="/media/resources/badges/archlinux.gif" width="88"></a>
+<img src="/media/resources/badges/cssdif.gif" width="88">
+<a href="https://www.dell.com/"><img src="/media/resources/badges/dell.gif" width="88"></a>
+<a href="https://www.mozilla.org/en-US/firefox/new/"><img src="/media/resources/badges/firefox3.gif" width="88"></a>
+<img src="/media/resources/badges/gregg.gif" width="88">
+<a href="https://archive.org/donate"><img src="/media/resources/badges/internetarchive.gif" width="88"></a>
+<img src="/media/resources/badges/miku.gif" width="88">
+<a href="https://minecraft.net/"><img src="/media/resources/badges/minecraft.gif" width="88"></a>
+<img src="/media/resources/badges/minibanner.gif" width="88">
+<img src="/media/resources/badges/right2repair.gif" width="88">
+<a href="https://yesterweb.org/no-to-web3/"><img src="/media/resources/badges/roly-saynotoweb3.gif" width="88"></a>
+<img src="/media/resources/badges/transnow2.gif" width="88">
+<a href="https://donate.wikimedia.org/><img src="/media/resources/badges/wikipedia.gif" width="88"></a>
 `;
 export { badges };
 
