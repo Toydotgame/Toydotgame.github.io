@@ -1,13 +1,13 @@
 /*
-	AUTHOR: toydotgame
-	CREATED ON: 2023-12-17
-	V2 card CSS. Note: footer is not sticky.
-	Assumes that there is enough content at the max width of 700px
-	so that the footer is always at the bottom of the viewport.
+ * AUTHOR: toydotgame
+ * CREATED ON: 2023-12-17
+ * V2 card CSS. Note: footer is not sticky.
+ * Assumes that there is enough content at the max width of 700px
+ * so that the footer is always at the bottom of the viewport.
  */
 
 body {
-	background-image: url("/media/background.jpg");
+	background-image: url("/media/resources/card/background.jpg");
 	background-repeat: repeat;
 	background-attachment: fixed;
 	background-position: center bottom;

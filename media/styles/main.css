@@ -15,23 +15,23 @@
 
 @font-face {
 	font-family: "Cookie";
-	src: url("/media/fonts/Cookie-reg.ttf");
+	src: url("/media/resources/fonts/Cookie-reg.ttf");
 	font-display: swap;
 } @font-face {
 	font-family: "DM Serif Display";
-	src: url("/media/fonts/DM-Serif-ita.ttf");
+	src: url("/media/resources/fonts/DM-Serif-ita.ttf");
 	font-display: swap;
 } @font-face {
 	font-family: "Fira Mono";
-	src: url("/media/fonts/Fira-Mono-reg.ttf");
+	src: url("/media/resources/fonts/Fira-Mono-reg.ttf");
 	font-display: swap;
 } @font-face {
 	font-family: "Ubuntu";
-	src: url("/media/fonts/Ubuntu-reg.ttf");
+	src: url("/media/resources/fonts/Ubuntu-reg.ttf");
 	font-display: swap;
 } @font-face {
 	font-family: "Twemoji";
-	src: url("/media/fonts/Twemoji.ttf");
+	src: url("/media/resources/fonts/Twemoji.ttf");
 	font-display: swap;
 }
 
@@ -130,7 +130,7 @@ small, figcaption {
 	height: 50px;
 	border-radius: 100%;
 	box-shadow: 0 0 5px var(--bg1) inset;
-	background-image: url("media/profile.png");
+	background-image: url("/media/resources/profile.png");
 		background-size: cover;
 	cursor: pointer;
 }
