@@ -36,6 +36,17 @@ var recentblogs = `
 
 var badges = `
 <img src="/media/resources/badges/toydotgame.gif" width="88">
+<a href="https://one.one.one.one/"><img src="/media/resources/badges/1.1.1.1.gif" width="88"></a>
+<img src="/media/resources/badges/8pride.gif" width="88">
+<a href="https://web.archive.org/web/19980509035420if_/http://www.apple.com/"><img src="/media/resources/badges/apple.gif" width="88"></a>
+<img src="/media/resources/badges/bi.gif" width="88">
+<a href="https://escargot.chat/"><img src="/media/resources/badges/escargot.gif" width="88"></a>
+<img src="/media/resources/badges/genderfluid.gif" width="88">
+<img src="/media/resources/badges/mslive.gif" width="88">
+<img src="/media/resources/badges/nyaabanner.gif" width="88">
+<img src="/media/resources/badges/trans.gif" width="88">
+<img src="/media/resources/badges/virtualdiva.gif" width="88">
+<a href="https://en.wikipedia.org/"><img src="/media/resources/badges/wikipedia.gif" width="88"></a>
 <img src="/media/resources/badges/lucida.gif" width="88">
 <a href="https://www.7-zip.org/"><img src="/media/resources/badges/7z.gif" width="88"></a>
 <img src="/media/resources/badges/win7.gif" width="88">
@@ -58,7 +69,7 @@ var badges = `
 <img src="/media/resources/badges/right2repair.gif" width="88">
 <a href="https://yesterweb.org/no-to-web3/"><img src="/media/resources/badges/roly-saynotoweb3.gif" width="88"></a>
 <img src="/media/resources/badges/transnow2.gif" width="88">
-<a href="https://donate.wikimedia.org/"><img src="/media/resources/badges/wikipedia.gif" width="88"></a>
+<a href="https://donate.wikimedia.org/"><img src="/media/resources/badges/donate-wikipedia.gif" width="88"></a>
 `;
 export { badges };
 
