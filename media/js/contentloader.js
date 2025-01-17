@@ -19,7 +19,7 @@ document.getElementById("nav").innerHTML = `
 <hr>
 `;
 
-import {} from "/imgmodal.js";
+import {} from "/media/js/imgmodal.js";
 
 var recentblogs = `
 <div id="recentblogs">
