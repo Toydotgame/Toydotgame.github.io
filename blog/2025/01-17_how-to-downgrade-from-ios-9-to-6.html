@@ -73,20 +73,117 @@ cd Legacy-iOS-Kit/
 				<li><a href="https://phoenixpwn.com/download.php">Phœnix jailbreak IPA.</a> This is only for iOS 9.3.5/9.3.6. If your device is already on iOS 8.4.1, you can skip the iOS 9 stage of instructions</li>
 				<li><a href="https://etasonjb.tihmstar.net/">EtasonJB IPA.</a> This is for iOS 8.4.1</li>
 			</ul>
+			<h4>Optionally, if the internet on your iDevice is notably worse than on your computer:</h4>
+			<ul>
+				<li><a href="https://www.3u.com/">3uTools.</a> Install this on Windows or macOS. You'll need this for transferring the pre-downloaded iOS 6 IPSW to your iDevice</li>
+				<li>An iOS 6.1.3 IPSW. <a href="https://ipsw.me/">You can download one for your model here.</a> It doesn't actually have to be 6.1.3, it can be any iOS from 6.0–9.3.5.</li>
+			</ul>
 			<br>
 			<h3>Stage 1: The iOS 9 Stuff</h3>
 			<p>First, we'll need to jailbreak iOS 9 then downgrade it to the last release of iOS 8.4.1. We will jailbreak iOS 9.3.5/9.3.6 with Phoenixpwn, a <b>semi-untethered</b> jailbreak, meaning you <i>don't</i> need to have a computer connected for it to stay jailbroken on reboot, but you <i>do</i> need to manually re-"kickstart" the jailbreak every time you reboot the device. For this tutorial, we only really need to be in iOS 9 for one power cycle, so re-kickstarting isn't needed.</p>
 			<ol>
 				<li>
+					<small>Start booted into Windows or macOS first.</small><br>
 					Connect the iDevice to your computer and make sure to hit <i>Trust</i> in iOS. Open Sideloadly and click the big "IPA" button to select the Phoenixpwn IPA file. Enter in your Apple ID e-mail address you wish to use. You are allowed 11 unique app IDs to sign a week; we'll only use two for the two jailbreak apps in this tutorial.<br>
-					Type in your Apple ID and hit <i>Start</i>
+					Type in your Apple ID and hit <i>Start</i>, it'll ask for the password and begin the process of signing and sideloading the app. A sideloaded app will remain valid for 7 days.
 					<img class="fcenter" width="50%" src="/media/blog/2025/01-17_how-to-downgrade-from-ios-9-to-6/sideloadly.png" />
+					Once sideloaded, the app will be available on your home screen immediately—but don't launch it yet!
+				</li>
+				<li>First, on your iDevice, open Settings. Go to <i>General</i> → scroll down to <i>Device Management</i> → there'll be a certificate just named with your Apple ID e-mail address, tap it → hit <i>Trust</i>.</li>
+				<li>Now that sideloaded apps are trusted, head back to your home screen and open the Phœnix app. Tap on <i>Prepare For Jailbreak</i>, then skip the ancient mixtape ad (lol). Your iDevice will reboot. Once it has rebooted, re-open the Phœnix app and if there's a <i>Kickstart Jailbreak</i> button, hit it—your device will respring; if not, head on to the next step.</li>
+				<li>Open Cydia. Wait for your sources to refresh and hit <i>Return to Cydia</i>. Head to the <i>Search</i> tab and search for "OpenSSH", select it, and hit <i>Install</i>. Cydia will probably give you a popup saying essential packages need upgrading (this will be the case as most jailbreaks for these old OSes need patches for a lot of core components). However, we don't need to update these packages as we're installing iOS 8 in a second anyway. Hit <i>Ignore (Temporary)</i>. Continue on with installing OpenSSH.</li>
+				<li>
+					<small>If you're on Windows, reboot into your Linux Live USB. If you're on macOS, ignore this.<br>						
+					Occasionally, booting into Ubuntu will make your iDevice forget it has trusted your computer; in which case, make sure to hit <i>Trust</i> again.</small><br>
+					Once OpenSSH is installed, lock your device. Have a terminal open in the <code>Legacy-iOS-Kit/</code> folder. Run:
+					<pre>./restore.sh</pre>
+					On your first run, Legacy-iOS-Kit may install additional dependencies and exit, in which case you just run <code>restore.sh</code> again.<br>
+					Legacy-iOS-Kit will provide you with a user interface you can navigate with the arrow keys and use Enter to select.<br>
+					<h4>If you have one of the following devices, you're in huge luck!:</h4>
+					<small>
+						<ul>
+							<li>iPhone 4S (<code>iPhone4,1</code>)</li>
+							<li>iPad 2 (WiFi) (<code>iPad2,1</code>)</li>
+							<li>iPad 2 (GSM) (<code>iPad2,2</code>)</li>
+							<li>iPad 2 (CDMA) (<code>iPad2,3</code>)</li>
+						</ul>
+						The following devices support being downgraded to iOS 6.1.3 directly, without needing the 8.4.1 intermediary. If one of these devices is your one, then complete the rest of this step with iOS 6.1.3 instead of 8.4.1 and the tutorial ends there!
+					</small>
+					Once your device is detected, select <i>Downgrade/Restore</i>, then <i>iOS 8.4.1</i>. Let it guide you through the process of downloading the IPSW and then restoring your device to it. It'll ask you if you'd like to jailbreak the IPSW, select <i>No</i>—because we'll be doing this manually later.<br>
+					Finally, it'll ask you for the SSH password into your device, which by default is <code>alpine</code>. Type exactly that and hit Enter. Your device will restart a couple times it'll proclaim that your device has successfully been downgraded. You can close out of the Legacy-iOS-Kit window now. You'll notice your iDevice will still be on the update screen but it's safe to turn off the program now.<br>
+					<small>If you're on Linux, you can reboot into Windows now.</small>
 				</li>
 			</ol>
+			<br>
+			<h3>Stage 2: iOS 8</h3>
+			<p>In practice, your device will now run 8.4.1 as its primary OS, but we'll set it up so that most of its space is dedicated to iOS 6, and that it boots into iOS 6 by default—so effectively you won't really know that it's an iOS 8 device except for the pre-SpringBoard boot screen having the iOS 7+ Apple logo.</p>
+			<p>We will use <a href="https://coolbooter.com/">CoolBooter</a> to create an iOS 6 bootable partition on our iDevice, allowing us to run iOS 6 on the bare metal of the device at full speed and with no compatibility compromises. Once that's working, we will use CoolBooter Untetherer, which will automatically take us to iOS 6 the first time the device boots up, without user input.</p>
+			<p>The reason we are installing CoolBooter on iOS 8 rather than 9 is because iOS 8 is an <b>untethered</b> jailbreak, which means—once you've done the first-time jailbreaking/setup—the device will <i>never</i> require any more action to stay jailbroken, even after rebooting. This is useful to keep it jailbroken early in the boot process so that CoolBooter Untetherer can run uninterrupted and without user input to take us from a turned off device to iOS 6 automatically!</p>
+			<ol>
+				<li>
+					We start by jailbreaking iOS 8. You've done this before so I'll keep it short:
+					<ol type="a">
+						<li>Use Sideloadly to sideload the EtasonJB IPA.</li>
+						<li>Go to Settings → <i>General</i> → <i>Device Management</i> → <i>&lt;Your Apple ID&gt;</i> → <i>Trust</i>.</li>
+						<li>Launch the Etason JB app, hit <i>Etason JB!</i>. Your device will reboot.</li>
+					</ol>
+				</li>
+				<li>
+					Open Cydia, go to <i>Sources</i> → <i>Edit</i>, and remove the following sources:
+					<ul>
+						<li>ModMyi (<code>http://apt.modmyi.com/</code> and <code>http://modmyi.saurik.com/</code>)</li>
+						<li>Ultrasn0w (<code>http://repo666.ultrasn0w.com/</code>)</li>
+					</ul>
+					…and <i>add</i> the following source:
+					<ul>
+						<li><code>https://coolbooter.com/</code></li>
+					</ul>
+					Hit <i>Done</i> to finish editing and <i>Refresh</i> to sync new package lists. We removed the Ultrasn0w and ModMyi repos because they've been shut down for many, <b>many</b> years at this point and aren't worth keeping the storage and time around for anymore. You won't be needing tweaks from them right now anyway.
+					This time, if Cydia says you need to update important packages, heed it and hit <i>Complete Upgrade</i> to properly update your system. You may need to Respring.
+				</li>
+				<li>In Cydia, go to <i>Sources</i> → <i>CoolBooter</i> → <i>All packages</i> → <i>CoolBooter</i> → <i>Modify</i>. The latest version of CoolBooter, 1.6, is very broken and will cause boot-loops in iOS 8. Select <code>1.4.1-release</code> as the version to "downgrade" to, and hit <i>Install</i>. IIRC this requires a Respring too.</li>
+				<li>
+					<table>
+						<tr><th width="50%">If you think your iDevice's internet is fine:</th><th>If you think your iDevice's internet is noticeably worse than your computer's and you already gathered the optional prerequisites in the intro:</th></tr>
+						<tr><td><ol>
+							<li>
+								Open the CoolBooter app, hit <i>Install</i>, and first select the partition size you want for iOS 6, I recommend maxing this out:
+								<img src="/media/blog/2025/01-17_how-to-downgrade-from-ios-9-to-6/coolbooter-partition-size.png" />
+								Then hit <i>Select</i>, and choose the iOS version you want to install. Once that's done, hit <i>I'm ready!</i> and follow it through the process of downloading.
+							</li>
+						</ol></td><td><ol>
+							<li>Open Cydia, head to <i>Search</i>, search for "afc2", click on <i>"Apple File Conduit" 2</i> from the <i>Cydia/Telesphoreo</i> repo, and hit <i>Install</i>. Reboot if needed.</li>
+							<li>
+								Open 3uTools on your computer, and head to <i>Files</i> (on the left) → <i>File System (Jailbroken)</i> → scroll down to <i><code>var/</code></i> → <i><code>cbooter/</code></i>
+								<img src="/media/blog/2025/01-17_how-to-downgrade-from-ios-9-to-6/3u-fs.png" />
+								Then <i>Import</i> → <i>From File</i> and select the iOS 6 IPSW. Uploading the IPSW to the <code>/var/cbooter/</code> folder will mean CoolBooter will skip downloading the IPSW on-device, and will use this provided one for the install.
+							</li>
+							<li>
+								Open the CoolBooter app, hit <i>Install</i>, and first select the partition size you want for iOS 6, I recommend maxing this out:
+								<img src="/media/blog/2025/01-17_how-to-downgrade-from-ios-9-to-6/coolbooter-partition-size.png" />
+								Then hit <i>Select</i>, and choose the iOS version you want to install. Once that's done, hit <i>I'm ready!</i>.
+							</li>
+						</ol></td></tr>
+					</table><br>
+					You can also pick to your liking a custom boot logo (or lack thereof), whether to enable verbose boot, and whether to jailbreak the target OS—you can choose what you want for these, it has no bearing on the success rate.<br>
+					You will finally need to reboot as it tells you to.
+				</li>
+				<li>Reboot into iOS 8, open CoolBooter, and hit <i>Boot</i>. This will boot you into iOS 6 for the first time properly.</li>
+			</ol>
+			<br>
+			<h3>Stage 3: Setting up iOS 6 & Untether CoolBooter</h3>
+			<!-- IPG new certs, cb untetherer, optional battery percentage tweak -->
+			<br>
 			<h2>Troubleshooting</h2>
 			<h3>Issues refreshing repositories in Cydia or signing apps in Sideloadly</h3>
 			<p>The most common cause for this is an incorrect system time. This can be caused in Windows by the way Ubuntu works with the hardware clock in your computer, meaning sometimes when you reboot into Windows the clock is set to the wrong time. This breaks HTTPS/TLS stuff and means Apple's servers won't want to talk to you for app signing. A similar issue arises in iOS after you flash an iOS update to it: usually the system's timezone is reset and thus Cydia throws a bunch of SSL errors at you when trying to refresh sources.</p>
-
+			<h3>I need to boot into iOS 8! </h3>
+			<p>If for whatever reason you need to access iOS 8 after untethering CoolBooter, completely shut down your iDevice, then turn it on and once the Apple logo shows, hold down the Volume Down button until you land at the iOS 8 lock screen.</p>
+			<br>
+			<h2>End Result</h2>
+			<p>You now have a device that boots into iOS 6—and it's not an emulator! This means that iTunes, 3uTools, or whatever will see your device as truly running iOS 6 when it's on! And it's true! iOS 6 is running directly on your hardware, no emulation layers or containers or weird incompatibilities about it! Technically yes, you are running an iOS 8 device on a small, default-bootable partition, but iOS 6 is on the bigger partition and iOS 8's single purpose as soon as it's detected to be running is to immediately reboot straight to iOS 6.</p>
+			<p>With this, you can probably also expect <b>far</b> better battery life. My 20-second-iPod I mentioned in the introduction was downgraded about two days ago as of writing, and has been unplugged for about 50 hours, and is sitting at just above 50%!!! That's right, my 12 year old <i>very well loved</i> iPod touch is outperforming my 2 year old iPhone 12 mini in standby times!</p>
+			<br>
 			<h2 class="reflist freset">Reference List</h2>
 			<ol>
 				<li><a name="1" href="https://www.lipsum.com/">"Page Title"</a>. Commercial Author or First Name, Middle/Last Initials. (Optional) Additional notes clause.</li>
