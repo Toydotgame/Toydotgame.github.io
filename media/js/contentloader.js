@@ -58,7 +58,7 @@ var badges = `
 <img src="/media/resources/badges/right2repair.gif" width="88">
 <a href="https://yesterweb.org/no-to-web3/"><img src="/media/resources/badges/roly-saynotoweb3.gif" width="88"></a>
 <img src="/media/resources/badges/transnow2.gif" width="88">
-<a href="https://donate.wikimedia.org/><img src="/media/resources/badges/wikipedia.gif" width="88"></a>
+<a href="https://donate.wikimedia.org/"><img src="/media/resources/badges/wikipedia.gif" width="88"></a>
 `;
 export { badges };
 
