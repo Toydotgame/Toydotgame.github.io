@@ -41,7 +41,6 @@ var badges = `
 <img src="/media/resources/badges/win7.gif" width="88">
 <img src="/media/resources/badges/invalidator.gif" width="88">
 <img src="/media/resources/badges/vcss-blue.gif" width="88">
-<a href="http://www.wtfpl.net/"><img src="/media/resources/badges/wtfpl.gif" width="88"></a>
 <a href="https://thardwardy.com/"><img src="/media/resources/badges/thardwardy.gif" width="88"></a>
 <img src="/media/resources/badges/2019.gif" width="88">
 <a href="https://cyber.dabamos.de/88x31/"><img src="/media/resources/badges/88x31.gif" width="88"></a>
