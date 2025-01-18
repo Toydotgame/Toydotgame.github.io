@@ -27,7 +27,13 @@
 	font-display: swap;
 } @font-face {
 	font-family: "Ubuntu";
-	src: url("/media/resources/fonts/Ubuntu-reg.ttf");
+	src: url("/media/resources/fonts/UbuntuSans-var.ttf");
+	font-weight: 480;
+	font-display: swap;
+} @font-face { /* Hack to implement more noticeable bold font */
+	font-family: "Ubuntu";
+	src: url("/media/resources/fonts/UbuntuSans-var.ttf");
+	font-weight: 800;
 	font-display: swap;
 } @font-face {
 	font-family: "Twemoji";
@@ -275,6 +281,11 @@ blockquote {
 table { /* Vaguely hacky */
 	display: block;
 	overflow-x: auto;
+}
+
+table tbody {
+	display: table;
+	width: 100%;
 }
 
 table, th, td {
