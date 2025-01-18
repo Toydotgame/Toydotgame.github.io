@@ -25,7 +25,7 @@ var recentblogs = `
 <div id="recentblogs">
 <h1>Recent Blog Posts</h1>
 <ul>
-	<li><a href="/blog/2025/01-18_how-to-downgrade-from-ios-9-to-6.html"><b>2025-01-18:</b> How to Downgrade from iOS 9 to iOS 6</a></li>
+	<li><a href="/blog/2025/01-18_how-to-downgrade-from-ios-9-to-6"><b>2025-01-18:</b> How to Downgrade from iOS 9 to iOS 6</a></li>
 	<li><a href="/blog/2024/07-23_mbs"><b>2024-07-23:</b> The Tale of Minecraft's Baddest Server</a></li>
 	<li><a href="/blog/2024/06-17_versioning"><b>2024-06-17:</b> toy's Standardised Versioning</a></li>
 	<li><a href="/blog/2024/01-03_fs-measurements"><b>2024-01-03:</b> Digital Metric Unit Nomenclature for Dummies</a></li>
