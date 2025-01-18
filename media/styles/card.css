@@ -151,7 +151,8 @@ summary {
 	font-size: 32px;
 	text-align: center;
 	transition: all ease 0.1s;
-	color: #1c1c1c;
+	/* main.css a[href] selector outranks specificity, so !important is needed */
+	color: #1c1c1c !important;
 }
 
 .button:hover {
@@ -161,7 +162,9 @@ summary {
 	background-color: #8e48a8;
 	transform: scale(1.01);
 	color: var(--sec);
-	text-decoration: none;
+	/* main.css a[href]:hover outranks specificity again */
+	text-decoration: none !important;
+	text-shadow: none !important;
 }
 
 .svg {
