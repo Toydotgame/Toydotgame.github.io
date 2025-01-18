@@ -2,8 +2,8 @@
 #################################################################
 #### AUTHOR: toydotgame                                         #
 #### CREATED ON: 2025-01-18                                     #
-#### Toybox: A collection of day-to-day useful Linux utilities. #
-#### Runs best at 60 columns or more.                           #
+#### Toybox: A collection of day-to-day useful Linux utilities. # # TODO: Turns out there's already a project called toybox that happens
+#### Runs best at 60 columns or more.                           # # to also be a set of Linux utils :sob:. need a better name
 #################################################################
 
 # REQUIREMENTS:
@@ -119,6 +119,27 @@ install() {
 	fi
 }
 
+print_options() {
+	echo "Options are: $@"
+	# TODO:
+	# Print args seperated by newlines
+	# Get length of args[]
+	# Index = 0, down +1, up -1, normalise so it stays in args[].length bounds
+	while true; do
+		read -sk1 INPUT
+		if [ "$INPUT" = $'\n' ]; then
+			echo "Return"
+			return
+		elif [ "$INPUT" = $'\e' ]; then
+			read -sk2 INPUT
+			case "$INPUT" in
+				"[A") echo "Up" ;;
+				"[B") echo "Down" ;;
+			esac
+		fi
+	done
+}
+
 main() {
 	if [ "$VWIDTH" -ge 54 ]; then
 		center "████████╗ ██████╗ ██╗   ██╗██████╗  ██████╗ ██╗  ██╗" "$COLOR_LOGO"
@@ -134,16 +155,7 @@ main() {
 	echo
 	center "MAIN MENU"
 	log "Please choose from an option below:"
-	while true; do
-		read -sk3 INPUT
-		case "$INPUT" in
-			$'\e[A') echo "Up" ;;
-			$'\e[B') echo "Down" ;;
-			$'\e[C') echo "Right" ;;
-			$'\e[D') echo "Left" ;;
-			*) echo "UNKNOWN" ;;
-		esac
-	done
+	print_options "Option 1" "Two" "Foobar"
 }
 
 case "$1" in
