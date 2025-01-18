@@ -62,12 +62,12 @@ hr {
 	border: 1px double var(--acc);
 }
 
-a {
+a[href] {
 	color: var(--lnk);
 	text-decoration: none;
 }
 
-a:hover {
+a[href]:hover {
 	text-decoration: underline;
 	text-shadow: 1px 1px 3px;
 }
