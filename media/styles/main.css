@@ -272,7 +272,7 @@ blockquote {
 	font-style: italic;
 }
 
-.table { /* Unfortunately requires a parent <div> to contain table */
+table { /* Vaguely hacky */
 	display: block;
 	overflow-x: auto;
 }

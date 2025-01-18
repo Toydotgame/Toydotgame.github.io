@@ -230,7 +230,7 @@
 					document.getElementById("output").value = output;
 				}
 			</script>
-			<div class="table"><table>
+			<table>
 				<tr><th colspan="2">
 					<select id="funcpicker">
 						<optgroup label="Generic Functions">
@@ -264,7 +264,7 @@
 				</th></tr>
 				<tr><th>Input</th><th>Output</th></tr>
 				<tr><td><textarea id="input" rows="10"></textarea></td><td><textarea id="output" rows="10" readonly></textarea></td></tr>
-			</table></div>
+			</table>
 			<script>
 				setTimeout(function() {
 					var func = (new URLSearchParams(window.location.search)).get("func");
@@ -284,7 +284,7 @@
 			<small>The URL de-telemetry-er simply removes all query strings. Additionally, it converts twitter/x.com URLs to fxtwitter.com, to make embedding easier; youtu.be is also converted to a regular <code>/watch?v=</code> link.</small>
 			<h2>Useful Unicode Characters</h2>
 			<small>Non-printing characters have quotes around them.</small>
-			<div class="table"><table>
+			<table>
 				<tr><th>Character</th><th>Name</th><th>Character</th><th>Name</th></tr>
 				<tr><td><code>"​"</code></td><td>ZERO WIDTH SPACE (ZWSP)</td><td><code>" "</code></td><td>NO-BREAK SPACE (NBSP)</td></tr>
 				<tr><td><code>"	"</code></td><td>&lt;CHARACTER TABULATION&gt; (HT, TAB)</td><td><code>█</code></td><td>FULL BLOCK</td></tr>
@@ -295,7 +295,7 @@
 				<tr><td><code>©</code></td><td>COPYRIGHT SIGN</td><td><code>™</code></td><td>TRADE MARK SIGN</td></tr>
 				<tr><td><code>…</code></td><td>HORIZONTAL ELLIPSIS</td><td><code>〠</code></td><td>POSTAL MARK FACE</td></tr>
 				<tr><td><code>⚧</code></td><td>MALE WITH STROKE AND MALE AND FEMALE SIGN</td><td><code>￼</code></td><td>OBJECT REPLACEMENT CHARACTER</td></tr>
-			</table></div>
+			</table>
 		</div>
 		<div id="footer"></div>
 	</body>
