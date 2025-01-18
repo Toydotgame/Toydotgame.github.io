@@ -62,6 +62,7 @@ h1 {
 }
 
 h1 > sup {
+	top: 14px;
 	font-size: 14px;
 }
 
