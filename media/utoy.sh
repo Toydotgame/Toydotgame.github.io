@@ -121,17 +121,26 @@ module_test() { # Test Zsh Syntax
 				vim +5 "$TMPFILE"
 				log "File saved. What would you like to do?" ;;
 			"Save & quit")
-				log "Where would you like to save to?"; read DEST
+				DEST="" # Must be declared for vared to work
+				log "Where would you like to save to?"; vared DEST
+				echo "\$DEST=\"$DEST\""
 				if [ -z "$DEST" ]; then
 					DEST="$(realpath .)"
 				else
 					DEST="${DEST/#\~/$HOME}" # Substitute `~` for $HOME value. From https://stackoverflow.com/a/27485157
 				fi
-				echo "Destination is: \"$DEST\""
-				if [ ! -d "${DEST%/*}" ]; then
-					mkdir -p "${DEST%/*}"
+				if grep -i "/" <<< "$DEST" && [ ! -d "${DEST%/*}" ]; then
+					if ! mkdir -p "${DEST%/*}"; then
+						err "Save failed! Directory does not exist and could not be created."
+						log "\nWhat would you like to do?"
+						continue # Break from case
+					fi
 				fi
-				mv -i "$TMPFILE" "$DEST"
+				if ! mv -i "$TMPFILE" "$DEST"; then
+					err "Save failed! Couldn't save file to this location."
+					log "\nWhat would you like to do?"
+					continue
+				fi
 				log "File saved."
 				break ;;
 			"Delete & quit")
@@ -240,7 +249,7 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 		"") ;& "main") main ;;
 		"install") install ;;
 		"test") ;& "Test Zsh Syntax") module_test ;;
-		*) err "Command \"$1\" not found!" ;;
+		*) err "Command \"$1\" not found! Run \"utoy help\" for help." ;;
 	esac
 }
 
