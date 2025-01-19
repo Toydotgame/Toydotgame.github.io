@@ -137,6 +137,58 @@ module_test() { # Test Zsh Syntax
 	done
 }
 
+module_post_update() { # Fix Vencord and KWin Post-Update
+	case "${OPTIONS[1]}" in;
+		"discord") ;& "vencord") MENU_SELECTION="Vencord" ;;
+		"kwin") MENU_SELECTION="KWin Window Decorations" ;;
+		"both") MENU_SELECTION="Both" ;;
+		*) MENU_SELECTION="" ;; # Reset menu selection because we kinda bodgily use it to parse cmdline inputs into this module
+	esac
+	if [ -z "$MENU_SELECTION" ]; then
+		log "What would you like to patch?"
+		menu "Vencord" "KWin Window Decorations" "Both"
+	fi
+
+	if [ "$MENU_SELECTION" = "Vencord" ] || [ "$MENU_SELECTION" = "Both" ]; then
+		sudo rm -f /opt/discord/discord.desktop /opt/discord/discord.png
+		sudo ln -s ~/pkgs/discord.desktop /opt/discord/discord.desktop
+		sudo ln -s ~/pkgs/discord.png /opt/discord/discord.png
+		sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
+	fi
+
+	if [ "$MENU_SELECTION" = "KWin Window Decorations" ] || [ "$MENU_SELECTION" = "Both" ]; then
+		#########################################################################
+		#### AUTHOR: toydotgame                                                 #
+		#### CREATED ON: 2025-01-17                                             #
+		#### Formerly recompile-kwin.sh                                         #
+		#### Quick script to recompile KWin Aero effects after a system upgrade #
+		#########################################################################
+		
+		SAVE_PWD="$PWD" # Restore working dir once script is done
+		AEROTHEMEPLASMA_DIR="$HOME/pkgs/aerothemeplasma/"
+		cd "$AEROTHEMEPLASMA_DIR"
+
+		# Re-compile KWin effects:
+		cd "kwin/decoration/"
+		for i in *; do
+			cd "$i"
+			./install.sh
+			cd ..
+		done
+
+		cd "kwin/effects_cpp/"
+		for i in *; do
+			cd "$i"
+			./install.sh
+			cd ..
+		done
+
+		kwin_x11 --replace >/dev/null 2>&1 & disown
+		plasmashell --replace >/dev/null 2>&1 & disown
+		cd "$SAVE_PWD"
+	fi
+}
+
 module_status() { # Computer Status & Version Info
 	print_title
 	log_center "STATUS"
@@ -259,6 +311,7 @@ main() {
 	log "Please choose from an option below:"
 	menu \
 		"Test Zsh Syntax" \
+		"Fix Vencord and KWin Post-Update" \
 		"Computer Status & Version Info" \
 		"Search Google"
 	load_module "$MENU_SELECTION"
@@ -269,6 +322,7 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 		"") ;& "main") main ;;
 		"install") install ;;
 		"test") ;& "Test Zsh Syntax") module_test ;;
+		"postupdate") ;& "Fix Vencord and KWin Post-Update") module_post_update ;;
 		"status") ;& "Computer Status & Version Info") module_status ;;
 		"search") ;& "Search Google") module_search ;;
 		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
