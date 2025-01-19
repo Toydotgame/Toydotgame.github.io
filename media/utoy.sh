@@ -65,7 +65,7 @@ DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openss
 # * iccmcssh access
 # * iccmcscp (decode some kind of shorthand to replace with `iccmc@192.168.1.100:`)
 # * very quick google search open in firefox thx
-#     * firefox https://google.com/search\?q=hi & disown && wmctrl -a firefox
+#     * 
 # * shortcut to toydotgame.net/utils
 # * possible to make shift + enter exit the program once command is done?
 #     * by default exits to main menu
@@ -152,6 +152,16 @@ module_status() { # Computer Status & Version Info
 	PACMAN_OUTPUT="$(pacman -Q $DEPENDENCIES --color=always 2>&1)"
 	log "\tPacman:$COLOR_RESET $(echo $PACMAN_OUTPUT | awk 'FNR==1')"
 	          log "$COLOR_RESET$(echo $PACMAN_OUTPUT | awk 'FNR>=2{print "\t       ", $0}')"
+}
+
+module_search() { # Search Google
+	SEARCH_QUERY=""
+	if [ -z $(echo "$OPTIONS") ]; then
+		log "Where do you want to go today?"; vared SEARCH_QUERY # Microsoft: Making it easier
+	fi
+	SEARCH_QUERY="$OPTIONS"
+	firefox "https://google.com/search?q=$SEARCH_QUERY" & disown && \
+	wmctrl -a firefox
 }
 
 ###################
@@ -248,8 +258,9 @@ main() {
 	log_center "MAIN MENU"
 	log "Please choose from an option below:"
 	menu \
-		"Test Zsh Syntax"\
-		"Computer Status & Version Info"
+		"Test Zsh Syntax" \
+		"Computer Status & Version Info" \
+		"Search Google"
 	load_module "$MENU_SELECTION"
 }
 
@@ -259,6 +270,7 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 		"install") install ;;
 		"test") ;& "Test Zsh Syntax") module_test ;;
 		"status") ;& "Computer Status & Version Info") module_status ;;
+		"search") ;& "Search Google") module_search ;;
 		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
 	esac
 }
