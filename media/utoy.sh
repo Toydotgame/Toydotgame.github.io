@@ -2,8 +2,8 @@
 #################################################################
 #### AUTHOR: toydotgame                                         #
 #### CREATED ON: 2025-01-18                                     #
-#### Toybox: A collection of day-to-day useful Linux utilities. # # TODO: Turns out there's already a project called toybox that happens
-#### Runs best at 60 columns or more.                           # # to also be a set of Linux utils :sob:. need a better name
+#### UToy: A collection of day-to-day useful Linux utilities. #
+#### Runs best at 40 columns or more.                           #
 #################################################################
 
 # REQUIREMENTS:
@@ -29,7 +29,7 @@
 ########
 if [ -f "$HOME/.zshrc" ]; then . ~/.zshrc; fi
 setopt aliases
-VERSION="a1.0.1"        # Local version is checked against the one at toydotgame.net/media/toybox.sh
+VERSION="a1.0.1"        # Local version is checked against the one at toydotgame.net/media/utoy.sh
 LAST_UPDATE_YEAR="2025"
 SOURCE="$(realpath $0)" # Location of this script
 VWIDTH="$(tput cols)"   # Viewport width
@@ -59,7 +59,7 @@ center() {
 #     * recursive uninstaller
 # * Post-pacman system update autorun
 #     * Zero-interaction vencord-installer and recompile-kwin and hard-restart-plasma
-# * help command listing for toybox
+# * help command listing for utoy
 # * get internal/external ip(s), show interface for internal ips (enp3s0, wg0, lo, etc)
 # * yt-dlp to mp4 or mp3, and list formats available too
 # * arrow key navigable interface
@@ -90,31 +90,31 @@ center() {
 # * search (case insensitive) and taskkill for running tasks
 # * status:
 #     * cpu usage
-#     * toybox ver
+#     * utoy ver
 #     * mem usage
 #     * kernel ver
 #     * submodule info: version info for listed requirements (use pacman and dump stderr if not installed)
 # * update checker (against toydotgame.net) and updater of local script (good luck lol)
-# every feature can be accessed directly thru `toybox <command>` and every command can also just run hands-free with
-# args passed straight to it thru `toybox <command> [args]`
+# every feature can be accessed directly thru `utoy <command>` and every command can also just run hands-free with
+# args passed straight to it thru `utoy <command> [args]`
 
 install() {
-	if alias toybox >/dev/null 2>&1; then
-		err "Toybox is already installed!"
+	if alias utoy >/dev/null 2>&1; then
+		err "UToy is already installed!"
 		return
 	fi
 
 	if [ -f "$HOME/.zsh-aliases" ]; then
-		printf "${COLOR_OUT}Installing Toybox to ~/.zsh-aliases... "
-		echo "alias toybox=\"$SOURCE\"" >> "$HOME/.zsh-aliases"
+		printf "${COLOR_OUT}Installing UToy to ~/.zsh-aliases... "
+		echo "alias utoy=\"$SOURCE\"" >> "$HOME/.zsh-aliases"
 		log "Done!\nYou will need to refresh your aliases with: $COLOR_RESET. ~/.zsh-aliases"
 	elif [ -f "$HOME/.zshrc" ]; then
-		printf "${COLOR_OUT}Installing Toybox to ~/.zshrc... "
-		echo "alias toybox=\"$SOURCE\"" >> "$HOME/.zshrc"
+		printf "${COLOR_OUT}Installing UToy to ~/.zshrc... "
+		echo "alias utoy=\"$SOURCE\"" >> "$HOME/.zshrc"
 		log "Done!\nYou will need to refresh your aliases with: $COLOR_RESET. ~/.zshrc"
 	else
 		err "Couldn't find .zshrc or aliases file! You'll have to add the following line to your terminal config:"
-		echo "alias toybox=\"$SOURCE\"" >&2
+		echo "alias utoy=\"$SOURCE\"" >&2
 		err "and reload with: $COLOR_RESET. ~/.zshrc"
 	fi
 }
@@ -142,15 +142,16 @@ print_options() {
 
 main() {
 	if [ "$VWIDTH" -ge 54 ]; then
-		center "████████╗ ██████╗ ██╗   ██╗██████╗  ██████╗ ██╗  ██╗" "$COLOR_LOGO"
-		center "╚══██╔══╝██╔═══██╗╚██╗ ██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝" "$COLOR_LOGO"
-		center "   ██║   ██║   ██║ ╚████╔╝ ██████╔╝██║   ██║ ╚███╔╝ " "$COLOR_LOGO"
-		center "   ██║   ██║   ██║  ╚██╔╝  ██╔══██╗██║   ██║ ██╔██╗ " "$COLOR_LOGO"
-		center "   ██║   ╚██████╔╝   ██║   ██████╔╝╚██████╔╝██╔╝ ██╗" "$COLOR_LOGO"
-		center "   ╚═╝    ╚═════╝    ╚═╝   ╚═════╝  ╚═════╝ ╚═╝  ╚═╝" "$COLOR_LOGO"
+		center "██╗   ██╗████████╗ ██████╗ ██╗   ██╗" "$COLOR_LOGO"
+		center "██║   ██║╚══██╔══╝██╔═══██╗╚██╗ ██╔╝" "$COLOR_LOGO"
+		center "██║   ██║   ██║   ██║   ██║ ╚████╔╝ " "$COLOR_LOGO"
+		center "██║   ██║   ██║   ██║   ██║  ╚██╔╝  " "$COLOR_LOGO"
+		center "╚██████╔╝   ██║   ╚██████╔╝   ██║   " "$COLOR_LOGO"
+		center " ╚═════╝    ╚═╝    ╚═════╝    ╚═╝   " "$COLOR_LOGO"
 	else
-		center "TOYBOX" "$COLOR_LOGO"
+		center "UTOY" "$COLOR_LOGO"
 	fi
+	center "A collection of utilities for Zsh."
 	center "$VERSION, (ↄ) toydotgame 2025–$LAST_UPDATE_YEAR" "$COLOR_LOGO"
 	echo
 	center "MAIN MENU"
