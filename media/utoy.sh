@@ -6,32 +6,16 @@
 #### Runs best at 40 columns or more.                           #
 #################################################################
 
-# REQUIREMENTS:
+# DEPENDENCIES:
 # - zsh
-# OPTIONAL DEPENDENCIES: (Requirements are case-by-case for each submodule, not the whole program)
 # - pacman
-# - wmctrl
-# - yt-dlp
-# - ffmpeg
-# - ip
-# - systemd
-# - vim
-# - ssh
-# - sshpass
-# - firefox
-# - kwin_x11
-# - plasma-desktop
-# - discord
-# - scp
-# - date
+# Additional by module can be installed with `utoy install`
 
 ########
 # INIT #
 ########
 if [ -f "$HOME/.zshrc" ]; then . ~/.zshrc; fi
 setopt aliases
-VERSION="a1.0.1"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
-LAST_UPDATE_YEAR="2025"
 SOURCE="$(realpath $0)"   # Script location
 VWIDTH="$(tput cols)"
 OPTIONS=("${@:2}")        # Later fetched by functions as if they were a command and these were $@
@@ -50,11 +34,21 @@ alias echo="echo -e"
 log() { echo "$COLOR_OUT$1$COLOR_RESET" }
 warn() { echo "$COLOR_WARN$1$COLOR_RESET" }
 err() { echo "$COLOR_ERR$1$COLOR_RESET" >&2 }
-center() {
+log_center() {
 	PADDING=$((($VWIDTH-${#1})/2))
 	for i in {1..$PADDING}; do printf " "; done
 	echo "$2$1$COLOR_RESET"
 }
+
+# Update checking:
+VERSION="a1.0.1"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
+LATEST="$(curl -sLm 5 https://toydotgame.net/media/utoy.sh | grep 'VERSION=' | sed -e 's/.*"\(.*\)".*/\1/')"
+LAST_UPDATE_YEAR="2025"
+if [ "$VERSION" != "$LATEST" ]; then
+	log "${COLOR_WARN}UToy is not up to date! Latest: $LATEST, local: $VERSION.\nRun ${COLOR_RESET}utoy update$COLOR_WARN to update\n"
+fi
+# pacman needs array format, not just space delimited packages:
+DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openssh" "plasma-desktop" "procps-ng" "sshpass" "systemd" "vim" "wmctrl" "yt-dlp" "foo")
 
 # FEATURE LIST TODO:
 # * AUR installer
@@ -65,15 +59,9 @@ center() {
 # * help command listing for utoy
 # * get internal/external ip(s), show interface for internal ips (enp3s0, wg0, lo, etc)
 # * yt-dlp to mp4 or mp3, and list formats available too
-# * arrow key navigable interface
-# * error logging to stderr
-# * coloured text
 # * live timedatectl current time viewer
 #     * full output
 #     * short output by default (pretty pls :3)
-# * cool main menu when run with no options
-# * quick vim to a tmp file with preinstalled shebang that when u :wq it it runs it
-#     * asks if u want to save or edit after first run, choosing to edit repeats the :wq, run, prompt save/edit cycle again
 # * iccmcssh access
 # * iccmcscp (decode some kind of shorthand to replace with `iccmc@192.168.1.100:`)
 # * very quick google search open in firefox thx
@@ -91,15 +79,8 @@ center() {
 #     * dump stderr to /dev/null
 #     * say no files found if 0 lines output
 # * search (case insensitive) and taskkill for running tasks
-# * status:
-#     * cpu usage
-#     * utoy ver
-#     * mem usage
-#     * kernel ver
-#     * submodule info: version info for listed requirements (use pacman and dump stderr if not installed)
-# * update checker (against toydotgame.net) and updater of local script (good luck lol)
-# every feature can be accessed directly thru `utoy <command>` and every command can also just run hands-free with
-# args passed straight to it thru `utoy <command> [args]`
+# * updater of local script (good luck lol)
+# remember every module can be run also with `utoy <cmd> [args]`
 
 module_test() { # Test Zsh Syntax
 	TMPFILE="/tmp/utoy-$(date +%s%N).sh"
@@ -156,10 +137,32 @@ module_test() { # Test Zsh Syntax
 	done
 }
 
+module_status() { # Computer Status & Version Info
+	print_title
+	log_center "STATUS"
+	log "\tUToy Version:$COLOR_RESET $VERSION (Latest: $LATEST)"
+	log "\tCPU Utilisation:$COLOR_RESET $(vmstat | awk 'END{id=$(NF-3); print 100-id"%"}')"
+	log "\tVRAM Use:$COLOR_RESET $(free -h | awk 'FNR==2{print $3"B / "$2"B"}')"
+	DF_OUTPUT="$(df -hT .)"
+	log "\tWorking FS Info:$COLOR_RESET $(echo $DF_OUTPUT | awk 'FNR==1')"
+	log "\t                $COLOR_RESET $(echo $DF_OUTPUT | awk 'FNR==2')"
+	echo
+	log_center "VERSIONS"
+	log "\tKernel:$COLOR_RESET $(uname -r)"
+	PACMAN_OUTPUT="$(pacman -Q $DEPENDENCIES --color=always 2>&1)"
+	log "\tPacman:$COLOR_RESET $(echo $PACMAN_OUTPUT | awk 'FNR==1')"
+	          log "$COLOR_RESET$(echo $PACMAN_OUTPUT | awk 'FNR>=2{print "\t       ", $0}')"
+}
+
 ###################
 # CORE COMPONENTS #
 ###################
 install() {
+	if ! pacman -Q $DEPENDENCIES >/dev/null 2>&1; then
+		err "Missing dependencies! Installing now..."
+		sudo pacman -S $DEPENDENCIES --needed --noconfirm
+	fi
+
 	if alias utoy >/dev/null 2>&1; then
 		err "UToy is already installed!"
 		return
@@ -224,23 +227,29 @@ menu() {
 	done
 }
 
-main() {
+print_title() {
 	if [ "$VWIDTH" -ge 54 ]; then
-		center "██╗   ██╗████████╗ ██████╗ ██╗   ██╗" "$COLOR_LOGO"
-		center "██║   ██║╚══██╔══╝██╔═══██╗╚██╗ ██╔╝" "$COLOR_LOGO"
-		center "██║   ██║   ██║   ██║   ██║ ╚████╔╝ " "$COLOR_LOGO"
-		center "██║   ██║   ██║   ██║   ██║  ╚██╔╝  " "$COLOR_LOGO"
-		center "╚██████╔╝   ██║   ╚██████╔╝   ██║   " "$COLOR_LOGO"
-		center " ╚═════╝    ╚═╝    ╚═════╝    ╚═╝   " "$COLOR_LOGO"
+		log_center "██╗   ██╗████████╗ ██████╗ ██╗   ██╗" "$COLOR_LOGO"
+		log_center "██║   ██║╚══██╔══╝██╔═══██╗╚██╗ ██╔╝" "$COLOR_LOGO"
+		log_center "██║   ██║   ██║   ██║   ██║ ╚████╔╝ " "$COLOR_LOGO"
+		log_center "██║   ██║   ██║   ██║   ██║  ╚██╔╝  " "$COLOR_LOGO"
+		log_center "╚██████╔╝   ██║   ╚██████╔╝   ██║   " "$COLOR_LOGO"
+		log_center " ╚═════╝    ╚═╝    ╚═════╝    ╚═╝   " "$COLOR_LOGO"
 	else
-		center "UTOY" "$COLOR_LOGO"
+		log_center "UTOY" "$COLOR_LOGO"
 	fi
-	center "A collection of utilities for Zsh."
-	center "$VERSION, (ↄ) toydotgame 2025–$LAST_UPDATE_YEAR" "$COLOR_LOGO"
+	log_center "A collection of utilities for Zsh."
+	log_center "$VERSION, (ↄ) toydotgame 2025–$LAST_UPDATE_YEAR" "$COLOR_LOGO"
 	echo
-	center "MAIN MENU"
+}
+
+main() {
+	print_title
+	log_center "MAIN MENU"
 	log "Please choose from an option below:"
-	menu "Test Zsh Syntax"
+	menu \
+		"Test Zsh Syntax"\
+		"Computer Status & Version Info"
 	load_module "$MENU_SELECTION"
 }
 
@@ -249,7 +258,8 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 		"") ;& "main") main ;;
 		"install") install ;;
 		"test") ;& "Test Zsh Syntax") module_test ;;
-		*) err "Command \"$1\" not found! Run \"utoy help\" for help." ;;
+		"status") ;& "Computer Status & Version Info") module_status ;;
+		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
 	esac
 }
 
