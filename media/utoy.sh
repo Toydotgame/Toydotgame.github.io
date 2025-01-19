@@ -41,8 +41,8 @@ log_center() {
 }
 
 # Update checking:
-VERSION="a1.0.2"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
-LATEST="$(curl -sLm 5 https://toydotgame.net/media/utoy.sh | grep 'VERSION=' | sed -e 's/.*"\(.*\)".*/\1/')"
+VERSION="a1.0.2_01"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
+LATEST="$(curl -sLm 5 https://toydotgame.net/media/utoy.sh | grep 'VERSION=' | cut -d '"' -f2 | awk 'FNR==1')"
 LAST_UPDATE_YEAR="2025"
 if [ "$VERSION" != "$LATEST" ]; then
 	log "${COLOR_WARN}UToy is not up to date! Latest: $LATEST, local: $VERSION.\nRun ${COLOR_RESET}utoy update$COLOR_WARN to update\n"
