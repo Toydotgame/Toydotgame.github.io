@@ -23,6 +23,7 @@
 # - plasma-desktop
 # - discord
 # - scp
+# - date
 
 ########
 # INIT #
@@ -100,6 +101,55 @@ center() {
 # every feature can be accessed directly thru `utoy <command>` and every command can also just run hands-free with
 # args passed straight to it thru `utoy <command> [args]`
 
+module_test() { # Test Zsh Syntax
+	TMPFILE="/tmp/utoy-$(date +%s%N).sh"
+	echo "#!/bin/zsh\n# Blank syntax test file created by UToy $VERSION\n# CREATED ON: $(date +%Y-%m-%d)\n\n\n" >> "$TMPFILE"
+	vim +5 -c "startinsert" "$TMPFILE"
+	chmod +x "$TMPFILE"
+	log "File saved. What would you like to do?"
+
+	while true; do
+		menu "Run" "Edit" "Save & quit" "Delete & quit"
+		case "$MENU_SELECTION" in;
+			"Run")
+				log "Running script..."
+				printf "$COLOR_OUT"; for i in {1..$VWIDTH}; do printf "#"; done; printf "$COLOR_RESET\n"
+				eval "$TMPFILE"
+				printf "$COLOR_OUT"; for i in {1..$VWIDTH}; do printf "#"; done; printf "$COLOR_RESET\n"
+				log "Run complete. What would you like to do?" ;;
+			"Edit")
+				vim +5 "$TMPFILE"
+				log "File saved. What would you like to do?" ;;
+			"Save & quit")
+				log "Where would you like to save to?"; read DEST
+				if [ -z "$DEST" ]; then
+					DEST="$(realpath .)"
+				else
+					DEST="${DEST/#\~/$HOME}" # Substitute `~` for $HOME value. From https://stackoverflow.com/a/27485157
+				fi
+				echo "Destination is: \"$DEST\""
+				if [ ! -d "${DEST%/*}" ]; then
+					mkdir -p "${DEST%/*}"
+				fi
+				mv -i "$TMPFILE" "$DEST"
+				log "File saved."
+				break ;;
+			"Delete & quit")
+				log "${COLOR_ERR}Are you sure? (Cannot be undone)"
+				menu "Yes" "No"
+				if [ $MENU_SELECTION = "Yes" ]; then
+					rm -f "$TMPFILE"
+					log "File deleted."
+					break
+				fi
+				log "Deletion cancelled. What would you like to do?" ;;
+		esac
+	done
+}
+
+###################
+# CORE COMPONENTS #
+###################
 install() {
 	if alias utoy >/dev/null 2>&1; then
 		err "UToy is already installed!"
@@ -159,6 +209,7 @@ menu() {
 			esac
 		elif [ "$INPUT" = $'\n' ]; then
 			MENU_SELECTION="${@[$SELECTED_INDEX]}"
+			echo
 			return
 		fi
 	done
@@ -180,19 +231,17 @@ main() {
 	echo
 	center "MAIN MENU"
 	log "Please choose from an option below:"
-	menu "Hardcoded" "Options" "are freaking awesome!!!" "Meow" "foo bar" # TODO: Replace $OPTIONS with hardcoded main menu items
-	echo "Menu selection was: \"$MENU_SELECTION\""
-#	case "$MENU_SELECTION" in;
-#		"1") echo "\`menu\` returned 1" ;;
-#		"2") echo "\`menu\` returned 1" ;;
-#		"3") echo "\`menu\` returned 1" ;;
-#		*) err "\`menu\` returned something else" ;;
-#	esac
+	menu "Test Zsh Syntax"
+	load_module "$MENU_SELECTION"
 }
 
-case "$1" in
-	"") ;&
-	"main") main ;;
-	"install") install ;;
-	*) err "Command not found!" ;;
-esac
+load_module() { # Main menu function that takes either cmdline shortcut or menu() output
+	case "$1" in
+		"") ;& "main") main ;;
+		"install") install ;;
+		"test") ;& "Test Zsh Syntax") module_test ;;
+		*) err "Command \"$1\" not found!" ;;
+	esac
+}
+
+load_module "$1"
