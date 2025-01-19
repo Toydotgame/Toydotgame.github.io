@@ -41,7 +41,7 @@ log_center() {
 }
 
 # Update checking:
-VERSION="a1.0.1"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
+VERSION="a1.0.2"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
 LATEST="$(curl -sLm 5 https://toydotgame.net/media/utoy.sh | grep 'VERSION=' | sed -e 's/.*"\(.*\)".*/\1/')"
 LAST_UPDATE_YEAR="2025"
 if [ "$VERSION" != "$LATEST" ]; then
@@ -54,8 +54,6 @@ DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openss
 # * AUR installer
 #     * follows dependents (if missing)
 #     * recursive uninstaller
-# * Post-pacman system update autorun
-#     * Zero-interaction vencord-installer and recompile-kwin and hard-restart-plasma
 # * help command listing for utoy
 # * get internal/external ip(s), show interface for internal ips (enp3s0, wg0, lo, etc)
 # * yt-dlp to mp4 or mp3, and list formats available too
@@ -64,11 +62,7 @@ DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openss
 #     * short output by default (pretty pls :3)
 # * iccmcssh access
 # * iccmcscp (decode some kind of shorthand to replace with `iccmc@192.168.1.100:`)
-# * very quick google search open in firefox thx
-#     * 
 # * shortcut to toydotgame.net/utils
-# * possible to make shift + enter exit the program once command is done?
-#     * by default exits to main menu
 # * nicer git clone with auto cd and nicer progress text/when done say what branch ur on
 # * good calculator
 # * compress/decompressor
