@@ -29,15 +29,22 @@
 ########
 if [ -f "$HOME/.zshrc" ]; then . ~/.zshrc; fi
 setopt aliases
-VERSION="a1.0.1"        # Local version is checked against the one at toydotgame.net/media/utoy.sh
+VERSION="a1.0.1"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
 LAST_UPDATE_YEAR="2025"
-SOURCE="$(realpath $0)" # Location of this script
-VWIDTH="$(tput cols)"   # Viewport width
-COLOR_OUT="\033[0;36m"  # output
-COLOR_WARN="\033[1;33m" # warnings
-COLOR_ERR="\033[1;31m"  # errors
-COLOR_LOGO="\033[1;35m" # warnings
-COLOR_RESET="\033[0m"   # reset colour/highlight text
+SOURCE="$(realpath $0)"   # Script location
+VWIDTH="$(tput cols)"
+OPTIONS=("${@:2}")        # Later fetched by functions as if they were a command and these were $@
+MENU_SELECTION=""
+
+# Colour codes:
+COLOR_OUT="\e[0;36m"      # Output
+COLOR_WARN="\e[1;33m"     # Warnings
+COLOR_ERR="\e[1;31m"      # Errors
+COLOR_LOGO="\e[1;35m"     # Warnings
+COLOR_SELECT="\e[30;107m" # Selected text
+COLOR_RESET="\e[0m"       # Reset colour/highlight text
+
+# Logging:
 alias echo="echo -e"
 log() { echo "$COLOR_OUT$1$COLOR_RESET" }
 warn() { echo "$COLOR_WARN$1$COLOR_RESET" }
@@ -47,11 +54,6 @@ center() {
 	for i in {1..$PADDING}; do printf " "; done
 	echo "$2$1$COLOR_RESET"
 }
-
-################
-# COLOUR CODES #
-################
-
 
 # FEATURE LIST TODO:
 # * AUR installer
@@ -119,23 +121,45 @@ install() {
 	fi
 }
 
-print_options() {
-	echo "Options are: $@"
-	# TODO:
-	# Print args seperated by newlines
-	# Get length of args[]
-	# Index = 0, down +1, up -1, normalise so it stays in args[].length bounds
+menu() {
+	OPTIONS_COUNT="${#@[@]}"
+	SELECTED_INDEX=1
+	if [ $OPTIONS_COUNT -le 0 ]; then
+		err "No arguments supplied to menu!"
+		return
+	fi
+	print_menu() {
+		for i in {1..$OPTIONS_COUNT}; do
+			if [ $i = $SELECTED_INDEX ]; then
+				echo "$COLOR_OUT> $COLOR_SELECT${@[$i]}$COLOR_RESET"
+			else
+				echo "  ${@[$i]}"
+			fi
+		done
+	}
+	print_menu "$@"
+
 	while true; do
 		read -sk1 INPUT
-		if [ "$INPUT" = $'\n' ]; then
-			echo "Return"
-			return
-		elif [ "$INPUT" = $'\e' ]; then
+		if [ "$INPUT" = $'\e' ]; then
 			read -sk2 INPUT
 			case "$INPUT" in
-				"[A") echo "Up" ;;
-				"[B") echo "Down" ;;
+				"[A") # Up arrow:
+					if [ $SELECTED_INDEX -gt 1 ]; then
+						((SELECTED_INDEX--))
+						printf "\e[${OPTIONS_COUNT}A\e[K"
+						print_menu "$@"
+					fi ;;
+				"[B") # Down arrow:
+					if [ $SELECTED_INDEX -lt $OPTIONS_COUNT ]; then
+						((SELECTED_INDEX++))
+						printf "\e[${OPTIONS_COUNT}A\e[K"
+						print_menu "$@"
+					fi ;;
 			esac
+		elif [ "$INPUT" = $'\n' ]; then
+			MENU_SELECTION="${@[$SELECTED_INDEX]}"
+			return
 		fi
 	done
 }
@@ -156,11 +180,19 @@ main() {
 	echo
 	center "MAIN MENU"
 	log "Please choose from an option below:"
-	print_options "Option 1" "Two" "Foobar"
+	menu "Hardcoded" "Options" "are freaking awesome!!!" "Meow" "foo bar" # TODO: Replace $OPTIONS with hardcoded main menu items
+	echo "Menu selection was: \"$MENU_SELECTION\""
+#	case "$MENU_SELECTION" in;
+#		"1") echo "\`menu\` returned 1" ;;
+#		"2") echo "\`menu\` returned 1" ;;
+#		"3") echo "\`menu\` returned 1" ;;
+#		*) err "\`menu\` returned something else" ;;
+#	esac
 }
 
 case "$1" in
-	"") main ;;
+	"") ;&
+	"main") main ;;
 	"install") install ;;
 	*) err "Command not found!" ;;
 esac
