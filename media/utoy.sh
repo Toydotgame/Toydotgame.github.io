@@ -89,7 +89,11 @@ module_restart_plasma() { # Restart Plasma
 	esac
 	if [ -z "$MENU_SELECTION" ]; then
 		log "What DE restart level would you like?"
-		menu "Soft restart (kill plasmashell)" "Hard restart (replace kwin_x11 and plasmashell)" "Cancel"
+		if [ "$RUN_FROM_CMD" = "true" ]; then
+			menu "Soft restart (kill plasmashell)" "Hard restart (replace kwin_x11 and plasmashell)"
+		else
+			menu "Soft restart (kill plasmashell)" "Hard restart (replace kwin_x11 and plasmashell)" "Cancel"
+		fi
 	fi
 	case "$MENU_SELECTION" in;
 		"Soft restart (kill plasmashell)")
@@ -112,7 +116,11 @@ module_test() { # Test Zsh Syntax
 	log "File saved. What would you like to do?"
 
 	while true; do
-		menu "Run" "Edit" "Save & quit" "Delete & quit" "Delete & go back"
+		if [ "$RUN_FROM_CMD" = "true" ]; then
+			menu "Run" "Edit" "Save & exit" "Delete & exit"
+		else
+			menu "Run" "Edit" "Save & exit" "Delete & exit" "Delete & quit to main menu"
+		fi
 		case "$MENU_SELECTION" in;
 			"Run")
 				log "Running script..."
@@ -123,7 +131,7 @@ module_test() { # Test Zsh Syntax
 			"Edit")
 				vim +5 "$TMPFILE"
 				log "File saved. What would you like to do?" ;;
-			"Save & quit")
+			"Save & exit")
 				DEST="" # Must be declared for vared to work
 				log "Where would you like to save to?"; vared DEST
 				echo "\$DEST=\"$DEST\""
@@ -146,7 +154,7 @@ module_test() { # Test Zsh Syntax
 				fi
 				log "File saved."
 				break ;;
-			"Delete & quit")
+			"Delete & exit")
 				log "${COLOR_ERR}Are you sure? (Cannot be undone)"
 				menu "Yes" "No"
 				if [ $MENU_SELECTION = "Yes" ]; then
@@ -155,7 +163,7 @@ module_test() { # Test Zsh Syntax
 					break
 				fi
 				log "Deletion cancelled. What would you like to do?" ;;
-			"Delete & go back")
+			"Delete & quit to main menu")
 				log "${COLOR_ERR}Are you sure? (Cannot be undone)"
 				menu "Yes" "No"
 				if [ $MENU_SELECTION = "Yes" ]; then
@@ -178,7 +186,11 @@ module_post_update() { # Fix Vencord and KWin Post-Update
 	esac
 	if [ -z "$MENU_SELECTION" ]; then
 		log "What would you like to patch?"
-		menu "Vencord" "KWin Window Decorations" "Both" "Cancel"
+		if [ "$RUN_FROM_CMD" = "true" ]; then
+			menu "Vencord" "KWin Window Decorations" "Both"
+		else
+			menu "Vencord" "KWin Window Decorations" "Both" "Cancel"
+		fi
 	fi
 
 	if [ "$MENU_SELECTION" = "Cancel" ]; then
@@ -361,7 +373,8 @@ main() {
 		"Test Zsh Syntax" \
 		"Fix Vencord and KWin Post-Update" \
 		"Computer Status & Version Info" \
-		"Search Google"
+		"Search Google" \
+		"Exit"
 	load_module "$MENU_SELECTION"
 }
 
@@ -374,6 +387,7 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 		"postupdate") RUN_FROM_CMD="true" ;& "Fix Vencord and KWin Post-Update") module_post_update ;;
 		"status") RUN_FROM_CMD="true" ;& "Computer Status & Version Info") module_status ;;
 		"search") RUN_FROM_CMD="true" ;& "Search Google") module_search ;;
+		"Exit") exit ;;
 		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
 	esac
 }
