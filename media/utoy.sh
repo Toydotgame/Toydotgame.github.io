@@ -134,14 +134,13 @@ module_test() { # Test Zsh Syntax
 			"Save & exit")
 				DEST="" # Must be declared for vared to work
 				log "Where would you like to save to?"; vared DEST
-				echo "\$DEST=\"$DEST\""
 				if [ -z "$DEST" ]; then
 					DEST="$(realpath .)"
 				else
 					DEST="${DEST/#\~/$HOME}" # Substitute `~` for $HOME value. From https://stackoverflow.com/a/27485157
 				fi
-				if grep -i "/" <<< "$DEST" && [ ! -d "${DEST%/*}" ]; then
-					if ! mkdir -p "${DEST%/*}"; then
+				if grep -qi "/" <<< "$DEST" && [ ! -d "${DEST%/*}" ]; then
+					if ! mkdir -p "${DEST%/*}" >/dev/null 2>&1; then
 						err "Save failed! Directory does not exist and could not be created."
 						log "\nWhat would you like to do?"
 						continue # Break from case
@@ -247,22 +246,36 @@ module_status() { # Computer Status & Version Info
 	log "\tWorking FS Info:$COLOR_RESET $(echo $DF_OUTPUT | awk 'FNR==1')"
 	log "\t                $COLOR_RESET $(echo $DF_OUTPUT | awk 'FNR==2')"
 	echo
+	log_center "INTERNET"
+	RUN_FROM_CMD="true" module_ip | awk '{print "\t" $0}'
+	echo
 	log_center "VERSIONS"
 	log "\tKernel:$COLOR_RESET $(uname -r)"
 	PACMAN_OUTPUT="$(pacman -Q $DEPENDENCIES --color=always 2>&1)"
 	log "\tPacman:$COLOR_RESET $(echo $PACMAN_OUTPUT | awk 'FNR==1')"
-	          log "$COLOR_RESET$(echo $PACMAN_OUTPUT | awk 'FNR>=2{print "\t       ", $0}')"
-	echo
+	          log "$COLOR_RESET$(echo $PACMAN_OUTPUT | awk 'FNR>=2{print "\t        " $0}')"
 
 	if [ "$RUN_FROM_CMD" = "true" ]; then
 		exit
 	fi
-	log "Where would you like to go?"
+	log "\nWhere would you like to go?"
 	menu "Exit" "Main menu"
 	if [ "$MENU_SELECTION" = "Main menu" ]; then
 		main
 	fi
 	exit
+}
+
+module_ip() {
+	log "$((echo "Interface" "IPv4" "IPv6"; ip -br addr show | awk '{print "\033[0;36m" $1 ":\033[0m " $3 " " $4}') | column -tR 1)"
+	if [ "$RUN_FROM_CMD" = "false" ]; then
+		log "\nWhere would you like to go?"
+		menu "Exit" "Main menu"
+		if [ "$MENU_SELECTION" = "Main menu" ]; then
+			main
+		fi
+		exit
+	fi
 }
 
 module_search() { # Search Google
@@ -314,9 +327,13 @@ menu() {
 	print_menu() {
 		for i in {1..$OPTIONS_COUNT}; do
 			if [ $i = $SELECTED_INDEX ]; then
-				echo "$COLOR_OUT> $COLOR_SELECT${@[$i]}$COLOR_RESET"
+				if echo "${@[$i]}" | grep -q $'\t' ; then
+					echo "\t$COLOR_OUT> $COLOR_SELECT${@[$i]/#\\\t/}$COLOR_RESET" # Move indent to before "> "
+				else
+					echo "$COLOR_OUT> $COLOR_SELECT${@[$i]}$COLOR_RESET"
+				fi
 			else
-				echo "  ${@[$i]}"
+				echo "  ${@[$i]/#\\\t/\t  }" # Horrific hack to fix indented options
 			fi
 		done
 	}
@@ -330,7 +347,7 @@ menu() {
 				"[A") # Up arrow:
 					if [ $SELECTED_INDEX -gt 1 ]; then
 						((SELECTED_INDEX--))
-						printf "\e[${OPTIONS_COUNT}A\e[K"
+						printf "\e[${OPTIONS_COUNT}A\e[K" # Move the cursor up $OPTIONS_COUNT rows (cursor left at bottom after print_menu())
 						print_menu "$@"
 					fi ;;
 				"[B") # Down arrow:
@@ -373,6 +390,7 @@ main() {
 		"Test Zsh Syntax" \
 		"Fix Vencord and KWin Post-Update" \
 		"Computer Status & Version Info" \
+		"\tIP Info" \
 		"Search Google" \
 		"Exit"
 	load_module "$MENU_SELECTION"
@@ -386,6 +404,7 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 		"test") RUN_FROM_CMD="true" ;& "Test Zsh Syntax") module_test ;;
 		"postupdate") RUN_FROM_CMD="true" ;& "Fix Vencord and KWin Post-Update") module_post_update ;;
 		"status") RUN_FROM_CMD="true" ;& "Computer Status & Version Info") module_status ;;
+		"ip") RUN_FROM_CMD="true" ;& "\tIP Info") module_ip ;;
 		"search") RUN_FROM_CMD="true" ;& "Search Google") module_search ;;
 		"Exit") exit ;;
 		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
