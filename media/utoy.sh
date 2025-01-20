@@ -22,13 +22,15 @@ OPTIONS=("${@:2}")        # Later fetched by functions as if they were a command
 MENU_SELECTION=""
 RUN_FROM_CMD="false"      # Set to "true" in load_module() if called from cmdline. Modules exit when done if run via the terminal
 
-# Colour codes:
+# ANSI Terminal Controls:
 COLOR_OUT="\e[0;36m"      # Output
 COLOR_WARN="\e[1;33m"     # Warnings
 COLOR_ERR="\e[1;31m"      # Errors
 COLOR_LOGO="\e[1;35m"     # Warnings
 COLOR_SELECT="\e[30;107m" # Selected text
 COLOR_RESET="\e[0m"       # Reset colour/highlight text
+HIDE_CURSOR="\e[?25l"
+SHOW_CURSOR="\e[?25h"
 
 # Logging:
 alias echo="echo -e"
@@ -38,7 +40,7 @@ err() { echo "$COLOR_ERR$1$COLOR_RESET" >&2 }
 log_center() {
 	PADDING=$((($VWIDTH-${#1})/2))
 	for i in {1..$PADDING}; do printf " "; done
-	echo "$2$1$COLOR_RESET"
+	printf "$2$1$COLOR_RESET\n"
 }
 
 # Update checking:
@@ -56,7 +58,6 @@ DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openss
 #     * follows dependents (if missing)
 #     * recursive uninstaller
 # * help command listing for utoy
-# * get internal/external ip(s), show interface for internal ips (enp3s0, wg0, lo, etc)
 # * yt-dlp to mp4 or mp3, and list formats available too
 # * live timedatectl current time viewer
 #     * full output
@@ -75,7 +76,6 @@ DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openss
 #     * say no files found if 0 lines output
 # * search (case insensitive) and taskkill for running tasks
 # * updater of local script (good luck lol)
-# * restart plasma soft and hard
 # * zsh completions
 # * update check once a day max (use $(date))
 # back buttons on all menus thx
@@ -278,6 +278,20 @@ module_ip() {
 	fi
 }
 
+module_clock() {
+	if [ "$RUN_FROM_CMD" = "false" ]; then
+		log "Loading clock...\n"
+	fi
+
+	while true; do
+		# Move the cursor back to the start of the line in one go to prevent flicker
+		# Add 9 spaces to account for log_center counting the cursor escape chars
+		# PLUS 4 more spaces each side to erase messed up rendering as a result of hitting keys during run
+		log_center "             $(date +'%A, %B %d %Y %r %Z')    \e[1A\e[K"
+		sleep 0.01
+	done
+}
+
 module_search() { # Search Google
 	SEARCH_QUERY=""
 	if [ -z "$(echo $OPTIONS)" ]; then # Wrap $OPTIONS in `echo` because it is of type array and `-z` won't work accurately
@@ -318,6 +332,7 @@ install() {
 }
 
 menu() {
+	printf "$HIDE_CURSOR"
 	OPTIONS_COUNT="${#@[@]}"
 	SELECTED_INDEX=1
 	if [ $OPTIONS_COUNT -le 0 ]; then
@@ -325,6 +340,7 @@ menu() {
 		return
 	fi
 	print_menu() {
+		echo
 		for i in {1..$OPTIONS_COUNT}; do
 			if [ $i = $SELECTED_INDEX ]; then
 				if echo "${@[$i]}" | grep -q $'\t' ; then
@@ -336,6 +352,7 @@ menu() {
 				echo "  ${@[$i]/#\\\t/\t  }" # Horrific hack to fix indented options
 			fi
 		done
+		#printf "\e[$((${OPTIONS_COUNT}+1))A\e[K"
 	}
 	print_menu "$@"
 
@@ -347,19 +364,19 @@ menu() {
 				"[A") # Up arrow:
 					if [ $SELECTED_INDEX -gt 1 ]; then
 						((SELECTED_INDEX--))
-						printf "\e[${OPTIONS_COUNT}A\e[K" # Move the cursor up $OPTIONS_COUNT rows (cursor left at bottom after print_menu())
+						printf "\e[$((${OPTIONS_COUNT}+1))A\e[K" # Move the cursor up $OPTIONS_COUNT rows (cursor left at bottom after print_menu())
 						print_menu "$@"
 					fi ;;
 				"[B") # Down arrow:
 					if [ $SELECTED_INDEX -lt $OPTIONS_COUNT ]; then
 						((SELECTED_INDEX++))
-						printf "\e[${OPTIONS_COUNT}A\e[K"
+						printf "\e[$((${OPTIONS_COUNT}+1))A\e[K"
 						print_menu "$@"
 					fi ;;
 			esac
 		elif [ "$INPUT" = $'\n' ]; then
 			MENU_SELECTION="${@[$SELECTED_INDEX]}"
-			echo
+			echo "$SHOW_CURSOR"
 			return
 		fi
 	done
@@ -386,11 +403,12 @@ main() {
 	log_center "MAIN MENU"
 	log "Please choose from an option below:"
 	menu \
-		"Restart Plasma" \
 		"Test Zsh Syntax" \
 		"Fix Vencord and KWin Post-Update" \
+			"\tRestart Plasma" \
 		"Computer Status & Version Info" \
-		"\tIP Info" \
+			"\tIP Info" \
+		"View date & time" \
 		"Search Google" \
 		"Exit"
 	load_module "$MENU_SELECTION"
@@ -400,11 +418,12 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 	case "$1" in
 		"") ;& "main") main ;;
 		"install") install ;;
-		"restartplasma") RUN_FROM_CMD="true" ;& "Restart Plasma") module_restart_plasma ;;
+		"restartplasma") RUN_FROM_CMD="true" ;& "\tRestart Plasma") module_restart_plasma ;;
 		"test") RUN_FROM_CMD="true" ;& "Test Zsh Syntax") module_test ;;
 		"postupdate") RUN_FROM_CMD="true" ;& "Fix Vencord and KWin Post-Update") module_post_update ;;
 		"status") RUN_FROM_CMD="true" ;& "Computer Status & Version Info") module_status ;;
 		"ip") RUN_FROM_CMD="true" ;& "\tIP Info") module_ip ;;
+		"clock") RUN_FROM_CMD="true" ;& "View date & time"); module_clock ;;
 		"search") RUN_FROM_CMD="true" ;& "Search Google") module_search ;;
 		"Exit") exit ;;
 		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
