@@ -20,6 +20,7 @@ SOURCE="$(realpath $0)"   # Script location
 VWIDTH="$(tput cols)"
 OPTIONS=("${@:2}")        # Later fetched by functions as if they were a command and these were $@
 MENU_SELECTION=""
+RUN_FROM_CMD="false"      # Set to "true" in load_module() if called from cmdline. Modules exit when done if run via the terminal
 
 # Colour codes:
 COLOR_OUT="\e[0;36m"      # Output
@@ -48,7 +49,7 @@ if [ "$VERSION" != "$LATEST" ]; then
 	log "${COLOR_WARN}UToy is not up to date! Latest: $LATEST, local: $VERSION.\nRun ${COLOR_RESET}utoy update$COLOR_WARN to update\n"
 fi
 # pacman needs array format, not just space delimited packages:
-DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openssh" "plasma-desktop" "procps-ng" "sshpass" "systemd" "vim" "wmctrl" "yt-dlp" "foo")
+DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openssh" "plasma-desktop" "procps-ng" "sshpass" "systemd" "vim" "wmctrl" "yt-dlp")
 
 # FEATURE LIST TODO:
 # * AUR installer
@@ -74,7 +75,34 @@ DEPENDENCIES=("coreutils" "discord" "ffmpeg" "firefox" "iproute2" "kwin" "openss
 #     * say no files found if 0 lines output
 # * search (case insensitive) and taskkill for running tasks
 # * updater of local script (good luck lol)
+# * restart plasma soft and hard
+# * zsh completions
+# * update check once a day max (use $(date))
+# back buttons on all menus thx
 # remember every module can be run also with `utoy <cmd> [args]`
+
+module_restart_plasma() { # Restart Plasma
+	case "${OPTIONS[1]}" in;
+		"soft") MENU_SELECTION="Soft restart (kill plasmashell)" ;;
+		"hard") MENU_SELECTION="Hard restart (replace kwin_x11 and plasmashell)" ;;
+		*) MENU_SELECTION="" ;;
+	esac
+	if [ -z "$MENU_SELECTION" ]; then
+		log "What DE restart level would you like?"
+		menu "Soft restart (kill plasmashell)" "Hard restart (replace kwin_x11 and plasmashell)" "Cancel"
+	fi
+	case "$MENU_SELECTION" in;
+		"Soft restart (kill plasmashell)")
+			log "Restarting Plasma..."
+			killall plasmashell
+			kstart plasmashell ;;
+		"Hard restart (replace kwin_x11 and plasmashell)")
+			log "Restarting KWin and Plasma..."
+			kwin_x11 --replace >/dev/null 2>&1 & disown
+			plasmashell --replace >/dev/null 2>&1 & disown ;;
+		"Cancel") main ;;
+	esac
+}
 
 module_test() { # Test Zsh Syntax
 	TMPFILE="/tmp/utoy-$(date +%s%N).sh"
@@ -84,7 +112,7 @@ module_test() { # Test Zsh Syntax
 	log "File saved. What would you like to do?"
 
 	while true; do
-		menu "Run" "Edit" "Save & quit" "Delete & quit"
+		menu "Run" "Edit" "Save & quit" "Delete & quit" "Delete & go back"
 		case "$MENU_SELECTION" in;
 			"Run")
 				log "Running script..."
@@ -127,6 +155,16 @@ module_test() { # Test Zsh Syntax
 					break
 				fi
 				log "Deletion cancelled. What would you like to do?" ;;
+			"Delete & go back")
+				log "${COLOR_ERR}Are you sure? (Cannot be undone)"
+				menu "Yes" "No"
+				if [ $MENU_SELECTION = "Yes" ]; then
+					rm -f "$TMPFILE"
+					log "File deleted."
+					main
+					break # I don't think this is ever reached (so long as main() doesn't fail for whatever reason) so this is more a safety net
+				fi
+				log "Deletion cancelled. What would you like to do?" ;;
 		esac
 	done
 }
@@ -140,7 +178,11 @@ module_post_update() { # Fix Vencord and KWin Post-Update
 	esac
 	if [ -z "$MENU_SELECTION" ]; then
 		log "What would you like to patch?"
-		menu "Vencord" "KWin Window Decorations" "Both"
+		menu "Vencord" "KWin Window Decorations" "Both" "Cancel"
+	fi
+
+	if [ "$MENU_SELECTION" = "Cancel" ]; then
+		main
 	fi
 
 	if [ "$MENU_SELECTION" = "Vencord" ] || [ "$MENU_SELECTION" = "Both" ]; then
@@ -198,11 +240,22 @@ module_status() { # Computer Status & Version Info
 	PACMAN_OUTPUT="$(pacman -Q $DEPENDENCIES --color=always 2>&1)"
 	log "\tPacman:$COLOR_RESET $(echo $PACMAN_OUTPUT | awk 'FNR==1')"
 	          log "$COLOR_RESET$(echo $PACMAN_OUTPUT | awk 'FNR>=2{print "\t       ", $0}')"
+	echo
+
+	if [ "$RUN_FROM_CMD" = "true" ]; then
+		exit
+	fi
+	log "Where would you like to go?"
+	menu "Exit" "Main menu"
+	if [ "$MENU_SELECTION" = "Main menu" ]; then
+		main
+	fi
+	exit
 }
 
 module_search() { # Search Google
 	SEARCH_QUERY=""
-	if [ -z $(echo "$OPTIONS") ]; then
+	if [ -z "$(echo $OPTIONS)" ]; then # Wrap $OPTIONS in `echo` because it is of type array and `-z` won't work accurately
 		log "Where do you want to go today?"; vared SEARCH_QUERY # Microsoft: Making it easier
 	fi
 	SEARCH_QUERY="$OPTIONS"
@@ -304,6 +357,7 @@ main() {
 	log_center "MAIN MENU"
 	log "Please choose from an option below:"
 	menu \
+		"Restart Plasma" \
 		"Test Zsh Syntax" \
 		"Fix Vencord and KWin Post-Update" \
 		"Computer Status & Version Info" \
@@ -315,10 +369,11 @@ load_module() { # Main menu function that takes either cmdline shortcut or menu(
 	case "$1" in
 		"") ;& "main") main ;;
 		"install") install ;;
-		"test") ;& "Test Zsh Syntax") module_test ;;
-		"postupdate") ;& "Fix Vencord and KWin Post-Update") module_post_update ;;
-		"status") ;& "Computer Status & Version Info") module_status ;;
-		"search") ;& "Search Google") module_search ;;
+		"restartplasma") RUN_FROM_CMD="true" ;& "Restart Plasma") module_restart_plasma ;;
+		"test") RUN_FROM_CMD="true" ;& "Test Zsh Syntax") module_test ;;
+		"postupdate") RUN_FROM_CMD="true" ;& "Fix Vencord and KWin Post-Update") module_post_update ;;
+		"status") RUN_FROM_CMD="true" ;& "Computer Status & Version Info") module_status ;;
+		"search") RUN_FROM_CMD="true" ;& "Search Google") module_search ;;
 		*) err "Command \"$1\" not found! Run ${COLOR_RESET}utoy help$COLOR_ERR for help." ;;
 	esac
 }
