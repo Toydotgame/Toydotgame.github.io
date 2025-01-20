@@ -42,7 +42,7 @@ log_center() {
 }
 
 # Update checking:
-VERSION="a1.0.2_01"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
+VERSION="a1.0.3"          # Local version is checked against the one at toydotgame.net/media/utoy.sh
 LATEST="$(curl -sLm 5 https://toydotgame.net/media/utoy.sh | grep 'VERSION=' | cut -d '"' -f2 | awk 'FNR==1')"
 LAST_UPDATE_YEAR="2025"
 if [ "$VERSION" != "$LATEST" ]; then
